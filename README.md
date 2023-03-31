@@ -2,7 +2,7 @@
 
 | Student's name | SCIPER |
 | -------------- | ------ |
-| | |
+| Julia Wälti | 287004 |
 | | |
 | | |
 
