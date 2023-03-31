@@ -3,10 +3,10 @@
 | Student's name | SCIPER |
 | -------------- | ------ |
 | Julia Wälti | 287004 |
-| | |
+| Lorenzo Rovati| 287476 |
 | | |
 
-[Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Milestone 1](milestone1/UNSDG_viz_M1.pdf) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
 ## Milestone 1 (7th April, 5pm)
 
