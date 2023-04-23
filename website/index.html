@@ -13,6 +13,8 @@
         <title>UNSDG_viz</title>
         <link rel="icon" type="image/x-icon" href="/resources/sdg_logo.ico">
         <link rel="stylesheet" href="style.css">
+        <meta name="author" content="Julia Wälti, Sophia Ly, Lorenzo Rovati">
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -31,6 +33,19 @@
             </nav>
         </header>
 
-        <script src="" async defer></script>
+        <div class="description">
+            <h1>Visualizing UNSDG Indexes</h1>
+            <p id="desc">
+                Enabling the visualization of UNSDG indexes correlated with
+                CO2 emissions per country.
+            </p>
+        </div>
+
+        <div class="mapper">
+            <h2>Insert here the world map with the CO2 emissions time series</h2>
+        </div>
+
+        <script src="lib/d3.min.js"></script>
+        <script src="root.js" async defer></script>
     </body>
 </html>

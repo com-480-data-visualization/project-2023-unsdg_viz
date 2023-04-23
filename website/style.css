@@ -1,19 +1,12 @@
-/*
-    palette:
-        #1B2F33 Gunmental
-        #4E878C Dark cyan
-        #D4F5F5 Light cyan
-        #FE5F55 Bittersweet
-        #5FAD56 Mantis
-*/
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 :root {
     --color-bg:     #1B2F33; /* gunmetal */
+    --color-bg-d:   #1B2F44; /* gunmetal */
     --color-hl:     #4E878C; /* dark cyan */
     --color-text:   #D4F5F5; /* light cyan */
-    --color-success:#FE5F55; /* bittersweet */
-    --color-failure:#5FAD56; /* mantis */
+    --color-failure:#FE5F55; /* bittersweet */
+    --color-success:#5FAD56; /* mantis */
   }
 
 * {
@@ -23,8 +16,7 @@
 }
 
 body {
-    background: var(--color-bg);
-    min-height: 100vh;
+    background-image: linear-gradient(135deg, var(--color-bg), var(--color-bg-d));
     overflow-x: hidden;
 }
 
@@ -61,7 +53,7 @@ header {
 .navigation a {
     text-decoration: none;
     color: var(--color-text);
-    transition: background-color .2s;
+    transition: background-color .3s;
     padding: 6px 10px;
     border-radius: 20px;
     margin: 0 10px;
@@ -70,4 +62,29 @@ header {
 
 .navigation a:hover {
     background-color: var(--color-hl);
+}
+
+.description {
+    font-family: 'Lato';
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 200px;
+    color: var(--color-text);
+}
+
+.description #desc {
+    margin-top: 20px;
+}
+
+.mapper {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
