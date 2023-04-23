@@ -1,0 +1,73 @@
+/*
+    palette:
+        #1B2F33 Gunmental
+        #4E878C Dark cyan
+        #D4F5F5 Light cyan
+        #FE5F55 Bittersweet
+        #5FAD56 Mantis
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root {
+    --color-bg:     #1B2F33; /* gunmetal */
+    --color-hl:     #4E878C; /* dark cyan */
+    --color-text:   #D4F5F5; /* light cyan */
+    --color-success:#FE5F55; /* bittersweet */
+    --color-failure:#5FAD56; /* mantis */
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Lato';
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+    
+}
+
+.logo #name {
+    margin-left: 10px;
+    color: var(--color-text);
+}
+
+.logo #img {
+    width: 30px;
+    height: 30px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color .2s;
+    padding: 6px 10px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navigation a:hover {
+    background-color: var(--color-hl);
+}
