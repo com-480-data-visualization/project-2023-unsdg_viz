@@ -6,3 +6,7 @@ function whenDocumentLoaded(action) {
 		action();
 	}
 }
+
+whenDocumentLoaded(() => {
+	console.log('document loaded');
+});
