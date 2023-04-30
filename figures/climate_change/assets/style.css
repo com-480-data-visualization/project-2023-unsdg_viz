@@ -1,0 +1,36 @@
+/* ======= Font =======  */
+p_story {
+    font-weight: bold;
+    color: var(--bluefont);
+    text-align: center;
+    font-size: 50px;
+    width: 100vw;
+    text-shadow: rgb(22, 22, 22) 0 0 1rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* ======= Climate section =======  */
+#climate_section {
+    width: 100vw;
+    min-height: 200vh;
+    background-color: white;
+    margin: 0;
+    padding: 0%;
+    position: relative;
+    /* gets rid of space between div */
+    overflow: hidden;
+}
+
+#snow-climate_graph {
+    position: relative;
+    height: 100vh;
+    opacity: 0;
+    transform:
+}
+
+#climate_text {
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    text-align: center;
+
+}
