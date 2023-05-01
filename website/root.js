@@ -1,8 +1,9 @@
+import {interpolateReds} from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", action);
 	} else {
-		// `DOMContentLoaded` already fired
 		action();
 	}
 }
@@ -10,3 +11,104 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
 	console.log('document loaded');
 });
+
+const WIDTH = window.innerWidth;
+const HEIGHT = window.innerHeight;
+const ZOOM_THRESHOLD = [0.3, 7];
+const OVERLAY_MULTIPLIER = 10;
+const OVERLAY_OFFSET = OVERLAY_MULTIPLIER / 2 - 0.5;
+const ZOOM_DURATION = 500;
+const ZOOM_IN_STEP = 2;
+const ZOOM_OUT_STEP = 1 / ZOOM_IN_STEP;
+const MAX_EMISSION = 33.640438;
+
+const YEAR = 2020;
+
+// --------------- Event handler ---------------
+const zoom = d3
+  .zoom()
+  .scaleExtent(ZOOM_THRESHOLD)
+  .on("zoom", zoomHandler);
+
+function zoomHandler() {
+  g.attr("transform", d3.event.transform);
+}
+
+function mouseOutHandler(d, i) {
+  d3.select(this).attr("fill", colorScale(d.properties.emitted_co2))
+}
+
+function clickHandler(d, i) {
+  // TODO open details
+}
+
+// TODO .on("dblclick",function(d){ zoom });
+
+function clickToZoom(zoomStep) {
+  svg
+    .transition()
+    .duration(ZOOM_DURATION)
+    .call(zoom.scaleBy, zoomStep);
+}
+
+d3.select("#btn-zoom--in").on("click", () => clickToZoom(ZOOM_IN_STEP));
+d3.select("#btn-zoom--out").on("click", () => clickToZoom(ZOOM_OUT_STEP));
+
+
+// --------------- Draw map ---------------
+const svg = d3
+  .select("#map__container")
+  .append("svg")
+  .attr("width", "100%")
+  .attr("height", "100%");
+
+const g = svg.call(zoom).append("g");
+
+g
+  .append("rect")
+  .attr("width", WIDTH * OVERLAY_MULTIPLIER)
+  .attr("height", HEIGHT * OVERLAY_MULTIPLIER)
+  .attr("transform",
+    `translate(-${WIDTH * OVERLAY_OFFSET},-${HEIGHT * OVERLAY_OFFSET})`)
+  .style("fill", "none")
+  .style("pointer-events", "all");
+
+const projection = d3
+  .geoMercator()
+  .center([0, 0])
+  .translate([WIDTH / 2, HEIGHT / 2]);
+
+const path = d3.geoPath().projection(projection);
+const colorScale = d3.scaleSequential()
+	.domain([0, MAX_EMISSION])
+	.interpolator(interpolateReds);
+
+
+renderMap(countries_emissions);
+
+function renderMap(root) {
+  g
+    .append("g")
+    	.selectAll("path")
+    	.data(root.features)
+    .enter()
+    .append("path")
+    	.attr("d", path)
+    	.style("fill", d => d.properties.emitted_co2 != null &&
+				d.properties.emitted_co2[YEAR] != null ? 
+			colorScale(d.properties.emitted_co2[YEAR]) : "#AAA")
+    	.attr("stroke", "#FFF")
+    	.attr("stroke-width", 0.5)
+		.on("mouseout", mouseOutHandler)
+		.on("click", clickHandler)
+	.append('title')
+		.text(d => d.properties.name);
+
+}
+
+// resources for interactive world map
+// https://github.com/ivan-ha/d3-hk-map
+// https://medium.com/@ivan.ha/using-d3-js-to-plot-an-interactive-map-34fbea76bd78
+// https://datamaps.github.io/
+// https://vizhub.com/curran/d5ad96d1fe8148bd827a25230cc0f083
+// https://towardsdatascience.com/using-d3-js-to-create-dynamic-maps-and-visuals-that-show-competing-climate-change-scenarios-for-bb0515d633d3

@@ -11,7 +11,8 @@
         <meta name="description" content="Website for the COM-480 Data Visualization project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>UNSDG_viz</title>
-        <link rel="icon" type="image/x-icon" href="/resources/sdg_logo.ico">
+        <link rel="icon" type="image/x-icon" href="resources/sdg_logo.ico">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <meta name="author" content="Julia Wälti, Sophia Ly, Lorenzo Rovati">
 
@@ -20,10 +21,9 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
         <header>
             <div class="logo">
-                <img id="img" src="/resources/sdg_logo.ico">
+                <img id="img" src="resources/sdg_logo.ico">
                 <h2 id="name">UNSDG_viz</h2>
             </div>
             <nav class="navigation">
@@ -41,13 +41,15 @@
             </p>
         </div>
 
-        <div class="mapper">
-            <div id="map"></div>
+        <div class="maps">
+            <div id="map__container"></div>
+            <div id="map__text"></div>
         </div>
 
-        <script type="text/javascript" src="worldmap/mapdata.js"></script>		
-<script  type="text/javascript" src="worldmap/worldmap.js"></script>
-        <script src="lib/d3.min.js"></script>
-        <script src="root.js" async defer></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+        <script src="countries_emissions.js"></script>
+        <script src="worldmap.js"></script>
+        <script type="module" src="root.js" async defer></script>
     </body>
 </html>

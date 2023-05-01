@@ -71,7 +71,8 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 200px;
+    margin-top: 200px;
+    margin-bottom: 50px;
     color: var(--color-text);
 }
 
@@ -79,14 +80,16 @@ header {
     margin-top: 20px;
 }
 
-.mapper {
-    /*background-color: var(--color-text);*/
-    color: var(--color-bg);
+.maps {
+    position: relative;
+    display: block;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
+    height: 750px;
+    align-items: center;
+    border: var(--color-text);
+}
+
+#map__container {
+    height: 100%;
 }
