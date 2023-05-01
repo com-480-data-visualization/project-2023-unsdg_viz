@@ -71,7 +71,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 50px;
     color: var(--color-text);
 }
@@ -85,7 +85,7 @@ header {
     display: block;
     justify-content: center;
     align-items: center;
-    height: 750px;
+    height: 720px;
     align-items: center;
     border: var(--color-text);
 }
