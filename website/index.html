@@ -10,12 +10,9 @@
         <title>UNSDG_viz</title>
         <meta name="description" content="Website for the COM-480 Data Visualization project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UNSDG_viz</title>
         <link rel="icon" type="image/x-icon" href="resources/sdg_logo.ico">
-        <script src="https://d3js.org/d3.v4.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <meta name="author" content="Julia Wälti, Sophia Ly, Lorenzo Rovati">
-
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -42,14 +39,20 @@
         </div>
 
         <div class="maps">
-            <div id="map__container"></div>
-            <div id="map__text"></div>
+            <p>CO2 Emissions Per Capita</p>
+            <svg id="map_container"></svg>
+            <p id="map_year">year 1950</p>
+            <div class="slidecontainer">
+                <p>1950</p>
+                <input type="range" min="1950" max="2021" value="1950" class="slider" id="myRange">
+                <p>2021</p>
+            </div>
         </div>
 
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="https://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
         <script src="countries_emissions.js"></script>
-        <script src="worldmap.js"></script>
         <script type="module" src="root.js" async defer></script>
     </body>
 </html>

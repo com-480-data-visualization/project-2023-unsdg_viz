@@ -71,8 +71,8 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 150px;
+    margin-bottom: 100px;
     color: var(--color-text);
 }
 
@@ -85,11 +85,70 @@ header {
     display: block;
     justify-content: center;
     align-items: center;
-    height: 720px;
-    align-items: center;
     border: var(--color-text);
 }
 
-#map__container {
-    height: 100%;
+.maps p {
+    font: 'Lato';
+    color: var(--color-text);
+    text-align: center;
+}
+
+#map_container {
+    height: 350px;
+    width: 750px;
+    align-items: center;
+    display: block;
+    margin: auto;
+}
+
+.slidecontainer {
+    width: 25%; /* Width of the outside container */
+    height: 15px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 'Lato';
+    color: var(--color-text);
+}
+
+.slidecontainer p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+  
+  /* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 5px; /* Specified height */
+    background: var(--color-text); /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+  
+  /* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: var(--color-hl); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+  
+.slider::-moz-range-thumb {
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: var(--color-hl); /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
