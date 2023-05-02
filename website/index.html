@@ -38,9 +38,17 @@
             </p>
         </div>
 
-        <div class="maps">
-            <p>CO2 Emissions Per Capita</p>
-            <svg id="map_container"></svg>
+        <div class="world_viz">
+            <div class="maps">
+                <div class="map">
+                    <p>CO2 Emissions Per Capita</p>
+                    <svg class="map_container" id="emi_map_container"></svg>
+                </div>
+                <div class="map">
+                    <p>Other Index</p>
+                    <svg class="map_container" id="other_map_container"></svg>
+                </div>
+            </div>
             <p id="map_year">year 1950</p>
             <div class="slidecontainer">
                 <p>1950</p>
@@ -48,11 +56,11 @@
                 <p>2021</p>
             </div>
         </div>
+        
 
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="https://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-        <script src="countries_emissions.js"></script>
         <script type="module" src="root.js" async defer></script>
     </body>
 </html>

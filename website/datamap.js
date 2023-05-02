@@ -71,8 +71,8 @@ export const initMap = (container, data) => {
 
 }
 
-export const updateMap = (data, year) => {
-	const svg = d3.select('#map_container');  
+export const updateMap = (container, data, year) => {
+	const svg = d3.select(container);  
   
   	svg.selectAll('path')
    		.data(data.features)

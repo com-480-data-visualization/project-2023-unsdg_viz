@@ -1,4 +1,5 @@
 import { initMap, updateMap } from "./datamap.js";
+import { countries_emissions } from "./countries_emissions.js";
 
 const FIRST_YEAR = 1950;
 let current_year = FIRST_YEAR;
@@ -13,15 +14,18 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
-	initMap('#map_container', countries_emissions);
+	initMap('#emi_map_container', countries_emissions);
+	initMap('#other_map_container', countries_emissions);
 	slider = document.getElementById("myRange");
 	slider.value = FIRST_YEAR;
 	d3.select('#map_year').text('Year ' + slider.value);
 
 	let interval = setInterval(() => {
 		if (current_year < 2022) {
-		   updateMap(countries_emissions, current_year)
+		   updateMap('#emi_map_container', countries_emissions, current_year);
+		   updateMap('#other_map_container', countries_emissions, current_year);
 		   d3.select('#map_year').text('Year ' + current_year);
+		   slider.value = current_year;
 		   current_year++;
 		} else {
 		   clearInterval(interval);
@@ -31,8 +35,11 @@ whenDocumentLoaded(() => {
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-	console.log(this.value);
-} 
+	current_year = this.value;
+	d3.select('#map_year').text('Year ' + current_year);
+	updateMap('#emi_map_container', countries_emissions, current_year);
+	updateMap('#other_map_container', countries_emissions, current_year);
+}
 
 
 // resources for interactive world map
