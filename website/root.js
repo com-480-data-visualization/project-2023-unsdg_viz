@@ -1,9 +1,14 @@
 import { initMap, updateMap } from "./datamap.js";
 import { countries_emissions } from "./countries_emissions.js";
+import { setupAnimationSlider } from "./animation_slider.js";
 
 const FIRST_YEAR = 1950;
-let current_year = FIRST_YEAR;
-var slider;
+const LAST_YEAR = 2021;
+
+const animationCallback = function(year) {
+	updateMap('#emi_map_container', countries_emissions, year);
+	updateMap('#other_map_container', countries_emissions, year);
+}
 
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
@@ -16,30 +21,16 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
 	initMap('#emi_map_container', countries_emissions);
 	initMap('#other_map_container', countries_emissions);
-	slider = document.getElementById("myRange");
-	slider.value = FIRST_YEAR;
-	d3.select('#map_year').text('Year ' + slider.value);
-
-	let interval = setInterval(() => {
-		if (current_year < 2022) {
-		   updateMap('#emi_map_container', countries_emissions, current_year);
-		   updateMap('#other_map_container', countries_emissions, current_year);
-		   d3.select('#map_year').text('Year ' + current_year);
-		   slider.value = current_year;
-		   current_year++;
-		} else {
-		   clearInterval(interval);
-		}
-	 }, 1000);
+	const animation_btn = document.getElementById('animation_btn');
+	const btn_img = document.getElementById('btn_icon');
+	const slider = document.getElementById("myRange");
+	const text = d3.select('#map_year');
+	
+	setupAnimationSlider(animation_btn, btn_img, text, slider,
+		FIRST_YEAR, LAST_YEAR, animationCallback);
 });
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-	current_year = this.value;
-	d3.select('#map_year').text('Year ' + current_year);
-	updateMap('#emi_map_container', countries_emissions, current_year);
-	updateMap('#other_map_container', countries_emissions, current_year);
-}
+
 
 
 // resources for interactive world map
