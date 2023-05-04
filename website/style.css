@@ -109,6 +109,20 @@ header {
     margin: auto;
 }
 
+.scale {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-data-color {
+    width: 20px;
+    height: 20px;
+    margin: 20px 20px 20px 20px;
+    background-color: #AAA;
+}
+
 #animation_btn {
     margin: 0 auto;
     display: flex;

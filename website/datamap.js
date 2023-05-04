@@ -1,16 +1,11 @@
-import { interpolateReds } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
-
 const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
 const ZOOM_IN_STEP = 2;
 const ZOOM_OUT_STEP = 1 / ZOOM_IN_STEP;
-const MAX_EMISSION = 33.640438;
 const FIRST_YEAR = 1950;
-const colorScale = d3.scaleSequential()
-		.domain([0, MAX_EMISSION])
-		.interpolator(interpolateReds);
 
-export const initMap = (container, data) => {
+
+export const initMap = (container, data, parameter, colorScale) => {
     const zoom = d3
     .zoom()
     .scaleExtent(ZOOM_THRESHOLD)
@@ -59,9 +54,9 @@ export const initMap = (container, data) => {
         .enter()
         .append("path")
             .attr("d", path)
-            .style("fill", d => d.properties.emitted_co2 != null &&
-                    d.properties.emitted_co2[FIRST_YEAR] != null ? 
-                colorScale(d.properties.emitted_co2[FIRST_YEAR]) : "#AAA")
+            .style("fill", d => d.properties[parameter] != null &&
+                    d.properties[parameter][FIRST_YEAR] != null ? 
+                colorScale(d.properties[parameter][FIRST_YEAR]) : "#AAA")
             .attr("stroke", "#000")
             .attr("stroke-width", 0.5)
             .on("click", clickHandler)
@@ -71,7 +66,7 @@ export const initMap = (container, data) => {
 
 }
 
-export const updateMap = (container, data, year) => {
+export const updateMap = (container, data, year, parameter, colorScale) => {
 	const svg = d3.select(container);  
   
   	svg.selectAll('path')
@@ -79,8 +74,8 @@ export const updateMap = (container, data, year) => {
    		.transition()
    		.delay(100)
    		.duration(500)
-   		.style('fill', d => d.properties.emitted_co2 != null &&
-		   	d.properties.emitted_co2[year] != null ? 
-	   		colorScale(d.properties.emitted_co2[year]) : "#AAA")
+   		.style('fill', d => d.properties[parameter] != null &&
+		   	d.properties[parameter][year] != null ? 
+	   		colorScale(d.properties[parameter][year]) : "#AAA")
 
 }
