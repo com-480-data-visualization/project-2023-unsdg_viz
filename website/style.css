@@ -119,9 +119,21 @@ header {
 .no-data-color {
     width: 20px;
     height: 20px;
-    margin: 20px 20px 20px 20px;
+    margin: 20px 30px 20px 10px;
     background-color: #AAA;
 }
+
+#scale-emi {
+    margin-left: 20px;
+}
+
+.scale-grad {
+    width: 75px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;  
+}
+
 
 #animation_btn {
     margin: 0 auto;

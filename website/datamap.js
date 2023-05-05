@@ -49,8 +49,8 @@ export const initMap = (container, data, parameter, colorScale) => {
 
     const g = svg.call(zoom).append("g");
     g.append("g")
-            .selectAll("path")
-            .data(data.features)
+        .selectAll("path")
+        .data(data.features)
         .enter()
         .append("path")
             .attr("d", path)
@@ -62,7 +62,11 @@ export const initMap = (container, data, parameter, colorScale) => {
             .on("click", clickHandler)
             .on("dblclick", doubleClickHandler)
         .append('title')
-            .text(d => d.properties.name);
+            .text(d => 
+                d.properties[parameter] != null &&
+                d.properties[parameter][FIRST_YEAR] != null ? 
+                    d.properties.name + '\n' + d.properties[parameter][FIRST_YEAR]
+                    : d.properties.name + '\n' + 'No data');
 
 }
 
@@ -77,5 +81,13 @@ export const updateMap = (container, data, year, parameter, colorScale) => {
    		.style('fill', d => d.properties[parameter] != null &&
 		   	d.properties[parameter][year] != null ? 
 	   		colorScale(d.properties[parameter][year]) : "#AAA")
+
+    svg.selectAll('title')
+        .data(data.features)
+        .text(d =>
+            d.properties[parameter] != null &&
+            d.properties[parameter][FIRST_YEAR] != null ? 
+                d.properties.name + '\n' + d.properties[parameter][year]
+                : d.properties.name + '\n' + 'No data');
 
 }
