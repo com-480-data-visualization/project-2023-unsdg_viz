@@ -186,8 +186,8 @@ export const loadClimateGraph = function() {
         }
 
         function fillSlider(from, to, controlSlider) {
-            var sliderColor = '#C6C6C6';
-            var rangeColor = 'blue';
+            var sliderColor = '#AAA';
+            var rangeColor = '#FFF';
             const rangeDistance = to.max - to.min;
             const fromPosition = from.value - to.min;
             const toPosition = to.value - to.min;

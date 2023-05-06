@@ -264,7 +264,7 @@ input[type="range"] {
 .slidecontainer {
     width: 25%;
     height: 15px;
-    margin: 0px auto;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,7 +281,7 @@ input[type="range"] {
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 100%;
+    width: 10%;
     height: 5px;
     background: var(--color-text);
     outline: none;
