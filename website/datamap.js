@@ -47,7 +47,7 @@ export const initMap = (container, data, parameter, colorScale) => {
 
     const path = d3.geoPath().projection(projection);
 
-    const g = svg.call(zoom).append("g");
+    const g = svg.call(zoom).on("wheel.zoom", null).append("g");
     g.append("g")
         .selectAll("path")
         .data(data.features)
