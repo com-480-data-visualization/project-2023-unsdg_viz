@@ -32,10 +32,42 @@
 
         <div class="description">
             <h1>Visualizing UNSDG Indexes</h1>
-            <p id="desc">
-                Enabling the visualization of UNSDG indexes correlated with
-                CO2 emissions per country.
+            <p id="climate_text">
+                Some introduction text about climate change: facts, impact, why it is important regarding our project.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                 sed do eiusmod tempor incididunt ut labore et dolore 
+                 magna aliqua. Duis ut diam quam nulla porttitor massa
+                 id neque aliquam. Suspendisse in est ante in nibh
+                 mauris cursus mattis. Sagittis aliquam malesuada
+                 bibendum arcu vitae. Rhoncus urna neque viverra justo.
+                 Mauris a diam maecenas sed enim. Tellus integer feugiat
+                 scelerisque varius morbi enim nunc faucibus. At
+                 elementum eu facilisis sed. Sed nisi lacus sed viverra
+                 tellus in hac. Tincidunt praesent semper feugiat nibh
+                 sed pulvinar. In hendrerit gravida rutrum quisque non
+                 tellus.
             </p>
+        </div>
+            
+        <div id="climate_section">
+            <div id="dropdown-menu"></div>
+    
+            <div id="climate_graph"></div>
+    
+            <div id="range_container">
+                <div class="range_container">
+                    <!-- Slider -->
+                    <div class="sliders_control">
+                        <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
+                        <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
+                    </div>
+                    <!-- Box showing value of slider -->
+                    <div class="minmax_box">
+                        <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
+                        <input type="number" id="toInput" value="2022" min="1850" max="2022" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="world_viz">
@@ -52,7 +84,7 @@
                     </div>
                 </div>
                 <div class="map">
-                    <p>Share Above WHO Pollution Guidelines</p>
+                    <p>Share Above WHO Air Pollution Guidelines</p>
                     <svg class="map_container" id="other_map_container"></svg>
                     <div class="scale" id="scale-emi">
                         <p>No Data</p>
@@ -75,9 +107,8 @@
         </div>
         
 
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="https://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
         <script type="module" src="root.js" async defer></script>
     </body>
 </html>

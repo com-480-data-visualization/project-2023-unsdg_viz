@@ -2,6 +2,7 @@ import { initMap, updateMap } from "./datamap.js";
 import { co2_air } from "./co2_air.js"
 import { setupAnimationSlider } from "./animation_slider.js";
 import { interpolateReds, interpolateBlues } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+import { loadClimateGraph } from "./climate_graph.js";
 
 
 const FIRST_YEAR = 1950;
@@ -29,6 +30,7 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
+	/* WORLD MAPS */
 	initMap('#emi_map_container', co2_air, 'emitted_co2', colorScaleRed);
 	initMap('#other_map_container', co2_air, 'air_pollution', colorScaleBlue);
 	const animation_btn = document.getElementById('animation_btn');
@@ -47,6 +49,9 @@ whenDocumentLoaded(() => {
 	document.getElementById('scale-grad-map2').style['background-image'] = 
 		'linear-gradient(90deg, #FFF, #00F)';
 	document.getElementById('end-scale-map2').innerHTML = '100%';
+
+	/* CLIMATE GRAPH */
+	loadClimateGraph();
 });
 
 
