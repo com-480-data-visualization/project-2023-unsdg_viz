@@ -12,18 +12,18 @@ export const initMap = (container, data, parameter, colorScale) => {
     .on("zoom", zoomHandler);
 
     function zoomHandler() {
-        g.attr("transform", d3.event.transform);
+        g.attr("transform", d3.zoomTransform(this));
     }
 
-    /*function mouseOutHandler(d, i) {
+    /*function mouseOutHandler(event, d) {
         d3.select(this).attr("fill", colorScale(d.properties.emitted_co2))
     }*/
 
-    function clickHandler(d, i) {
+    function clickHandler(event, d) {
         // TODO
     }
 
-    function doubleClickHandler(d, i) {
+    function doubleClickHandler(event, d) {
         clickToZoom(ZOOM_IN_STEP);
     }
 
@@ -86,7 +86,7 @@ export const updateMap = (container, data, year, parameter, colorScale) => {
         .data(data.features)
         .text(d =>
             d.properties[parameter] != null &&
-            d.properties[parameter][FIRST_YEAR] != null ? 
+            d.properties[parameter][year] != null ? 
                 d.properties.name + '\n' + d.properties[parameter][year]
                 : d.properties.name + '\n' + 'No data');
 
