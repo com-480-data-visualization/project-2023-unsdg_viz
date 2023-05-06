@@ -31,8 +31,12 @@ function whenDocumentLoaded(action) {
 
 whenDocumentLoaded(() => {
 	/* WORLD MAPS */
-	initMap('#emi_map_container', co2_air, 'emitted_co2', colorScaleRed);
-	initMap('#other_map_container', co2_air, 'air_pollution', colorScaleBlue);
+	initMap(d3.select('#emi_map_container'),
+		document.getElementById('details-container'),
+		co2_air, 'emitted_co2', colorScaleRed);
+	initMap(d3.select('#other_map_container'),
+		document.getElementById('details-container'),
+		co2_air, 'air_pollution', colorScaleBlue);
 	const animation_btn = document.getElementById('animation_btn');
 	const btn_img = document.getElementById('btn_icon');
 	const slider = document.getElementById("myRange");

@@ -293,3 +293,23 @@ input[type="range"] {
 .slider:hover {
     opacity: 1;
 }
+
+/* ### COUNTRY DETAILS STYLING ### */
+.country-details {
+    width: 65%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    border: 2px solid var(--color-text);
+    border-radius: 25px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+#country-name {
+    text-decoration-line: underline;
+    margin-bottom: 15px;
+}

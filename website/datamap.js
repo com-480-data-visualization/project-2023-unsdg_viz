@@ -1,11 +1,11 @@
 const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
 const ZOOM_IN_STEP = 2;
-const ZOOM_OUT_STEP = 1 / ZOOM_IN_STEP;
 const FIRST_YEAR = 1950;
 
 
-export const initMap = (container, data, parameter, colorScale) => {
+export const initMap = (container, detailsContainer, data, parameter, colorScale) => {
+    /* event handlers */
     const zoom = d3
     .zoom()
     .scaleExtent(ZOOM_THRESHOLD)
@@ -15,12 +15,19 @@ export const initMap = (container, data, parameter, colorScale) => {
         g.attr("transform", d3.zoomTransform(this));
     }
 
-    /*function mouseOutHandler(event, d) {
-        d3.select(this).attr("fill", colorScale(d.properties.emitted_co2))
-    }*/
-
     function clickHandler(event, d) {
-        // TODO
+        let countryName = document.getElementById('country-name')
+        // TODO refactor once we know exactly what data to put
+        if (countryName.innerHTML === d.properties.name){
+            // clicked on same country -> hide details
+            countryName.innerHTML = '';
+            detailsContainer.style.display = "none";
+        } else {
+            // show details of clicked country
+            countryName.innerHTML = d.properties.name;
+            detailsContainer.style.display = "block";
+            detailsContainer.scrollIntoView();
+        }
     }
 
     function doubleClickHandler(event, d) {
@@ -28,26 +35,21 @@ export const initMap = (container, data, parameter, colorScale) => {
     }
 
     function clickToZoom(zoomStep) {
-        svg
+        container
             .transition()
             .duration(ZOOM_DURATION)
             .call(zoom.scaleBy, zoomStep);
     }
 
-    const svg = d3.select(container);
-    //.call(responsivefy);
-    //.append("svg")
-    //.attr("width", "100%")
-    //.attr("height", "100%");
 
-
+    /* fill map with data */
     const projection = d3
         .geoNaturalEarth1()
         .fitSize([750, 350], data);
 
     const path = d3.geoPath().projection(projection);
 
-    const g = svg.call(zoom).on("wheel.zoom", null).append("g");
+    const g = container.call(zoom).on("wheel.zoom", null).append("g");
     g.append("g")
         .selectAll("path")
         .data(data.features)
@@ -71,9 +73,7 @@ export const initMap = (container, data, parameter, colorScale) => {
 }
 
 export const updateMap = (container, data, year, parameter, colorScale) => {
-	const svg = d3.select(container);  
-  
-  	svg.selectAll('path')
+	container.selectAll('path')
    		.data(data.features)
    		.transition()
    		.delay(100)
@@ -82,7 +82,7 @@ export const updateMap = (container, data, year, parameter, colorScale) => {
 		   	d.properties[parameter][year] != null ? 
 	   		colorScale(d.properties[parameter][year]) : "#AAA")
 
-    svg.selectAll('title')
+    container.selectAll('title')
         .data(data.features)
         .text(d =>
             d.properties[parameter] != null &&
