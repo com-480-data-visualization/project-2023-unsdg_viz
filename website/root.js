@@ -17,8 +17,8 @@ const colorScaleBlue = d3.scaleSequential()
 		.interpolator(interpolateBlues);
 
 const animationCallback = function(year) {
-	updateMap('#emi_map_container', co2_air, year, 'emitted_co2', colorScaleRed);
-	updateMap('#other_map_container', co2_air, year, 'air_pollution', colorScaleBlue);
+	updateMap(d3.select('#emi_map_container'), co2_air, year, 'emitted_co2', colorScaleRed);
+	updateMap(d3.select('#other_map_container'), co2_air, year, 'air_pollution', colorScaleBlue);
 }
 
 function whenDocumentLoaded(action) {
@@ -46,12 +46,8 @@ whenDocumentLoaded(() => {
 		FIRST_YEAR, LAST_YEAR, animationCallback);
 
 	document.getElementById('start-scale-map1').innerHTML = '0';
-	document.getElementById('scale-grad-map1').style['background-image'] = 
-		'linear-gradient(90deg, #FFF, #F00)';
 	document.getElementById('end-scale-map1').innerHTML = MAX_EMISSION.toString();
 	document.getElementById('start-scale-map2').innerHTML = '0%';
-	document.getElementById('scale-grad-map2').style['background-image'] = 
-		'linear-gradient(90deg, #FFF, #00F)';
 	document.getElementById('end-scale-map2').innerHTML = '100%';
 
 	/* CLIMATE GRAPH */

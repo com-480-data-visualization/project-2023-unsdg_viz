@@ -132,12 +132,13 @@ input[type=range]::-webkit-slider-thumb {
     height: 10px;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px blue;
+    box-shadow: 0 0 0 1px var(--color-hl);
     cursor: pointer;
 }
 
 input[type=range]::-moz-range-thumb {
     -webkit-appearance: none;
+    appearance: none;
     pointer-events: all;
     width: 10px;
     height: 10px;
@@ -265,23 +266,13 @@ input[type="range"] {
     width: 25%;
     height: 15px;
     margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font: 'Lato';
     color: var(--color-text);
-    padding: 20px;
-}
-
-.slidecontainer p {
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 10%;
     height: 5px;
     background: var(--color-text);
     outline: none;
@@ -289,9 +280,16 @@ input[type="range"] {
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
-  
+
 .slider:hover {
     opacity: 1;
+}
+
+#slider-dates {
+    padding-top: 20px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
 }
 
 /* ### COUNTRY DETAILS STYLING ### */
