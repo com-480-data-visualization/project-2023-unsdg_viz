@@ -6,7 +6,7 @@
 | Lorenzo Rovati| 287476 |
 |Sophia Ly | 342530|
 
-[Website](https://com-480-data-visualization.github.io/project-2023-unsdg_viz/website/index.html) • [Milestone 1](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone2/UNSDG_viz-M2.pdf) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Website](https://com-480-data-visualization.github.io/project-2023-unsdg_viz/website/index.html) • [Milestone 1](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone1/UNSDG_viz_M1.pdf) • [Milestone 2](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone2/UNSDG_viz-M2.pdf) • [Milestone 3](#milestone-3)
 
 ## Milestone 1 (7th April, 5pm)
 
