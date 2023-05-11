@@ -88,7 +88,8 @@ header {
 
 #dropdown-menu {
     height: 20px;
-    width: 100px;
+    /*width: 100px;*/
+    text-align: center;
     font-size: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -175,7 +176,7 @@ input[type="range"] {
     appearance: none;
     height: 2px;
     width: 100%;
-    position: absolute;
+    position: relative;
     pointer-events: none;
 }
 
@@ -198,6 +199,7 @@ input[type="range"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 2em;
 }
 
 .map {
@@ -230,10 +232,6 @@ input[type="range"] {
     background-color: #AAA;
 }
 
-#scale-emi {
-    margin-left: 20px;
-}
-
 .scale-grad {
     width: 75px;
     height: 20px;
@@ -264,7 +262,6 @@ input[type="range"] {
 
 .slidecontainer {
     width: 25%;
-    height: 15px;
     margin: auto;
     font: 'Lato';
     color: var(--color-text);
@@ -286,7 +283,8 @@ input[type="range"] {
 }
 
 #slider-dates {
-    padding-top: 20px;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
     display: flex;
     margin: auto;
     justify-content: space-between;
