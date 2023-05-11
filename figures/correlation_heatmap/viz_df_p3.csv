@@ -1,0 +1,65 @@
+y_axis,x_axis,value
+Revenue,,
+Revenue,FDI,0.11547290353755581
+Revenue,Growth rate,-0.2510222057674456
+Revenue,CO2 emission,-0.0054236948145128675
+Revenue,GDP,0.08516896447907547
+Revenue,Mortality rate,-0.04836051205830413
+Revenue,Air pollution,-0.27300538036014815
+Revenue,Renewable energy,-0.11426736173247877
+FDI,,
+FDI,FDI,
+FDI,Growth rate,0.008208555217189098
+FDI,CO2 emission,0.6427355796489227
+FDI,GDP,0.6976265932478529
+FDI,Mortality rate,-0.31273517743871077
+FDI,Air pollution,-0.15743217452908154
+FDI,Renewable energy,-0.12342705556025584
+Growth rate,,
+Growth rate,FDI,
+Growth rate,Growth rate,
+Growth rate,CO2 emission,0.12236327954689151
+Growth rate,GDP,0.05909734103010385
+Growth rate,Mortality rate,0.1382021456738646
+Growth rate,Air pollution,0.08208075852332823
+Growth rate,Renewable energy,0.16564316322785536
+CO2 emission,,
+CO2 emission,FDI,
+CO2 emission,Growth rate,
+CO2 emission,CO2 emission,
+CO2 emission,GDP,0.8900220855957619
+CO2 emission,Mortality rate,-0.07109716725259367
+CO2 emission,Air pollution,0.010774883575759283
+CO2 emission,Renewable energy,-0.09354731966146924
+GDP,,
+GDP,FDI,
+GDP,Growth rate,
+GDP,CO2 emission,
+GDP,GDP,
+GDP,Mortality rate,-0.22413469242527984
+GDP,Air pollution,-0.06525010649881097
+GDP,Renewable energy,-0.10046958542965918
+Mortality rate,,
+Mortality rate,FDI,
+Mortality rate,Growth rate,
+Mortality rate,CO2 emission,
+Mortality rate,GDP,
+Mortality rate,Mortality rate,
+Mortality rate,Air pollution,0.34670546475537917
+Mortality rate,Renewable energy,0.09822420226446753
+Air pollution,,
+Air pollution,FDI,
+Air pollution,Growth rate,
+Air pollution,CO2 emission,
+Air pollution,GDP,
+Air pollution,Mortality rate,
+Air pollution,Air pollution,
+Air pollution,Renewable energy,-0.14204810274467283
+,,
+,FDI,
+,Growth rate,
+,CO2 emission,
+,GDP,
+,Mortality rate,
+,Air pollution,
+,Renewable energy,
