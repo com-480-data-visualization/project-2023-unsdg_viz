@@ -10,11 +10,11 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <style>
         #dropdown-menu {
-            position: relative;
             height: 20px;
             width: 100px;
             font-size: 10px;
-            left: 200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #climate_section {
@@ -124,12 +124,6 @@
     </div>
 
     <div id="climate_section">
-        <form>
-            <label for="checkbox" style="position: relative; padding-left: 500px; top: 20px">
-                <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
-                                                Show CO2 emission
-            </label>
-        </form>
         <div id="dropdown-menu"></div>
 
         <div id="climate_graph"></div>
@@ -152,7 +146,7 @@
         <script>
             // Define the SVG element
             // set the dimensions and margins of the graph. Set margins so that axis ticks can be seen
-            var margin = { top: 10, right: 80, bottom: 30, left: 60 },
+            var margin = { top: 10, right: 30, bottom: 30, left: 60 },
                 width = 750 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
 
@@ -168,7 +162,7 @@
 
 
             // Load the data from the csv file
-            d3.csv('data/temp_viz.csv').then(data => {
+            d3.csv('data/temp.csv').then(data => {
                 // Create dropdown menu
                 // Extract unique values for dropdown menu
                 var menuValues = Array.from(new Set(data.map(function (d) { return d.Entity; })));
@@ -189,7 +183,6 @@
                     d.Average = +d.Average;
                     d.Upper = +d.Upper;
                     d.Lower = +d.Lower;
-                    d.CO2 = +d.CO2 / 1000000000; // Divide by 10^9 because we want to visualize 10^9 scale
                 });
 
                 // Filter the objects based on the class column
@@ -207,11 +200,12 @@
                         .attr("transform", "translate(0," + height + ")")
                         .call(d3.axisBottom(xscale));
 
-                    // Set range and data of y axis for temperature
+                    // Set range and data of y axis
                     var yscale = d3.scaleLinear()
                         .domain([d3.min(filteredData, d => d.Lower), d3.max(filteredData, d => d.Upper)])
                         .range([height, 0]);
 
+                    // Set tick and grid of y axis
                     var yAxis = d3.axisLeft(yscale)
                         .tickSizeInner(-width)
                         .tickPadding(10);
@@ -228,20 +222,13 @@
                         .filter(function (d) { return d === 4.0; })
                         .attr("stroke", "blue");
 
-                    // Add axis label
-                    svg_co2.append("text")
-                        .attr("transform", "rotate(-90)")
-                        .attr("y", 0 - margin.left)
-                        .attr("x", 0 - (height / 2))
-                        .attr("dy", "1em")
-                        .style("text-anchor", "middle")
-                        .text("Temperature change [°C]");
 
-                    
+
                     //Define the line
                     const line_average = d3.line()
                         .x(d => xscale(d.Year))
                         .y(d => yscale(d.Average));
+
 
                     const line_lower = d3.line()
                         .x(d => xscale(d.Year))
@@ -273,71 +260,20 @@
                         .attr("fill", "none")
                         .attr("stroke", "steelblue")
                         .attr("stroke-width", 1);
-
-
-                    if (boolean_CO2 == 1) {
-                        var max_CO2 = Math.round(d3.max(filteredData, d => d.CO2)+1)
-                        var min_CO2 = Math.max(Math.round(d3.min(filteredData, d => d.CO2)-1),0)
-                        // second y axis for CO2
-                        var yscale2 = d3.scaleLinear()
-                            .domain([min_CO2, max_CO2])
-                            .range([height, 0]);
-                        //Add the second y-axis
-                        const yAxis2 = d3.axisRight(yscale2)
-                        svg_co2.append("g")
-                            .attr("transform", "translate(" + width + ",0)")
-                            .call(yAxis2);
-                        const co2_line = d3.line()
-                            .x(d => xscale(d.Year))
-                            .y(d => yscale2(d.CO2));
-
-                        svg_co2.append("text")
-                            .attr("transform", "rotate(-90)")
-                            .attr("y", width + 30)
-                            .attr("x", 0 - (height / 2))
-                            .attr("dy", "1em")
-                            .style("text-anchor", "middle")
-                            .text("Annual CO₂ emissions [10⁹ t]");
-                        
-                        svg_co2.append("path")
-                            .datum(filteredData)
-                            .attr("d", co2_line)
-                            .attr("fill", "none")
-                            .attr("stroke", "red")
-                            .attr("stroke-width", 1);
-                    }
                 }
-                // Shows status of checkbox
-                var boolean_CO2 = -1; // -1: don't show, 1: show
-
-                // uncheck or check box: decide if CO2 should be shown
-                d3.select("#checkbox_CO2")
-                    .on("change", function () {
-                        boolean_CO2 = boolean_CO2 * -1; //-1: don't show, 1: show
-                        filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
-                        co2_chart(filteredData_range);
-                    });
-
-
-
                 // Create first graph
                 co2_chart(filteredData);
-                var filteredData_range; 
 
                 // Update graph depending on selection
                 select.on("change", function () {
                     var selectedValue = d3.select(this).property("value");
                     console.log("Selected value: " + selectedValue);
                     filteredData = data.filter(obj => obj.Entity === selectedValue);
-                    filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
+                    var filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
+
                     co2_chart(filteredData_range);
                 });
 
-                if (filteredData_range === undefined) {
-                    filteredData_range = filteredData;
-                }
-
-                
                 // Slider
                 function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
                     const [from, to] = getParsed(fromInput, toInput);
@@ -432,7 +368,7 @@
                     console.log('changed from-value', fromSlider.value)
                     //console.log('changed to-value', toSlider.value)
 
-                    filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
+                    var filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
                     console.log(filteredData_range)
                     co2_chart(filteredData_range);
 
