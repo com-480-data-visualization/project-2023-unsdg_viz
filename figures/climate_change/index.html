@@ -126,12 +126,12 @@
 
     <div id="climate_section">
         <form>
-            <label for="checkbox" style="position: relative; padding-left: 500px; top: 20px">
+            <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
                 <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
                                                 Show CO2 emission
             </label>
         </form>
-        <div id=" dropdown-menu">
+        <div id="dropdown-menu">
     </div>
 
     <div id="climate_graph"></div>
@@ -175,11 +175,10 @@
             // Extract unique values for dropdown menu
             var menuValues = Array.from(new Set(data.map(function (d) { return d.Entity; })));
             // Create select element
-            var select = d3.select("#dropdown-menu")
+            var select_menu = d3.select("#dropdown-menu")
                 .append("select")
-            // .attr("id", "menu")
-            // Create options for select element
-            var options = select.selectAll("option")
+ 
+            var options = select_menu.selectAll("option")
                 .data(menuValues)
                 .enter()
                 .append("option")
@@ -309,6 +308,22 @@
                         .attr("stroke-width", 1);
                 }
             }
+         
+            // Create first graph-
+            co2_chart(filteredData);
+            var filteredData_range;
+
+            // Update graph depending on selection of dropdown menu
+            select_menu.on("change", function () {
+                    // var selectedValue = d3.select("#dropdown-menu").property("value");
+                    var selectedValue = d3.select(this).property("value");
+                    console.log("Selected value: " + selectedValue);
+                    filteredData = data.filter(obj => obj.Entity === selectedValue);
+                    filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
+                    co2_chart(filteredData_range);
+            });
+
+            // Checkbox----------------------------------------------------
             // Shows status of checkbox
             var boolean_CO2 = -1; // -1: don't show, 1: show
 
@@ -320,27 +335,8 @@
                     co2_chart(filteredData_range);
                 });
 
-
-
-            // Create first graph
-            co2_chart(filteredData);
-            var filteredData_range;
-
-            // Update graph depending on selection
-            select.on("change", function () {
-                var selectedValue = d3.select(this).property("value");
-                console.log("Selected value: " + selectedValue);
-                filteredData = data.filter(obj => obj.Entity === selectedValue);
-                filteredData_range = filteredData.filter(obj => ((obj.Year.getFullYear() >= fromSlider.value) && (obj.Year.getFullYear() <= toSlider.value)));
-                co2_chart(filteredData_range);
-            });
-
-            if (filteredData_range === undefined) {
-                filteredData_range = filteredData;
-            }
-
-
-            // Slider
+            // Slider----------------------------------------------------------------
+            // read input values and save them as ninteger, ensure lower bound < upper bound. Set slider to box / vice versa
             function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
                 const [from, to] = getParsed(fromInput, toInput);
                 fillSlider(fromInput, toInput, controlSlider);
@@ -351,7 +347,6 @@
                     fromSlider.value = from;
                 }
             }
-
             function controlToInput(toSlider, fromInput, toInput, controlSlider) {
                 const [from, to] = getParsed(fromInput, toInput);
                 fillSlider(fromInput, toInput, controlSlider);
@@ -363,7 +358,6 @@
                     toInput.value = from;
                 }
             }
-
             function controlFromSlider(fromSlider, toSlider, fromInput) {
                 const [from, to] = getParsed(fromSlider, toSlider); // save values as integer
                 fillSlider(fromSlider, toSlider, toSlider);
@@ -374,7 +368,6 @@
                     fromInput.value = from;
                 }
             }
-
             function controlToSlider(fromSlider, toSlider, toInput) {
                 const [from, to] = getParsed(fromSlider, toSlider); // save values as integer
                 fillSlider(fromSlider, toSlider, toSlider);
@@ -395,6 +388,7 @@
                 return [from, to];
             }
 
+            // Fill slider with color
             function fillSlider(from, to, controlSlider) {
                 sliderColor = '#C6C6C6';
                 rangeColor = 'blue';
@@ -450,17 +444,11 @@
                 co2_chart(filteredData_range);
             }
 
-
-            // Update figure on input
+            // Update figure on slider or number box input
             fromSlider.oninput = handleSliderInput;
             toSlider.oninput = handleSliderInput;
-
             fromInput.oninput = handleNumberInput;
             toInput.oninput = handleNumberInput;
-
-
-
-
         });
     </script>
 
