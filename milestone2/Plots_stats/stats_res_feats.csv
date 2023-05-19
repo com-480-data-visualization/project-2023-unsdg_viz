@@ -1,0 +1,21 @@
+Id,Features,SpearmanR
+0,greenhousegas_emissione_mtco2equivalent,1.0
+1,total_government_revenue_proportion_of_gdp_perc,-0.06640621640849288
+2,fdi_inflows_millionusd,0.184275048371196
+3,annual_growth_rate_perc,-0.009693472652153534
+4,proportion_of_population_with_primary_reliance_on_clean_fuels_a,0.14707163015048325
+5,mortality_rate_perc,0.6737170824512629
+6,renewable_energy_share_on_the_total_energy_consumption,-0.5194405204162963
+7,co2emissions_from_fuel_combustion_in_millions_of_tonnes,0.7976452689455316
+8,fossilfuel_subsidies_consumption_and_production_billionusd,0.16776436302826733
+9,randd_expenditure_proportionofgdp_perc,-0.15095198031426021
+10,national_action_plans_as_priority_national_policies,
+11,number_of_companies_publishing_sustainability_reports,-0.2524253138749841
+12,education_for_sustainable_development,
+13,enhance_policy_coherence_for_sustainable_development,
+14,land_degraded_over_total_land_area,
+15,IIASA rates of no education projections (IIASA (2015)),
+16,GDP (constant 2015 US$),0.14573651405374427
+17,"Literacy rate, adult total (% of people ages 15 and above)",0.1114468864468865
+18,Annual CO₂ emissions (zero filled),0.7888923629231545
+19,"PM2.5 air pollution, population exposed to levels exceeding WHO guideline value (% of total)",0.20451028469563887
