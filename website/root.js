@@ -31,9 +31,6 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
-	/* STATS GRAPH */ 
-
-
 	/* WORLD MAPS */
 	initMap(d3.select('#emi_map_container'),
 		document.getElementById('details-container'),
@@ -56,6 +53,9 @@ whenDocumentLoaded(() => {
 
 	/* CLIMATE GRAPH */
 	loadClimateGraph();
+
+	/* STATS GRAPH */ 
+	loadStatsGraph();
 });
 
 

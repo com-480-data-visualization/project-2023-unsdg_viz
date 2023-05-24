@@ -15,8 +15,7 @@ export const loadStatsGraph =  function() {
 
 
     // Parse the Data
-    d3.csv("https://raw.githubusercontent.com/com-480-data-visualization/project-2023-unsdg_viz/master/milestone2/Plots_stats/stats_res_feats.csv", function(data) {
-
+    d3.csv("https://raw.githubusercontent.com/com-480-data-visualization/project-2023-unsdg_viz/master/milestone2/Plots_stats/stats_res_feats.csv").then(data => {
         // X axis
         var x = d3.scaleBand()
         .range([ 0, width ])
@@ -28,63 +27,60 @@ export const loadStatsGraph =  function() {
         .selectAll("text")
             .attr("transform", "translate(-10,0)rotate(-45)")
             .style("text-anchor", "end")
-        .style('color', '#FFF');
+        .style('color', '#FFF'); // Color of the x axis 
 
         // Add Y axis
         var y = d3.scaleLinear()
         .domain([-1, 1])
         .range([ height, 0]);
+
         svg.append("g")
         .call(d3.axisLeft(y))
-        .style('color', '#FFF');
+        .style('color', '#FFF'); // Color of the y axis 
 
         // create a tooltip
         var Tooltip = d3.select("#stats_graph")
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltip")
-            .style("background-color", "transparent")
+            .style("background-color", "transparent") // Background of tooltip 
             .style("border", "solid")
             .style("border-width", "2px")
             .style("border-radius", "5px")
             .style("padding", "5px")
-            .style('color', '#FFF');
+            .style('color', '#FFF'); // color of tooltip 
 
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function(d) {
             Tooltip
             .style("opacity", 1)
         }
-        var mousemove = function(d) {
-            Tooltip
-            .classed("hidden", false)
-            .style("opacity", 1)
-            .style("left", (d3.mouse(this)[0]+70) + "px")
-            .style("top", (d3.mouse(this)[1]) + "px");
-            
-            // Print Top 5 and Last 5 countries for the touched Feature from the following file
-            d3.csv("https://raw.githubusercontent.com/com-480-data-visualization/project-2023-unsdg_viz/master/milestone2/Plots_stats/stats_res_all.csv", function(data) {
-                data.sort(function(x, y){
-                    return d3.ascending(x.index, y.index);
-                })
+        var mousemove = function(event, d) {
+            d3.select(this).style("fill", "#012B4E"); // color of the bars when touched 
 
-            });    
+            // d.Features
 
             var newHtml = [];
             newHtml.push("Top Five Countries with values <\n>");
             newHtml.push("Last Five Countries with values");
+
+            
             Tooltip
-            .html(newHtml.join("\t"))
+            .classed("hidden", false)
+            .style("opacity", 1)
+            .html(newHtml.join("\t"));
         }   
 
         var mouseleave = function(d) {
+            d3.select(this).style("fill", "#69b3a2"); // color of the bars 
+
             Tooltip
             .style("opacity", 0)
         }
 
         // Bars
         svg.selectAll("mybar")
-        .data(data)
+        .data(data)        
         .enter()
         .append("rect")
             .attr("class", function (d) {
@@ -92,10 +88,14 @@ export const loadStatsGraph =  function() {
             })
             .attr("x", function(d) { return x(d.Features); })
             .attr("width", x.bandwidth())
-            .attr("fill", "#69b3a2")
-            // no bar at the beginning thus:
-            .attr("height", function(d) { return Math.abs(y(d.SpearmanR) - y(0)); })  // always equal to 0 height - y(0);
+            .attr("fill", "#69b3a2") // color of the bars 
+            // no bar at the beginning thus: // always equal to 0 height - y(0);
+            .attr("height", function(d) { return Math.abs(y(d.SpearmanR) - y(0)); })  
             .attr("y", function(d) { return y(Math.max(0, d["SpearmanR"])); })
+        .on("click", function (d) {
+            d3.selectAll('.allbars').style('fill', '#2296F3'); //fill all circles black
+            d3.select(this).style("fill", "#012B4E"); //then fill this circle lightcoral
+        })
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
@@ -108,4 +108,6 @@ export const loadStatsGraph =  function() {
         .attr("height", function(d) { return height - Math.abs(y(d.SpearmanR) - y(0)); })
         .delay(function(d,i){console.log(i) ; return(i*100)})*/
     })
+
+
 }
