@@ -309,3 +309,20 @@ input[type="range"] {
     text-decoration-line: underline;
     margin-bottom: 15px;
 }
+
+
+/* ### STATS GRAPH STYLING ### */
+#stats_text {
+    padding-top: 20px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#stats_section {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    background-color: transparent; 
+}

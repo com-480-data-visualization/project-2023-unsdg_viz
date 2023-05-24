@@ -3,6 +3,7 @@ import { co2_air } from "./co2_air.js"
 import { setupAnimationSlider } from "./animation_slider.js";
 import { interpolateReds, interpolateBlues } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 import { loadClimateGraph } from "./climate_graph.js";
+import { loadStatsGraph } from "./stats_graph.js";
 
 
 const FIRST_YEAR = 1950;
@@ -30,6 +31,9 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
+	/* STATS GRAPH */ 
+
+
 	/* WORLD MAPS */
 	initMap(d3.select('#emi_map_container'),
 		document.getElementById('details-container'),
