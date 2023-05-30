@@ -1,0 +1,26 @@
+y_axis,x_axis,value
+FDI,,
+FDI,Growth rate,-0.026791397948846572
+FDI,CO2 emission,0.6460847902453041
+FDI,GDP,0.6994551494922805
+FDI,Renewable energy share,-0.1254674062272137
+Growth rate,,
+Growth rate,Growth rate,
+Growth rate,CO2 emission,0.06185281255551482
+Growth rate,GDP,-0.032885098080690345
+Growth rate,Renewable energy share,0.021196424327442794
+CO2 emission,,
+CO2 emission,Growth rate,
+CO2 emission,CO2 emission,
+CO2 emission,GDP,0.7715694412784112
+CO2 emission,Renewable energy share,-0.10927319976388057
+GDP,,
+GDP,Growth rate,
+GDP,CO2 emission,
+GDP,GDP,
+GDP,Renewable energy share,-0.10653469822067703
+,,
+,Growth rate,
+,CO2 emission,
+,GDP,
+,Renewable energy share,

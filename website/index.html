@@ -12,6 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="resources/sdg_logo.ico">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="climate_change.css">
+        <!-- Only script needed in head section to ensure load on use -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
         <meta name="author" content="Julia Wälti, Sophia Ly, Lorenzo Rovati">
     </head>
     <body>
@@ -50,8 +54,16 @@
         </div>
             
         <div id="climate_section">
+            <form>
+                <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
+                    <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
+                                                        Show CO2 emission
+                </label>
+            </form>  
             <div id="dropdown-menu"></div>
+        
             <div id="climate_graph"></div>
+        
             <div id="range_container">
                 <div class="range_container">
                     <!-- Slider -->
@@ -136,10 +148,17 @@
             ok
             <div id="stats_graph"></div>
             ok
-        </div>   
-
+        </div>  
         
-        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <div id="correlation_container">
+            <div id="dropdown-menu_correlation"></div>
+            <div id="correlation_heatmap"></div>
+        </div>
+
+     
+        
+        <script src = "climate_change.js"></script>
+        <script src="heatmap.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="module" src="root.js" async defer></script>
     </body>

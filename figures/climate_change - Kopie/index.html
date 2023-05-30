@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="climate_change.css">
+    <!-- Only script that has to be in head: Otherwise might be called when not ready -->
+    <script src="https://d3js.org/d3.v6.min.js"></script> 
+</head>
+
+<body>
+    <div id="climate_text">
+        <p>Some introduction text about climate change: facts, impact, why it is important regarding our project.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, tortor a lacinia posuere, urna est
+            gravida
+            eros, nec fringilla justo libero ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            euismod,
+            tortor a lacinia posuere, urna est gravida
+            eros, nec fringilla justo libero ac massa.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            euismod,
+            tortor a lacinia posuere, urna est gravida
+            eros, nec fringilla justo libero ac massa.</p>
+    </div>
+
+    <div id="climate_section">
+        <form>
+            <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
+                <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
+                                                Show CO2 emission
+            </label>
+        </form>
+        <div id="dropdown-menu">
+        </div>
+
+        <div id="climate_graph"></div>
+
+    <div id="range_container">
+        <div class="range_container">
+            <!-- Slider -->
+            <div class="sliders_control">
+                <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
+                <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
+            </div>
+            <!-- Box showing value of slider -->
+            <div class="minmax_box">
+                <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
+                <input type="number" id="toInput" value="2022" min="1850" max="2022" />
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="climate_change.js"></script>
+
+</body>
+
+</html>
