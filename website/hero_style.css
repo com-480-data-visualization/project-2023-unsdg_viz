@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    margin: 0;
+}
+
+#hero_container {
+    max-width: 100vw;
+    height: 180vh;
+    position: static;
+    background-color: #8CA1C0;
+}
+
+#L1 {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    max-width: auto;
+}
+
+#L1 img {
+    max-width: 100%;
+    height: auto;
+    /* Other CSS properties */
+}
+
+#Lcloud {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    max-width: auto;
+    filter: blur(1px);
+}
+
+#Lcloud img {
+    max-width: 100%;
+    height: auto;
+    /* Other CSS properties */
+}
+
+#L2 {
+    z-index: 2;
+    position: absolute;
+    top: 200px;
+    max-width: 100vw;
+}
+
+#L2 img {
+    max-width: 100%;
+    height: auto;
+}
+
+#L3 {
+    z-index: 3;
+    position: absolute;
+    top: 130px;
+    max-width: 100vw;
+}
+
+#L3 img {
+    max-width: 100%;
+    height: auto;
+}
+
+#L4 {
+    z-index: 4;
+    position: absolute;
+    top: 350px;
+    max-width: 100vw;
+}
+
+#L4 img {
+    max-width: 100%;
+    height: auto;
+}
+
+#L5 {
+    z-index: 5;
+    position: absolute;
+    top: 450px;
+    max-width: 100vw;
+}
+
+#L5 img {
+    max-width: 100%;
+    height: auto;
+    filter: blur(2px);
+}
+
+#L6 {
+    z-index: 6;
+    position: absolute;
+    top: 450px;
+    max-width: 100vw;
+}
+
+#L6 img {
+    width: 100%;
+    height: auto;
+    filter: blur(4px);
+}
+
+#title {
+    z-index: 7;
+    position: fixed;
+    width: 30vw;
+    height: 10vh;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(201, 201, 201, 0.847);
+    color: #2a2a2a;
+    font-family: 'Lato';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid black;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#transition{
+    z-index: 0;
+    position: static;
+    width: 100vw;
+
+}

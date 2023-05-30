@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 :root {
-    --color-bg: #b4cba3;
+    --color-bg: #8CA1C0 ;
     /* gunmetal */
-    --color-bg-d: #2b496989;
-    --color-bg-d: #2b4969;
+    --color-bg-d: #b4cba3;
     /* gunmetal */
     --color-hl: #4E878C;
     /* dark cyan */
-    --color-text: #D4F5F5;
+    --color-text: #2a2a2a;
     /* light cyan */
     --color-failure: #FE5F55;
     /* bittersweet */
@@ -23,7 +22,7 @@
 }
 
 body {
-    background-image: linear-gradient(135deg, var(--color-bg), var(--color-bg-d));
+    background: linear-gradient(to bottom, #8CA1C0, #8CA1C0, #b4cba3, #b4cba3);
     overflow-x: hidden;
 }
 
@@ -72,7 +71,7 @@ header {
 
 .description {
     font-family: 'Lato';
-    position: relative;
+    position: static;
     display: block;
     justify-content: center;
     align-items: center;
