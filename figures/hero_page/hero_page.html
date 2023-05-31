@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body{
+            background-color: red;
+            margin: 0;
+        }
+
+        #container {
+            max-width: 100vw;
+            /* height: 200vh; */
+            /* background-color: greenyellow; */
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        #div1 {
+            max-width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 1;
+            margin-top: 0;
+        }
+        #div1 img {
+            max-width: 100%;
+            height: auto;
+            }
+
+        #div2 {
+            /* background-color: blue; */
+            max-width: 100vw;
+            height: 100vh;
+            position: absolute;
+            bottom: 0px;
+            z-index: 2;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        #div2 img {
+            max-width: 100%;
+            height: auto;
+            }
+
+        #div3 {
+            /* background-color: green; */
+            width: 100vw;
+            /* height: 100vh; */
+            position: absolute;
+            bottom: 0px;
+            z-index: 3;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        #div3 img {
+            width: 100%;
+            height: auto;
+            }
+        #div4 {
+            /* background-color: green; */
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: -5px;
+            z-index: 4;
+            opacity: 1;
+        }
+
+        #div4 img {
+            width: 100%;
+            height: auto;
+            }
+
+        #div5 {
+            /* background-color: green; */
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: -5px;
+            left: 5px;
+            z-index: 5;
+            opacity: 1;
+        }
+        #div5 img {
+            width: 100%;
+            height: auto;
+            }
+        #title{
+            position: absolute;
+            top: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: blueviolet;
+            z-index: 6;
+        }
+
+        #content{
+            width: 100vw;
+            height: 100vh;
+            background-color: greenyellow;
+            position: absolute;
+            top: 0;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title"></div>
+        <div id="div1">
+            lalalal
+            <img src="Layer1.png" alt="Your Image1">
+        </div>
+        <!-- <div id="div2">
+            <img src="Layer2.png" alt="Your Image2">
+        </div>
+        <div id="div3">
+            <img src="Layer3.png" alt="Your Image3">
+        </div> -->
+        <!-- <div id="div4">
+            <img src="Layer4.png" alt="Your Image4">
+        </div>
+        <div id="div5">
+            <img src="Layer5.png" alt="Your Image4">
+        </div>
+        <div id="div6">
+            <img src="Layer6.png" alt="Your Image4">
+        </div> -->
+
+    </div>
+    <div id="content"></div>
+
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var div5 = document.getElementById('div5');
+            var title = document.getElementById('title');
+            title.style.top = (50 + scrollY / 2) + '%';
+
+            div5.style.opacity = 0;
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            // console.log(scrollTop)
+            var div1 = document.getElementById('div1');
+            div1.style.top = (scrollTop) + 'px';
+
+            var div2 = document.getElementById('div2');
+            div2.style.top = (scrollTop/1.5) + 'px';
+
+            var div3 = document.getElementById('div3');
+            div3.style.top = (scrollTop /100) + 'px';
+
+            var div4 = document.getElementById('div4');
+            div4.style.top = (scrollTop /200) + 'px';
+
+            if (parseFloat(div4.style.top) >= 1.04) {
+                console.log('stops');
+                div1.style.opacity = 0;
+                div2.style.opacity = 0;
+                div3.style.opacity = 0;
+                div4.style.opacity = 0;
+            }
+
+            
+
+        });
+
+
+    </script>
+</body>
+</html>

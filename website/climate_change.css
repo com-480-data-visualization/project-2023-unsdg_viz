@@ -10,7 +10,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
-    /* background-color: red; */
+    position: static;
+    z-index: 10;
 }
 
 #dropdown-menu {
