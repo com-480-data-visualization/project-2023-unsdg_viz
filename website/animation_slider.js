@@ -1,17 +1,17 @@
 const pauseIcon = 'resources/pause-cropped.svg';
 const playIcon = 'resources/play.svg';
 
-var currentIcon;
-var btn;
-var btnImg;
-var txt;
-var slider;
-var startYear;
-var endYear;
-var currentYear;
-var running;
-var interval;
-var callback;
+let currentIcon;
+let btn;
+let btnImg;
+let txt;
+let slider;
+let startYear;
+let endYear;
+export let currentYear;
+let running;
+let interval;
+let callback;
 
 function switchIcon() {
     currentIcon = currentIcon === playIcon ? pauseIcon : playIcon;
@@ -68,4 +68,3 @@ export const setupAnimationSlider = function(button, buttonImage, text, animSlid
         callback(currentYear);
     }
 }
-

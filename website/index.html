@@ -83,7 +83,7 @@
         <div class="world_viz">
             <div class="maps">
                 <div class="map">
-                    <p>CO2 Emissions Per Capita</p>
+                    <p>Annual CO₂ emissions</p>
                     <svg class="map_container" id="emi_map_container"></svg>
                     <div class="scale" id="scale-emi">
                         <p>No Data</p>
@@ -94,7 +94,14 @@
                     </div>
                 </div>
                 <div class="map">
-                    <p>Share Above WHO Air Pollution Guidelines</p>
+                    <select name="map_sel_feature" id="map_sel_ft">
+                        <option value="gdp">GDP (constant 2015 US$)</option>
+                        <option value="air_pollution">Population above WHO air pollution guidelines</option>
+                        <option value="growth">Annual growth rate</option>
+                        <option value="revenue_proportion">Gov. revenue proportion of GDP</option>
+                        <option value="mortality">Mortality rate</option>
+                        <option value="fdi">FDI</option>
+                      </select>
                     <svg class="map_container" id="other_map_container"></svg>
                     <div class="scale" id="scale-emi">
                         <p>No Data</p>
@@ -107,12 +114,12 @@
             </div>
             <div id="animation_btn">
                 <button class="btn"><img id="btn_icon" src="resources/play.svg"/></button>
-                <p id="map_year">Year 1950</p>
+                <p id="map_year">Year 2005</p>
             </div>
             <div class="slidecontainer">
-                <input type="range" min="1950" max="2021" value="1950" class="slider" id="myRange">
+                <input type="range" min="2005" max="2021" value="1950" class="slider" id="myRange">
                 <div id="slider-dates">
-                    <p>1950</p>
+                    <p>2005</p>
                     <p>2021</p>
                 </div>
             </div>

@@ -123,6 +123,10 @@ header {
     margin: auto;
 }
 
+#map_sel_ft {
+    align-self: center;
+}
+
 .scale {
     margin: 0 auto;
     display: flex;
