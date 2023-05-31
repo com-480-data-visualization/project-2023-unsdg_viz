@@ -27,7 +27,6 @@ const bottom = rect.bottom;
 var title = document.getElementById('title');
 
 if (bottom <= windowHeight) {
-    console.log('change')
     L6.style.zIndex = 0;
     title.style.zIndex = 0;
     L1.style.position = 'absolute';

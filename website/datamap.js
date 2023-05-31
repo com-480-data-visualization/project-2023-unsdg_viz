@@ -1,6 +1,7 @@
 import { setupAnimationSlider, currentYear } from "./animation_slider.js";
 import { interpolateReds, interpolateBlues } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 import { worldmap_data } from "./worldmapdata.js";
+import { loadCountryDetails } from "./country_details.js";
 
 const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
@@ -54,34 +55,38 @@ const getText = function(props, parameter, year) {
 }
 
 const data = worldmap_data;
-
+let data_csv;
 
 export const loadMaps = () => {
-    // init maps
-    initMap(d3.select('#emi_map_container'),
-        document.getElementById('details-container'),
-        LEFT_MAP_FEATURE, colorScaleRed);
-    
-    colorScaleBlue = d3.scaleSequential()
-		.domain([0, MAX_VALUES[RIGHT_MAP_STARTING_FEATURE]])
-		.interpolator(interpolateBlues)
-    initMap(d3.select('#other_map_container'),
-        document.getElementById('details-container'),
-        RIGHT_MAP_STARTING_FEATURE, colorScaleBlue);
-    
-    // register selection callback
-    d3.select("#map_sel_ft").on("change", function () {
-        var selectedValue = d3.select(this).property("value");
+    d3.csv('resources/worldmap_csv.csv').then(loadedData => {
+        data_csv = loadedData;
+
+        // init maps
+        initMap(d3.select('#emi_map_container'),
+            document.getElementById('details-container'),
+            LEFT_MAP_FEATURE, colorScaleRed);
+        
         colorScaleBlue = d3.scaleSequential()
-            .domain([0, MAX_VALUES[selectedValue]])
-            .interpolator(interpolateBlues);
-        document.getElementById('end-scale-map2').innerHTML = MAX_VALUES_STRINGS[selectedValue];
+            .domain([0, MAX_VALUES[RIGHT_MAP_STARTING_FEATURE]])
+            .interpolator(interpolateBlues)
+        initMap(d3.select('#other_map_container'),
+            document.getElementById('details-container'),
+            RIGHT_MAP_STARTING_FEATURE, colorScaleBlue);
+        
+        // register selection callback
+        d3.select("#map_sel_ft").on("change", function () {
+            var selectedValue = d3.select(this).property("value");
+            colorScaleBlue = d3.scaleSequential()
+                .domain([0, MAX_VALUES[selectedValue]])
+                .interpolator(interpolateBlues);
+            document.getElementById('end-scale-map2').innerHTML = MAX_VALUES_STRINGS[selectedValue];
 
-        updateMap(d3.select('#other_map_container'), currentYear, selectedValue, colorScaleBlue);
+            updateMap(d3.select('#other_map_container'), currentYear, selectedValue, colorScaleBlue);
+        });
+
+        // set animation elements
+        initAnimationElements();
     });
-
-    // set animation elements
-    initAnimationElements();
 }
 
 
@@ -98,18 +103,7 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
 
     // country click callback
     function clickHandler(event, d) {
-        let countryName = document.getElementById('country-name')
-        // TODO refactor once we know exactly what data to put
-        if (countryName.innerHTML === d.properties.name){
-            // clicked on same country -> hide details
-            countryName.innerHTML = '';
-            detailsContainer.style.display = "none";
-        } else {
-            // show details of clicked country
-            countryName.innerHTML = d.properties.name;
-            detailsContainer.style.display = "block";
-            detailsContainer.scrollIntoView();
-        }
+        fillDetailsBox(d, detailsContainer);
     }
 
     function doubleClickHandler(event, d) {
@@ -177,4 +171,26 @@ const initAnimationElements = () => {
     document.getElementById('start-scale-map2').innerHTML = '0';
     document.getElementById('end-scale-map2').innerHTML =
         MAX_VALUES_STRINGS[RIGHT_MAP_STARTING_FEATURE];
+}
+
+const fillDetailsBox = function(d, detailsContainer) {
+    let countryName = document.getElementById('country-name')
+        if (countryName.innerHTML === d.properties.name){
+            // clicked on same country -> hide details
+            countryName.innerHTML = '';
+            detailsContainer.style.display = "none";
+        } else {
+            // show details of clicked country
+            countryName.innerHTML = d.properties.name;
+            detailsContainer.style.display = "block";
+            let flt = data_csv.filter(e => e.country === d.properties.name)
+            loadCountryDetails(flt, Object.keys(MAX_VALUES));
+            
+            // scroll to container
+            detailsContainer.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            });
+        }
 }
