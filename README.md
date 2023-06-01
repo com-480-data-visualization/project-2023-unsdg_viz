@@ -23,16 +23,18 @@ The target audience is anyone who is interested in the topic of sustainability. 
 ## Technical setup 💻
 In order to run the project locally, the 'website' directory should be cloned and the index.html opened in a local server (e.g. development local Server VS extension)
 
-The repository structure is listed below: <br>
-├───data                  All the data used for preprocessing <br>
-├───figures               !!!!TODO: Code of all individual figures --> Should we delete?<br>
-├───milestone 1           Python script for exploratative data analysis and preprocessing <br>
-    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)<br>
-    └───plots             Plots from exploratative data analysis<br>
-├───milestone 2           !!! TODO: cleanup<br>
-└───website               Index html, all Javascript and CSS files  <br>
-    ├───img              TODO: to move to resources?? Images used for hero image <br>
-    └───resources        Data used for plots<br>
+The repository structure is listed below: <br />
+<pre>
+├───data                  All the data used for preprocessing <br />
+├───figures               !!!!TODO: Code of all individual figures --> Should we delete?<br />
+├───milestone 1           Python script for exploratative data analysis and preprocessing <br />
+    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)<br />
+    └───plots             Plots from exploratative data analysis<br />
+├───milestone 2           !!! TODO: cleanup<br />
+└───website               Index html, all Javascript and CSS files  <br />
+    ├───img              TODO: to move to resources?? Images used for hero image <br />
+    └───resources        Data used for plots<br />
+</pre>
      
 The visualizations were made with [D3.js](https://d3js.org/). The details about the technical implementations is described in the processbook.
 
