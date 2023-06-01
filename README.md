@@ -25,15 +25,15 @@ In order to run the project locally, the 'website' directory should be cloned an
 
 The repository structure is listed below: <br />
 ```
-├───data                  All the data used for preprocessing <br />
-├───figures               !!!!TODO: Code of all individual figures --> Should we delete?<br />
-├───milestone 1           Python script for exploratative data analysis and preprocessing <br />
-    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)<br />
-    └───plots             Plots from exploratative data analysis<br />
-├───milestone 2           !!! TODO: cleanup<br />
-└───website               Index html, all Javascript and CSS files  <br />
-    ├───img              TODO: to move to resources?? Images used for hero image <br />
-    └───resources        Data used for plots<br />
+├───data                  All the data used for preprocessing 
+├───figures               !!!!TODO: Code of all individual figures --> Should we delete?
+├───milestone 1           Python script for exploratative data analysis and preprocessing 
+    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)
+    └───plots             Plots from exploratative data analysis
+├───milestone 2           !!! TODO: cleanup
+└───website               Index html, all Javascript and CSS files  
+    ├───img              TODO: to move to resources?? Images used for hero image 
+    └───resources        Data used for plots
 ```
      
 The visualizations were made with [D3.js](https://d3js.org/). The details about the technical implementations is described in the processbook.
