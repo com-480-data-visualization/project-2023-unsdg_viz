@@ -1,5 +1,6 @@
 import { setupAnimationSlider, currentYear } from "./animation_slider.js";
-import { interpolateReds, interpolateBlues } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+import { interpolateReds, interpolateBlues, interpolateGreens,
+    interpolateRdYlGn, interpolateOranges, interpolatePurples, interpolatePuBuGn } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 import { worldmap_data } from "./worldmapdata.js";
 import { loadCountryDetails } from "./country_details.js";
 
@@ -11,32 +12,66 @@ const LEFT_MAP_FEATURE = 'co2_emissions';
 const RIGHT_MAP_STARTING_FEATURE = 'gdp';
 const FIRST_YEAR = 2005;
 const LAST_YEAR = 2021;
-const MAX_VALUES = {
-    'co2_emissions': 11472369000,
-    'air_pollution': 100,
-    'mortality': 0.545,
-    'gdp': 14631844184064,
-    'growth': 0.95,
-    'fdi': 467625,
-    'revenue_proportion': 3.656346,
+
+// TODO min values
+// TODO invert mortality interpolation
+const FEATURE_DATA = {
+    'co2_emissions': {
+        maxValue: 11472369000,
+        maxValString: '11\'473M',
+        interpolator: interpolateReds,
+        legendImage: 'resources/Reds.png', 
+    },
+    'air_pollution': {
+        maxValue: 100,
+        maxValString: '100%',
+        interpolator: interpolateBlues,
+        legendImage: 'resources/Blues.png', 
+    },
+    'mortality': {
+        maxValue: 0.545,
+        maxValString: '0.545',
+        interpolator: interpolateRdYlGn,
+        legendImage: 'resources/RdYlGn.png', 
+    },
+    'gdp': {
+        maxValue: 14631844184064,
+        maxValString: '14\'632G',
+        interpolator: interpolateGreens,
+        legendImage: 'resources/Greens.png', 
+    },
+    'growth': {
+        maxValue: 0.95,
+        maxValString: '0.95%',
+        interpolator: interpolateOranges,
+        legendImage: 'resources/Oranges.png', 
+    },
+    'fdi': {
+        maxValue: 467625,
+        maxValString: '468k',
+        interpolator: interpolateBlues,
+        legendImage: 'resources/Blues.png', 
+    },
+    'revenue_proportion': {
+        maxValue: 3.656346,
+        maxValString: '3.66',
+        interpolator: interpolatePuBuGn,
+        legendImage: 'resources/PuBuGn.png', 
+    },
 }
-const MAX_VALUES_STRINGS = {
-    'co2_emissions': '11\'473M',
-    'air_pollution': '100',
-    'mortality': '0.545',
-    'gdp': '14\'632G',
-    'growth': '0.95',
-    'fdi': '468k',
-    'revenue_proportion': '3.66',
-}
-const colorScaleRed = d3.scaleSequential()
-		.domain([0, MAX_VALUES[LEFT_MAP_FEATURE]])
-		.interpolator(interpolateReds);
-let colorScaleBlue;
+
+
+let currentlySelected = RIGHT_MAP_STARTING_FEATURE;
 
 const animationCallback = function(year) {
-    updateMap(d3.select('#emi_map_container'), year, LEFT_MAP_FEATURE, colorScaleRed);
-    updateMap(d3.select('#other_map_container'), year, d3.select("#map_sel_ft").property("value"), colorScaleBlue);
+    updateMap(d3.select('#emi_map_container'), year, LEFT_MAP_FEATURE,
+        d3.scaleSequential()
+            .domain([0, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
+            .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
+    updateMap(d3.select('#other_map_container'), year, d3.select("#map_sel_ft").property("value"),
+    d3.scaleSequential()
+        .domain([0, FEATURE_DATA[currentlySelected].maxValue])
+        .interpolator(FEATURE_DATA[currentlySelected].interpolator));
 }
 
 const getColor = function(scale, props, parameter, year) {
@@ -64,24 +99,32 @@ export const loadMaps = () => {
         // init maps
         initMap(d3.select('#emi_map_container'),
             document.getElementById('details-container'),
-            LEFT_MAP_FEATURE, colorScaleRed);
-        
-        colorScaleBlue = d3.scaleSequential()
-            .domain([0, MAX_VALUES[RIGHT_MAP_STARTING_FEATURE]])
-            .interpolator(interpolateBlues)
+            LEFT_MAP_FEATURE,
+            d3.scaleSequential()
+                .domain([0, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
+                .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
         initMap(d3.select('#other_map_container'),
             document.getElementById('details-container'),
-            RIGHT_MAP_STARTING_FEATURE, colorScaleBlue);
-        
+            RIGHT_MAP_STARTING_FEATURE,
+            d3.scaleSequential()
+                .domain([0, FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValue])
+                .interpolator(FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].interpolator));
+
+        document.getElementById('map_sel_ft').value = RIGHT_MAP_STARTING_FEATURE;
+        document.getElementById('scale_grad_rigth').src =
+                FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].legendImage;
+
         // register selection callback
         d3.select("#map_sel_ft").on("change", function () {
-            var selectedValue = d3.select(this).property("value");
-            colorScaleBlue = d3.scaleSequential()
-                .domain([0, MAX_VALUES[selectedValue]])
-                .interpolator(interpolateBlues);
-            document.getElementById('end-scale-map2').innerHTML = MAX_VALUES_STRINGS[selectedValue];
-
-            updateMap(d3.select('#other_map_container'), currentYear, selectedValue, colorScaleBlue);
+            currentlySelected = d3.select(this).property("value");
+            document.getElementById('end-scale-map2').innerHTML =
+                FEATURE_DATA[currentlySelected].maxValString;
+            document.getElementById('scale_grad_rigth').src =
+                FEATURE_DATA[currentlySelected].legendImage;
+            updateMap(d3.select('#other_map_container'), currentYear, currentlySelected,
+                d3.scaleSequential()
+                    .domain([0, FEATURE_DATA[currentlySelected].maxValue])
+                    .interpolator(FEATURE_DATA[currentlySelected].interpolator));
         });
 
         // set animation elements
@@ -101,13 +144,13 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
         g.attr("transform", d3.zoomTransform(this));
     }
 
-    // country click callback
+    // click callback
     function clickHandler(event, d) {
-        fillDetailsBox(d, detailsContainer);
-    }
-
-    function doubleClickHandler(event, d) {
-        clickToZoom(ZOOM_IN_STEP);
+        if (event.detail === 1) {
+            fillDetailsBox(d, detailsContainer);
+          } else if (event.detail === 2) {
+            clickToZoom(ZOOM_IN_STEP);
+          }
     }
 
     function clickToZoom(zoomStep) {
@@ -138,7 +181,6 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
             .attr("stroke", "#000")
             .attr("stroke-width", 0.5)
             .on("click", clickHandler)
-            .on("dblclick", doubleClickHandler)
         .append('title')
             .text(d => getText(d.properties, parameter, FIRST_YEAR));
 
@@ -167,10 +209,10 @@ const initAnimationElements = () => {
 
     document.getElementById('start-scale-map1').innerHTML = '0';
     document.getElementById('end-scale-map1').innerHTML =
-        MAX_VALUES_STRINGS[LEFT_MAP_FEATURE];
+        FEATURE_DATA[LEFT_MAP_FEATURE].maxValString;
     document.getElementById('start-scale-map2').innerHTML = '0';
     document.getElementById('end-scale-map2').innerHTML =
-        MAX_VALUES_STRINGS[RIGHT_MAP_STARTING_FEATURE];
+        FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValString;
 }
 
 const fillDetailsBox = function(d, detailsContainer) {
@@ -187,10 +229,10 @@ const fillDetailsBox = function(d, detailsContainer) {
             loadCountryDetails(flt, Object.keys(MAX_VALUES));
             
             // scroll to container
-            detailsContainer.scrollIntoView({
+            /*detailsContainer.scrollIntoView({
                 behavior: 'auto',
                 block: 'center',
                 inline: 'center'
-            });
+            });*/
         }
 }
