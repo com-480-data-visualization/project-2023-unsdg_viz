@@ -31,8 +31,8 @@ The repository structure is listed below: <br>
     └───plots             Plots from exploratative data analysis<br>
 ├───milestone 2           !!! TODO: cleanup<br>
 └───website               Index html, all Javascript and CSS files  <br>
-     ├───img              TODO: to move to resources?? Images used for hero image <br>
-     └───resources        Data used for plots<br>
+    ├───img              TODO: to move to resources?? Images used for hero image <br>
+    └───resources        Data used for plots<br>
      
 The visualizations were made with [D3.js](https://d3js.org/). The details about the technical implementations is described in the processbook.
 
