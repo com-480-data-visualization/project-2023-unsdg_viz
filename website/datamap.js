@@ -1,5 +1,6 @@
 import { setupAnimationSlider, currentYear } from "./animation_slider.js";
-import { interpolateReds, interpolateBlues } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+import { interpolateReds, interpolateBlues, interpolateGreens,
+    interpolateRdYlGn, interpolateOranges, interpolatePurples, interpolatePuBuGn } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 import { worldmap_data } from "./worldmapdata.js";
 import { loadCountryDetails } from "./country_details.js";
 
@@ -63,6 +64,7 @@ export const loadMaps = () => {
 
         // init maps
         initMap(d3.select('#emi_map_container'),
+            document.getElementById('country_details_visibility'),
             document.getElementById('details-container'),
             LEFT_MAP_FEATURE, colorScaleRed);
         
@@ -70,6 +72,7 @@ export const loadMaps = () => {
             .domain([0, MAX_VALUES[RIGHT_MAP_STARTING_FEATURE]])
             .interpolator(interpolateBlues)
         initMap(d3.select('#other_map_container'),
+            document.getElementById('country_details_visibility'),
             document.getElementById('details-container'),
             RIGHT_MAP_STARTING_FEATURE, colorScaleBlue);
         
@@ -90,7 +93,7 @@ export const loadMaps = () => {
 }
 
 
-const initMap = (container, detailsContainer, parameter, colorScale) => {
+const initMap = (container, visContainer, detailsContainer, parameter, colorScale) => {
     /* event handlers */
     const zoom = d3
     .zoom()
@@ -101,13 +104,13 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
         g.attr("transform", d3.zoomTransform(this));
     }
 
-    // country click callback
+    // click callback
     function clickHandler(event, d) {
-        fillDetailsBox(d, detailsContainer);
-    }
-
-    function doubleClickHandler(event, d) {
-        clickToZoom(ZOOM_IN_STEP);
+        if (event.detail === 1) {
+            fillDetailsBox(d, visContainer, detailsContainer);
+          } else if (event.detail === 2) {
+            clickToZoom(ZOOM_IN_STEP);
+          }
     }
 
     function clickToZoom(zoomStep) {
@@ -138,7 +141,6 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
             .attr("stroke", "#000")
             .attr("stroke-width", 0.5)
             .on("click", clickHandler)
-            .on("dblclick", doubleClickHandler)
         .append('title')
             .text(d => getText(d.properties, parameter, FIRST_YEAR));
 
@@ -173,24 +175,24 @@ const initAnimationElements = () => {
         MAX_VALUES_STRINGS[RIGHT_MAP_STARTING_FEATURE];
 }
 
-const fillDetailsBox = function(d, detailsContainer) {
+const fillDetailsBox = function(d, visContainer, detailsContainer) {
     let countryName = document.getElementById('country-name')
         if (countryName.innerHTML === d.properties.name){
             // clicked on same country -> hide details
             countryName.innerHTML = '';
-            detailsContainer.style.display = "none";
+            visContainer.style.display = "none";
         } else {
             // show details of clicked country
             countryName.innerHTML = d.properties.name;
-            detailsContainer.style.display = "block";
+            visContainer.style.display = "block";
             let flt = data_csv.filter(e => e.country === d.properties.name)
             loadCountryDetails(flt, Object.keys(MAX_VALUES));
             
             // scroll to container
-            detailsContainer.scrollIntoView({
+            /*detailsContainer.scrollIntoView({
                 behavior: 'auto',
                 block: 'center',
                 inline: 'center'
-            });
+            });*/
         }
 }
