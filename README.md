@@ -24,9 +24,9 @@ The target audience is anyone who is interested in the topic of sustainability. 
 In order to run the project locally, the 'website' directory should be cloned and the index.html opened in a local server (e.g. development local Server VS extension)
 
 The repository structure is listed below:
-├───data                  All the data used for preprocessing
-├───figures               !!!!TODO: Code of all individual figures --> Should we delete?
-├───milestone 1           Python script for exploratative data analysis and preprocessing 
+├───data                  All the data used for preprocessing <br>
+├───figures               !!!!TODO: Code of all individual figures --> Should we delete?<br>
+├───milestone 1           Python script for exploratative data analysis and preprocessing <br>
     ├───data generated    Generated pickle files from Python script (EDA and preprocessing)
     └───plots             Plots from exploratative data analysis
 ├───milestone 2           !!! TODO: cleanup
