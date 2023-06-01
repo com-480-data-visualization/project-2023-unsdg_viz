@@ -1,4 +1,4 @@
-# Project of Data Visualization (COM-480) 
+# Project of Data Visualization (COM-480) 🖌️
 
 | Student's name | SCIPER |
 | -------------- | ------ |
@@ -11,7 +11,7 @@
 [Milestone 2](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone2/UNSDG_viz-M2.pdf): Design thinking of project
 [Milestone 3](#milestone-3): Process book 
 
-## Intended usage 
+## Intended usage 🌍
 The website's goal is to explore the intricate relationship betweencountry development and sustainability with environmental focus. It guides the user through the visualizations and highlights what the motivation between each visualization is. 
 
 First, a general introduction to the topic is given. A visualization of the temperature and CO2 emission time series enables the user to inspect the influence of this greenhouse gas and to understand the importance of sustainable development. 
@@ -20,21 +20,23 @@ Afterwards, a deep dive into statistical relationships between the features is s
 
 The target audience is anyone who is interested in the topic of sustainability. From curious leaders to climate acitvists who are trying to find strategies on how to decouple CO2 emissions from economic growth to scientist analyzing trends to find environmentally friendly policies.
 
-## Technical setup 
+## Technical setup 💻
 In order to run the project locally, the 'website' directory should be cloned and the index.html opened in a local server (e.g. development local Server VS extension)
 
-The repository structure is listed below:
+The repository structure is listed below: <br>
 ├───data                  All the data used for preprocessing <br>
 ├───figures               !!!!TODO: Code of all individual figures --> Should we delete?<br>
 ├───milestone 1           Python script for exploratative data analysis and preprocessing <br>
-    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)
-    └───plots             Plots from exploratative data analysis
-├───milestone 2           !!! TODO: cleanup
-└───website               Index html, all Javascript and CSS files     
-     ├───img              TODO: to move to resources?? Images used for hero image 
-     └───resources        Data used for plots
+    ├───data generated    Generated pickle files from Python script (EDA and preprocessing)<br>
+    └───plots             Plots from exploratative data analysis<br>
+├───milestone 2           !!! TODO: cleanup<br>
+└───website               Index html, all Javascript and CSS files  <br>
+     ├───img              TODO: to move to resources?? Images used for hero image <br>
+     └───resources        Data used for plots<br>
+     
+The visualizations were made with [D3.js](https://d3js.org/). The details about the technical implementations is described in the processbook.
 
-## Dataset
+## Dataset 💾
 Multiple datasets were used to build the website. A detailed dataset description can be seen in milestone 1. The preprocessing is described in the processbook.
 
 From [Kaggle](https://www.kaggle.com/datasets/vittoriogiatti/unsdg-united-nations-sustainable-development-group): 
@@ -48,7 +50,7 @@ From [ourworldindata](https://ourworldindata.org/):
 - [Air pollution](https://ourworldindata.org/grapher/share-above-who-pollution-guidelines?tab=table): share-above-who-pollution-guidelines.csv
 - [Renewable_energy](https://ourworldindata.org/grapher/co2-per-capita-vs-renewable-electricity?tab=table): 'co2-per-capita-vs-renewable-electricity.csv
 
-
+--------- TODO: delete?---------------
 ## Milestone 1 (7th April, 5pm)
 
 **10% of the final grade**
