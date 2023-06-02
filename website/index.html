@@ -28,11 +28,11 @@
                 <img id="img" src="resources/sdg_logo.ico">
                 <h2 id="name">UNSDG_viz</h2>
             </div>
-            <nav class="navigation">
+            <!--<nav class="navigation">
                 <a href="#">Project</a>
                 <a href="#">Team</a>
                 <a href="#">About</a>
-            </nav>
+            </nav>-->
         </header>
 
         <div id="hero_container">
@@ -63,134 +63,184 @@
         </div>
 
         <div class="description">
-            <h1>The climate is changing</h1>
-            <p id="climate_text">
+            <h1 class="section_header">THE CLIMATE IS CHANGING</h1>
+            <p class="climate_text" id="climate_left">
                 For many years, our earth has provided us with clean air to breathe, water to drink and fertile ground to grow our food
                 on. It is a master in finding balance in countless systems such as the carbon cycle between the atmosphere, land, and
                 oceans or the water balance between evaporation, condensation, and precipitation.
-                
+            </p>
+            <p class="climate_text" id="climate_right">  
                 The industrial revolution in the 18th to 19th century marks a period of rapid socioeconomic transformation. While it led
                 to great advancements in technology, the increased release of greenhouse gases into the atmosphere disrupted the earths
                 balance. An intensification of the greenhouse effect happened, where more heat is trapped than released. Global
                 temperatures have since then risen significantly, leading to floods, storms, and wildfires.
-                
+            </p>
+            <p class="climate_text" id="climate_left"> 
                 In the last 15 years many developing countries have experienced economic growth. This leads to the question what
-                environmental impact the powering of further economic and social development will have. Join us on a journey to discover
-                the intricate relationship between climate change and country's development.
-                
+                environmental impact the powering of further economic and social development will have.
+            </p>
+
+            <p class="climate_text" id="climate_transition"> 
+                Join us on a journey to discover the intricate relationship between climate change and country's development.
+            </p>
+
+            <h2 class="section_header" id="journey">TEMPERATURE TRENDS</h2>
+
+            <p class="climate_text" id="climate_center"> 
                 Before we dive into this question, let's first look on how the temperature has increased over the years and with respect
                 to CO2 emissions. In the graph you can see the upper and lower bounds of the 95% confidence intervals, as well as the
                 mean of the global average land-sea temperature relative to the 1961-1990 average temperature.
-
             </p>
-        </div>
+
             
-        <div id="climate_section">
-            <form>
-                <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
-                    <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
-                                                        Show CO2 emission
-                </label>
-            </form>  
-            <div id="dropdown-menu"></div>
-        
-            <div id="climate_graph"></div>
-        
-            <div id="range_container">
-                <div class="range_container">
-                    <!-- Slider -->
-                    <div class="sliders_control">
-                        <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
-                        <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
-                    </div>
-                    <!-- Box showing value of slider -->
-                    <div class="minmax_box">
-                        <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
-                        <input type="number" id="toInput" value="2022" min="1850" max="2022" />
+        </div>
+
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can toggle CO₂ emissions on and off using the checkbox and zoom in the graph using the slider.</p>
+            </div>
+            <div id="climate_section">
+                <form>
+                    <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
+                        <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
+                        Show CO2 emission
+                    </label>
+                </form>  
+                <div id="dropdown-menu"></div>
+            
+                <div id="climate_graph"></div>
+                
+                <div id="range_container">
+                    <div class="range_container">
+                        <!-- Slider -->
+                        <div class="sliders_control">
+                            <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
+                            <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
+                        </div>
+                        <!-- Box showing value of slider -->
+                        <div class="minmax_box">
+                            <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
+                            <input type="number" id="toInput" value="2022" min="1850" max="2022" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="description">
-            <h1>World Maps of the distribution of the indexes </h1>
-            <p id="stats_text">
-                .......
+            <p class="climate_text" id="climate_center"> 
+                The global trends are pretty clear. However, the reality of each country is
+                unique. Let's take a closer look to discover how they behave individually. 
+                ocer the years. In particular, how do development indexes compare to CO₂ 
+                emissions of the various countries?
+            </p>
+
+            <h2 class="section_header" id="journey">PER COUNTRY INDEXES COMPARISON</h2>
+
+            <p class="climate_text" id="climate_center"> 
+                Select an index to compare to CO₂ emissions and start the animation with the 
+                play button to observe the values evolve through time.
+            </p>    
+        </div>
+
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can double-click to zoom in a map and shift + double-click to zoom out.</p>
+            </div>
+
+            <div class="world_viz">
+                <div class="maps">
+                    <div class="map">
+                        <p>Annual CO₂ emissions</p>
+                        <svg class="map_container" id="emi_map_container"></svg>
+                        <div class="scale" id="scale-emi">
+                            <p>No Data</p>
+                            <div class="no-data-color"></div>
+                            <p id="start-scale-map1"></p>
+                            <img class="scale-grad" src="resources/Reds.png">
+                            <p id="end-scale-map1"></p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <select name="map_sel_feature" id="map_sel_ft">
+                            <option value="gdp">GDP (constant 2015 US$)</option>
+                            <option value="air_pollution">Population above WHO air pollution guidelines</option>
+                            <option value="growth">Annual growth rate</option>
+                            <option value="revenue_proportion">Gov. revenue proportion of GDP</option>
+                            <option value="mortality">Mortality rate</option>
+                            <option value="fdi">FDI</option>
+                        </select>
+                        <svg class="map_container" id="other_map_container"></svg>
+                        <div class="scale" id="scale-emi">
+                            <p>No Data</p>
+                            <div class="no-data-color"></div>
+                            <p id="start-scale-map2"></p>
+                            <img class="scale-grad" id="scale_grad_right" src="resources/Blues.png">
+                            <p id="end-scale-map2"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="animation_btn">
+                    <button class="btn"><img id="btn_icon" src="resources/play.svg"/></button>
+                    <p id="map_year">Year 2005</p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="2005" max="2021" value="1950" class="slider" id="myRange">
+                    <div id="slider-dates">
+                        <p>2005</p>
+                        <p>2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="worldmap_text"> 
+                Curious about a particular country? Click it to discover the full data!
             </p>
         </div>
 
-        <div class="world_viz">
-            <div class="maps">
-                <div class="map">
-                    <p>Annual CO₂ emissions</p>
-                    <svg class="map_container" id="emi_map_container"></svg>
-                    <div class="scale" id="scale-emi">
-                        <p>No Data</p>
-                        <div class="no-data-color"></div>
-                        <p id="start-scale-map1"></p>
-                        <img class="scale-grad" src="resources/Reds.png">
-                        <p id="end-scale-map1"></p>
-                    </div>
-                </div>
-                <div class="map">
-                    <select name="map_sel_feature" id="map_sel_ft">
-                        <option value="gdp">GDP (constant 2015 US$)</option>
-                        <option value="air_pollution">Population above WHO air pollution guidelines</option>
-                        <option value="growth">Annual growth rate</option>
-                        <option value="revenue_proportion">Gov. revenue proportion of GDP</option>
-                        <option value="mortality">Mortality rate</option>
-                        <option value="fdi">FDI</option>
-                      </select>
-                    <svg class="map_container" id="other_map_container"></svg>
-                    <div class="scale" id="scale-emi">
-                        <p>No Data</p>
-                        <div class="no-data-color"></div>
-                        <p id="start-scale-map2"></p>
-                        <img class="scale-grad" id="scale_grad_rigth" src="resources/Blues.png">
-                        <p id="end-scale-map2"></p>
-                    </div>
-                </div>
-            </div>
-            <div id="animation_btn">
-                <button class="btn"><img id="btn_icon" src="resources/play.svg"/></button>
-                <p id="map_year">Year 2005</p>
-            </div>
-            <div class="slidecontainer">
-                <input type="range" min="2005" max="2021" value="1950" class="slider" id="myRange">
-                <div id="slider-dates">
-                    <p>2005</p>
-                    <p>2021</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="country-details" id="details-container">
-            <h2 id="country-name"></h2>
-            <div id="country_scatter"></div>
+        <!-- TODO VIZ BOX IS INTERFERING WITH HOVER -->
+        <div class="viz_box_no_topmargin">
+            <div id="country_details_visibility">
+                <div class="info_box">
+                    <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                    <img class="info_icon" id="img" src="resources/info.png">
+                    <p class="info_text">You can hover on a point to highlight its category.</p>
+                </div>
+                <div class="country-details" id="details-container">
+                    <h2 id="country-name"></h2>
+                    <div id="country_scatter"></div>
+                </div>
+            </div>
         </div>
 
         <div class="description">
-            <h1>Evolution of CO2 compared to other indexes</h1>
+            <h2 class="section_header" id="journey">EVOLUTION OF CO₂ COMPARED TO OTHER INDEXES</h2>
             <p id="stats_text">
                 As we saw before, anthropogenic CO2 emissions are drivers of climate change. 
                 However, not all countries are equal in terms of CO2 budget.
                 Indeed, a European person tends to emit much more than an African person for instance. 
-                This is due to differences in lifestyle. These differences are also driven by social inequlities. 
+                This is due to differences in lifestyle. These differences are also driven by social inequalities. 
             </p>
             <p id="stats_text">
                 Thus, in this next graph we will look at the similarities in the distribution of certian indexes and the CO2 emissions. 
-                Then, to get a more precise idea of the phenomenas, we look at the differences in countries. 
+                Then, to get a more precise idea of the phenomena, we look at the differences in countries. 
                 For instance, ... 
             </p>
         </div>
-            
+
         <div id="stats_section">
             <div id="stats_graph"></div>
         </div>  
         
 
         <div class="description">
-            <h1>Correlations</h1>
+            <h2 class="section_header" id="journey">CORRELATION</h2>
+
             <p id="stats_text">
                 .......
             </p>

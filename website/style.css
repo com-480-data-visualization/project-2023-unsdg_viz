@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 :root {
     --color-bg: #8CA1C0 ;
@@ -24,6 +25,7 @@
 body {
     background: linear-gradient(to bottom, #8CA1C0, #8CA1C0, #b4cba3, #b4cba3);
     overflow-x: hidden;
+    font-family: 'Raleway';
 }
 
 header {
@@ -36,7 +38,6 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    font-family: 'Lato';
 }
 
 .logo {
@@ -70,7 +71,6 @@ header {
 }
 
 .description {
-    font-family: 'Lato';
     position: static;
     display: block;
     justify-content: center;
@@ -78,10 +78,74 @@ header {
     text-align: center;
     padding-top: 150px;
     margin: 0 auto;
-    padding-bottom: 100px;
     color: var(--color-text);
+    width: 80%;
+    font-size: large;
 }
 
+.section_header {
+    margin-bottom: 150px;
+    font-weight: bolder;
+}
+
+#climate_left {
+    margin-top: 100px;
+    margin-right:800px;
+}
+
+#climate_right {
+    margin-top: 100px;
+    margin-left: 800px;
+}
+
+#climate_transition {
+    margin-top: 300px;
+    margin-right: 400px;
+    margin-left: 400px;
+    font-size: larger;
+}
+
+#journey {
+    margin-top: 400px;
+}
+
+#climate_center {
+    margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+.viz_box {
+    padding-top: 200px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.viz_box_no_topmargin {
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.info_box {
+    border: 1px solid var(--color-text);
+    border-radius: 25px;
+    display: flex;
+    padding: 5px 15px 5px 15px;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 100px;
+}
+
+.info_icon {
+    width: 16px;
+    height: 16px;
+}
+
+.info_text {
+    padding-left: 10px;
+    font-size: smaller;
+}
 
 
 /* For overlapping rules  */
@@ -92,8 +156,19 @@ header {
 
 
 /* ### WORLD MAP STYLING ### */
+.world_viz {
+    margin-top: 25px;
+}
+
+.worldmap_text {
+    margin-right: 300px;
+    margin-left: 300px;
+    padding-top: 50px;
+    text-align: center;
+    color: var(--color-text);
+}
+
 .world_viz p {
-    font: 'Lato';
     color: var(--color-text);
     text-align: center;
 }
@@ -171,7 +246,6 @@ header {
 .slidecontainer {
     width: 25%;
     margin: auto;
-    font: 'Lato';
     color: var(--color-text);
 }
 
@@ -199,17 +273,19 @@ header {
     justify-content: space-between;
 }
 
+.country_details_visibility {
+    display: none;
+}
+
 /* ### COUNTRY DETAILS STYLING ### */
 .country-details {
     width: 65%;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 200px;
     padding: 20px;
     align-items: center;
     justify-content: center;
-    display: none;
-    border: 2px solid var(--color-text);
-    border-radius: 25px;
     text-align: center;
     color: var(--color-text);
 }

@@ -98,12 +98,14 @@ export const loadMaps = () => {
 
         // init maps
         initMap(d3.select('#emi_map_container'),
+            document.getElementById('country_details_visibility'),
             document.getElementById('details-container'),
             LEFT_MAP_FEATURE,
             d3.scaleSequential()
                 .domain([0, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
                 .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
         initMap(d3.select('#other_map_container'),
+            document.getElementById('country_details_visibility'),
             document.getElementById('details-container'),
             RIGHT_MAP_STARTING_FEATURE,
             d3.scaleSequential()
@@ -111,7 +113,7 @@ export const loadMaps = () => {
                 .interpolator(FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].interpolator));
 
         document.getElementById('map_sel_ft').value = RIGHT_MAP_STARTING_FEATURE;
-        document.getElementById('scale_grad_rigth').src =
+        document.getElementById('scale_grad_right').src =
                 FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].legendImage;
 
         // register selection callback
@@ -119,7 +121,7 @@ export const loadMaps = () => {
             currentlySelected = d3.select(this).property("value");
             document.getElementById('end-scale-map2').innerHTML =
                 FEATURE_DATA[currentlySelected].maxValString;
-            document.getElementById('scale_grad_rigth').src =
+            document.getElementById('scale_grad_right').src =
                 FEATURE_DATA[currentlySelected].legendImage;
             updateMap(d3.select('#other_map_container'), currentYear, currentlySelected,
                 d3.scaleSequential()
@@ -133,7 +135,7 @@ export const loadMaps = () => {
 }
 
 
-const initMap = (container, detailsContainer, parameter, colorScale) => {
+const initMap = (container, visContainer, detailsContainer, parameter, colorScale) => {
     /* event handlers */
     const zoom = d3
     .zoom()
@@ -147,7 +149,7 @@ const initMap = (container, detailsContainer, parameter, colorScale) => {
     // click callback
     function clickHandler(event, d) {
         if (event.detail === 1) {
-            fillDetailsBox(d, detailsContainer);
+            fillDetailsBox(d, visContainer, detailsContainer);
           } else if (event.detail === 2) {
             clickToZoom(ZOOM_IN_STEP);
           }
@@ -215,18 +217,18 @@ const initAnimationElements = () => {
         FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValString;
 }
 
-const fillDetailsBox = function(d, detailsContainer) {
+const fillDetailsBox = function(d, visContainer, detailsContainer) {
     let countryName = document.getElementById('country-name')
         if (countryName.innerHTML === d.properties.name){
             // clicked on same country -> hide details
             countryName.innerHTML = '';
-            detailsContainer.style.display = "none";
+            visContainer.style.display = "none";
         } else {
             // show details of clicked country
             countryName.innerHTML = d.properties.name;
-            detailsContainer.style.display = "block";
+            visContainer.style.display = "block";
             let flt = data_csv.filter(e => e.country === d.properties.name)
-            loadCountryDetails(flt, Object.keys(MAX_VALUES));
+            loadCountryDetails(flt, Object.keys(FEATURE_DATA[LEFT_MAP_FEATURE]));
             
             // scroll to container
             /*detailsContainer.scrollIntoView({
