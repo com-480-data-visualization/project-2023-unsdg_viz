@@ -1,5 +1,6 @@
 import { loadMaps } from "./datamap.js";
 import { loadStatsGraph } from "./stats_graph.js";
+import { loadCountryDetailsViz } from "./country_details.js";
 
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
@@ -10,6 +11,9 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
+	/* COUNTRY DETAILS VIZ */
+	loadCountryDetailsViz();
+
 	/* WORLD MAPS */
 	loadMaps();
 

@@ -2,7 +2,6 @@ import { setupAnimationSlider, currentYear } from "./animation_slider.js";
 import { interpolateReds, interpolateBlues, interpolateGreens,
     interpolateRdYlGn, interpolateOranges, interpolatePurples, interpolatePuBuGn } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 import { worldmap_data } from "./worldmapdata.js";
-import { loadCountryDetails } from "./country_details.js";
 
 const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
@@ -49,8 +48,8 @@ const FEATURE_DATA = {
     'fdi': {
         maxValue: 467625,
         maxValString: '468k',
-        interpolator: interpolateBlues,
-        legendImage: 'resources/Blues.png', 
+        interpolator: interpolatePurples,
+        legendImage: 'resources/Purples.png', 
     },
     'revenue_proportion': {
         maxValue: 3.656346,
