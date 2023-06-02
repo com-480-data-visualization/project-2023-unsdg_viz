@@ -14,7 +14,7 @@ export const loadStatsGraph = () => {
             "translate(" + margin.left + "," + margin.top + ")");
 
     // Parse the Data
-    d3.csv("https://raw.githubusercontent.com/com-480-data-visualization/project-2023-unsdg_viz/master/milestone2/Plots_stats/stats_res_feats.csv").then(data => {
+    d3.csv("https://raw.githubusercontent.com/com-480-data-visualization/project-2023-unsdg_viz/master/website/resources/stats_res_feats.csv").then(data => {
         // X axis
         var x = d3.scaleBand()
         .range([ 0, width ])
@@ -26,7 +26,7 @@ export const loadStatsGraph = () => {
         .selectAll("text")
             .attr("transform", "translate(-10,0)rotate(-45)")
             .style("text-anchor", "end")
-        .style('color', '#FFF'); // Color of the x axis 
+        .style('color', '#000'); // Color of the x axis 
 
         // Add Y axis
         var y = d3.scaleLinear()
@@ -35,21 +35,21 @@ export const loadStatsGraph = () => {
 
         svg.append("g")
         .call(d3.axisLeft(y))
-        .style('color', '#FFF'); // Color of the y axis 
+        .style('color', '#000'); // Color of the y axis 
 
         // create a tooltip
         var Tooltip = d3.select("#stats_graph")
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltip")
-            .style("background-color", "black") // Background of tooltip 
+            .style("background-color", "white") // Background of tooltip 
             .style("border", "solid")
             .style("border-width", "2px")
             .style("border-radius", "5px")
             .style("padding", "5px")
-            .style('color', '#FFF') // color of tooltip 
+            .style('color', '#000') // color of tooltip 
             .style("position", "absolute")
-            .style("font-family", 'Lato'); // Font 
+            .style("font-family", 'Raleway'); // Font 
 
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function(d) {
@@ -89,14 +89,6 @@ export const loadStatsGraph = () => {
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
-
-        // Animation
-        /*svg.selectAll("rect")
-        .transition()
-        .duration(800)
-        .attr("y", function(d) { return Math.abs(y(d.SpearmanR) - y(0)); })
-        .attr("height", function(d) { return height - Math.abs(y(d.SpearmanR) - y(0)); })
-        .delay(function(d,i){console.log(i) ; return(i*100)})*/
     });
 
     // Get the tops data 
@@ -126,7 +118,7 @@ export const loadStatsGraph = () => {
         // show details of clicked country
         let flt = data_top.filter(e => e.features === d.Features)
         const data = ParseData(flt);        
-
+        console.log(data[0].top5)
         var newHtml = [];
         newHtml.push("<p>Top Five Countries: ");
         newHtml.push(data[0].top5);
