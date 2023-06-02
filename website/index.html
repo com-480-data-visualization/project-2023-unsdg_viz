@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="climate_change.css">
         <link rel="stylesheet" href="hero_style.css">
+        <link rel="stylesheet" href="correlation_heatmap.css">
         <link rel="stylesheet" href="carbon_cycle.css">
         <!-- Only script needed in head section to ensure load on use -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -114,76 +115,86 @@
                 <img class="info_icon" id="img" src="resources/info.png">
                 <p class="info_text">You can toggle CO₂ emissions on and off using the checkbox and zoom in the graph using the slider.</p>
             </div>
-            <div id="climate_section">
-                <form>
-                    <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
-                        <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
-                        Show CO2 emission
-                    </label>
-                </form>  
-                <div id="dropdown-menu"></div>
+        </div>
+
+        <div id="climate_section">
+            <form>
+                <label for="checkbox_CO2" style="position: relative; padding-left: 500px; top: 20px">
+                    <input type="checkbox" name="checkbox_CO2" id="checkbox_CO2" ">
+                    Show CO2 emission
+                </label>
+            </form>  
+            <div id="dropdown-menu"></div>
+        
+            <div id="climate_graph"></div>
             
-                <div id="climate_graph"></div>
-                
-                <div id="range_container">
-                    <div class="range_container">
-                        <!-- Slider -->
-                        <div class="sliders_control">
-                            <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
-                            <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
-                        </div>
-                        <!-- Box showing value of slider -->
-                        <div class="minmax_box">
-                            <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
-                            <input type="number" id="toInput" value="2022" min="1850" max="2022" />
-                        </div>
+            <div id="range_container">
+                <div class="range_container">
+                    <!-- Slider -->
+                    <div class="sliders_control">
+                        <input id="fromSlider" type="range" value="1850" min="1850" max="2022" />
+                        <input id="toSlider" type="range" value="2022" min="1850" max="2022" />
+                    </div>
+                    <!-- Box showing value of slider -->
+                    <div class="minmax_box">
+                        <input type="number" id="fromInput" value="1850" min="1850" max="2022" />
+                        <input type="number" id="toInput" value="2022" min="1850" max="2022" />
                     </div>
                 </div>
             </div>
         </div>
+        
 
-    <!-- ---Carbon introduction-------------------------------------------------------------------------------------------------------------------------------------        -->
-            <div id="carboncycle">
-                <img src="img/carbon_cycle.jpg" alt="Your Image1">
-                <div id="image_text">
-                    <div id="process1">Dissolution</div>
-                    <div id="process1_text">Absorbtion of CO2 from the atmosphere, mostly on ocean surface.</div>
-            
-                    <div id="process2">Respiration</div>
-                    <div id="process2_text">Plants and animals use respiration to generate energy from organic molecules. <br>
-                        C6H12O6 + O2 -> CO2 + H2O</div>
-            
-                    <div id="process3">Decomposition</div>
-                    <div id="process3_text">Plants and animals get decomposed by bacteria and fungi after their lifetime, which
-                        releases CO2.</div>
-            
-                    <div id="process4">Fossil Fuel Formation</div>
-                    <div id="process4_text">When biomass decomposes without sufficient oxygen, for example in swamps or deep
-                        underground, they transform to fossil fuels like coal, oil, and natural gas.</div>
-            
-                    <div id="process5">Combustion</div>
-                    <div id="process5_text">CO2 is released during combustion processes of fossil fuels or biomass.</div>
-            
-                    <div id="process6">Photosynthesis</div>
-                    <div id="process6_text">Photosynthesis is a carbon sink where plants use carbon dioxide and light energy to
-                        create sugars in order to live and to produce biomass. <br>
-                        CO2 + H2O + energy = CH2O + O2 </div>
-            
-                    <div id="process7">Sedimentation</div>
-                    <div id="process7_text">When dead marine organisms sink and become part of the ocean floor sediment, they turn
-                        into limestone over time.</div>
-            
-                    <div id="process8">CO2 release from ground</div>
-                    <div id="process8_text">Volcanic eruption: When tectonic plate move under each other carbon dioxide is formed
-                        and released in form of eruptions.<br>
-                        Hydrothermal Vents: Through opernings on the seafloor, cold seawateris is heated by hot magma. This hot,
-                        rich in dissolved gases water reemerges to form the vents as "black smokers."
-                    </div>
-            
-                </div>
+<!-- ---Carbon introduction-------------------------------------------------------------------------------------------------------------------------------------        -->
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can click on a process-box to find out more information about it.</p>
             </div>
+        </div>
 
-    <!-- ---Index description-------------------------------------------------------------------------------------------------------------------------------------        -->
+        <div id="carboncycle">
+            <img src="img/carbon_cycle.jpg" alt="Your Image1">
+            <div id="image_text">
+                <div id="process1">Dissolution</div>
+                <div id="process1_text">Absorbtion of CO2 from the atmosphere, mostly on ocean surface.</div>
+        
+                <div id="process2">Respiration</div>
+                <div id="process2_text">Plants and animals use respiration to generate energy from organic molecules. <br>
+                    C6H12O6 + O2 -> CO2 + H2O</div>
+        
+                <div id="process3">Decomposition</div>
+                <div id="process3_text">Plants and animals get decomposed by bacteria and fungi after their lifetime, which
+                    releases CO2.</div>
+        
+                <div id="process4">Fossil Fuel Formation</div>
+                <div id="process4_text">When biomass decomposes without sufficient oxygen, for example in swamps or deep
+                    underground, they transform to fossil fuels like coal, oil, and natural gas.</div>
+        
+                <div id="process5">Combustion</div>
+                <div id="process5_text">CO2 is released during combustion processes of fossil fuels or biomass.</div>
+        
+                <div id="process6">Photosynthesis</div>
+                <div id="process6_text">Photosynthesis is a carbon sink where plants use carbon dioxide and light energy to
+                    create sugars in order to live and to produce biomass. <br>
+                    CO2 + H2O + energy = CH2O + O2 </div>
+        
+                <div id="process7">Sedimentation</div>
+                <div id="process7_text">When dead marine organisms sink and become part of the ocean floor sediment, they turn
+                    into limestone over time.</div>
+        
+                <div id="process8">CO2 release from ground</div>
+                <div id="process8_text">Volcanic eruption: When tectonic plate move under each other carbon dioxide is formed
+                    and released in form of eruptions.<br>
+                    Hydrothermal Vents: Through opernings on the seafloor, cold seawateris is heated by hot magma. This hot,
+                    rich in dissolved gases water reemerges to form the vents as "black smokers."
+                </div>
+        
+            </div>
+        </div>
+
+<!-- ---Index description-------------------------------------------------------------------------------------------------------------------------------------        -->
 
 
         <div id="stats_section">
@@ -231,7 +242,15 @@
         </div>
    
 
-        <!-- ---Correlation-------------------------------------------------------------------------------------------------------------------------------------        -->
+<!-- ---Correlation-------------------------------------------------------------------------------------------------------------------------------------        -->
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can click on the figure to get the corresponding correlation value.</p>
+            </div>
+        </div>
+        
         <div class="description">
             <h2 class="section_header" id="journey">CORRELATION</h2>
         
@@ -239,12 +258,13 @@
                 .......
             </p>
         </div>
+
         <div id="correlation_container">
             <div id="dropdown-menu_correlation"></div>
             <div id="correlation_heatmap"></div>
         </div>
 
-        <!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
+<!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
 
         <div class="description">
             <p class="climate_text" id="climate_center"> 
@@ -359,8 +379,8 @@
         
         <script src="hero.js"></script>
         <script src = "climate_change.js"></script>
-        <script src="carbon_cycle.css"></script>
-        <script src="heatmap.js"></script>
+        <script src="carbon_cycle.js"></script>
+        <script src="correlation_heatmap.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="module" src="root.js" async defer></script>
     </body>

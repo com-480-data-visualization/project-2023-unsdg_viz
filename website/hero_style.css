@@ -22,11 +22,11 @@ body {
     position: fixed;
     top: 0;
     z-index: 1;
-    max-width: auto;
+    max-width: 100vw;
 }
 
 #L1 img {
-    max-width: 100%;
+    width: 100vw;
     height: auto;
     /* Other CSS properties */
 }
@@ -39,7 +39,7 @@ body {
 }
 
 #L2 img {
-    max-width: 100%;
+    width: 100vw;
     height: auto;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 #L3 img {
-    max-width: 100%;
+    width: 100vw;
     height: auto;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 #L4 img {
-    max-width: 100%;
+    width: 100vw;
     height: auto;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 #L5 img {
-    max-width: 100%;
+    width: 100vw;
     height: auto;
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 #L6 img {
-    width: 100%;
+    width: 100vw;
     height: auto;
 }
 #L7 {
@@ -99,7 +99,7 @@ body {
 }
 
 #L7 img {
-    width: 100%;
+    width: 100vw;
     height: auto;
 }
 
