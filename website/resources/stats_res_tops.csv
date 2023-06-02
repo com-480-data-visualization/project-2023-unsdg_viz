@@ -1,21 +1,21 @@
 ,features,top5,last5
-0, Greenhousegas emissions,Uzbekistan (1.0) Hungary (1.0) Ethiopia (1.0) Finland (1.0) France (1.0),Albania (1.0) Norway (1.0) North Macedonia (1.0) Niue (1.0) New Zealand (1.0)
-1, Total government revenue proportion of GDP,China (1.0) Republic of Korea (0.86) Myanmar (0.8) Sierra Leone (0.8) Albania (0.74),Italy (-0.86) France (-0.84) Greece (-0.84) Germany (-0.84) Netherlands (-0.82)
-2, FDI (Foreign Direct Investment) inflows,Syrian Arab Republic (1.0) Kyrgyzstan (0.92) Brazil (0.82) Chile (0.8) China (0.8),South Sudan (-0.8) United States of America (-0.69) Japan (-0.69) Central African Republic (-0.52) Ireland (-0.47)
-3, Annual growth rate,Bulgaria (0.63) Slovakia (0.63) Lithuania (0.61) Poland (0.59) Austria (0.57),China (-1.0) Chile (-1.0) Sierra Leone (-1.0) Central African Republic (-0.79) Kazakhstan (-0.72)
-4, Population with primary reliancer on clean fuels,China (1.0) Bhutan (0.99) Thailand (0.99) Ghana (0.97) Kazakhstan (0.97),Bosnia and Herzegovina (-0.88) Romania (-0.88) Jamaica (-0.83) Ukraine (-0.69) Russian Federation (-0.62)
-5, Mortality rate,United States of America (1.0) Portugal (1.0) France (1.0) Ireland (1.0) Italy (1.0),Türkiye (-1.0) Russian Federation (-1.0) Australia (-0.8) Iceland (-0.2) Belarus (0.0)
-6, Renewable energy share,Republic of Korea (0.96) Thailand (0.95) Niue (0.8) Syrian Arab Republic (0.8) Madagascar (0.54),South Sudan (-1.0) United Kingdom of Great Britain and Northern Ireland (-0.99) Georgia (-0.99) Hungary (-0.98) Denmark (-0.98)
-7, CO2 emissions from fuel combustion,China (1.0) Luxembourg (1.0) Finland (1.0) Syrian Arab Republic (1.0) South Sudan (1.0),Albania (-0.3) Iceland (-0.28) Norway (-0.22) Montenegro (0.0) Uzbekistan (0.091)
-8, Fossil fuel subsidies consumption and production,Russian Federation (1.0) Kazakhstan (1.0) Australia (0.9) Türkiye (0.9) Norway (0.9),Denmark (-1.0) Latvia (-0.8) Israel (-0.8) Netherlands (-0.8) Belgium (-0.7)
-9, R&D proportion in GDP,China (1.0) Türkiye (0.98) Republic of Korea (0.97) Brazil (0.91) Ethiopia (0.8),Italy (-0.96) Belgium (-0.93) Germany (-0.91) Kazakhstan (-0.91) Greece (-0.9)
-10, National action plans as priority national policies,,
-11, Number of companies publishing sustainability reports,Canada (1.0) Luxembourg (1.0) New Zealand (1.0) Russian Federation (0.95) United States of America (0.6),Japan (-1.0) Sweden (-1.0) Netherlands (-1.0) Switzerland (-1.0) Denmark (-1.0)
-12, Education for sustainable development,,
-13, Enhance policy coherence for sustainable development,,
-14, Land degraded over total land area,,
-15, IIASA rates of no education projections (IIASA (2015)),,
-16, GDP (constant 2015 US$),Sierra Leone (1.0) Myanmar (1.0) China (1.0) Maldives (1.0) Chile (1.0),Sweden (-0.95) Belgium (-0.94) France (-0.93) Germany (-0.91) Netherlands (-0.9)
-17, Literacy rate,Brazil (0.94) Azerbaijan (0.89) Mexico (0.81) Uruguay (-0.39) Spain (-0.67),Greece (-0.9) Spain (-0.67) Uruguay (-0.39) Mexico (0.81) Azerbaijan (0.89)
-18, Annual CO2 emissions,Kazakhstan (1.0) South Sudan (1.0) China (1.0) Denmark (1.0) Finland (1.0),Niue (-0.71) Sierra Leone (-0.4) Montenegro (-0.22) Madagascar (0.086) Uzbekistan (0.12)
-19, PM2.5 air pollution,Luxembourg (0.92) Italy (0.88) Denmark (0.88) Belgium (0.87) Slovenia (0.85),China (-0.95) Maldives (-0.89) Kazakhstan (-0.88) Brazil (-0.74) Iceland (-0.47)
+0,Greenhousegas emissions,Uzbekistan (1.0) Hungary (1.0) Ethiopia (1.0) Finland (1.0) France (1.0),Albania (1.0) Norway (1.0) North Macedonia (1.0) Niue (1.0) New Zealand (1.0)
+1,Total government revenue proportion of GDP,China (1.0) Republic of Korea (0.86) Myanmar (0.8) Sierra Leone (0.8) Albania (0.74),Italy (-0.86) France (-0.84) Greece (-0.84) Germany (-0.84) Netherlands (-0.82)
+2,FDI (Foreign Direct Investment) inflows,Syrian Arab Republic (1.0) Kyrgyzstan (0.92) Brazil (0.82) Chile (0.8) China (0.8),South Sudan (-0.8) United States of America (-0.69) Japan (-0.69) Central African Republic (-0.52) Ireland (-0.47)
+3,Annual growth rate,Bulgaria (0.63) Slovakia (0.63) Lithuania (0.61) Poland (0.59) Austria (0.57),China (-1.0) Chile (-1.0) Sierra Leone (-1.0) Central African Republic (-0.79) Kazakhstan (-0.72)
+4,Population with primary reliancer on clean fuels,China (1.0) Bhutan (0.99) Thailand (0.99) Ghana (0.97) Kazakhstan (0.97),Bosnia and Herzegovina (-0.88) Romania (-0.88) Jamaica (-0.83) Ukraine (-0.69) Russian Federation (-0.62)
+5,Mortality rate,United States of America (1.0) Portugal (1.0) France (1.0) Ireland (1.0) Italy (1.0),Türkiye (-1.0) Russian Federation (-1.0) Australia (-0.8) Iceland (-0.2) Belarus (0.0)
+6,Renewable energy share,Republic of Korea (0.96) Thailand (0.95) Niue (0.8) Syrian Arab Republic (0.8) Madagascar (0.54),South Sudan (-1.0) United Kingdom of Great Britain and Northern Ireland (-0.99) Georgia (-0.99) Hungary (-0.98) Denmark (-0.98)
+7,CO2 emissions from fuel combustion,China (1.0) Luxembourg (1.0) Finland (1.0) Syrian Arab Republic (1.0) South Sudan (1.0),Albania (-0.3) Iceland (-0.28) Norway (-0.22) Montenegro (0.0) Uzbekistan (0.091)
+8,Fossil fuel subsidies consumption and production,Russian Federation (1.0) Kazakhstan (1.0) Australia (0.9) Türkiye (0.9) Norway (0.9),Denmark (-1.0) Latvia (-0.8) Israel (-0.8) Netherlands (-0.8) Belgium (-0.7)
+9,R&D proportion in GDP,China (1.0) Türkiye (0.98) Republic of Korea (0.97) Brazil (0.91) Ethiopia (0.8),Italy (-0.96) Belgium (-0.93) Germany (-0.91) Kazakhstan (-0.91) Greece (-0.9)
+10,National action plans as priority national policies,,
+11,Number of companies publishing sustainability reports,Canada (1.0) Luxembourg (1.0) New Zealand (1.0) Russian Federation (0.95) United States of America (0.6),Japan (-1.0) Sweden (-1.0) Netherlands (-1.0) Switzerland (-1.0) Denmark (-1.0)
+12,Education for sustainable development,,
+13,Enhance policy coherence for sustainable development,,
+14,Land degraded over total land area,,
+15,IIASA rates of no education projections (IIASA (2015)),,
+16,GDP (constant 2015 US$),Sierra Leone (1.0) Myanmar (1.0) China (1.0) Maldives (1.0) Chile (1.0),Sweden (-0.95) Belgium (-0.94) France (-0.93) Germany (-0.91) Netherlands (-0.9)
+17,Literacy rate,Brazil (0.94) Azerbaijan (0.89) Mexico (0.81) Uruguay (-0.39) Spain (-0.67),Greece (-0.9) Spain (-0.67) Uruguay (-0.39) Mexico (0.81) Azerbaijan (0.89)
+18,Annual CO2 emissions,Kazakhstan (1.0) South Sudan (1.0) China (1.0) Denmark (1.0) Finland (1.0),Niue (-0.71) Sierra Leone (-0.4) Montenegro (-0.22) Madagascar (0.086) Uzbekistan (0.12)
+19,PM2.5 air pollution,Luxembourg (0.92) Italy (0.88) Denmark (0.88) Belgium (0.87) Slovenia (0.85),China (-0.95) Maldives (-0.89) Kazakhstan (-0.88) Brazil (-0.74) Iceland (-0.47)
