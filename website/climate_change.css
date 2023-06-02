@@ -1,3 +1,9 @@
+#climate_graph {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
 #climate_text {
     padding-top: 20px;
     margin: auto;
