@@ -3,21 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const process1 = d3.select('#process1');
     const process1_text = d3.select('#process1_text');
     let click1 = 0;
+
     const click_1 = (event, d) => {
         console.log('check', click1);
         click1++;
         if (click1 % 2 === 1) {
-            process1.node().style.opacity = '0';
-            process1_text.node().style.opacity = '1';
+            process1.style('opacity', '0')
+                .style('z-index', '2');
+            process1_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process1.node().style.opacity = '1';
-            process1_text.node().style.opacity = '0';
+            process1.style('opacity', '1')
+                .style('z-index', '3');
+            process1_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
-    process1.on("click", click_1);
+
+    process1.on('click', click_1);
+
     process1_text.on("click", click_1);
 
-    // Biomass production
+    // Respiration
     const process2 = d3.select('#process2');
     const process2_text = d3.select('#process2_text');
     let click2 = 0;
@@ -25,11 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click2);
         click2++;
         if (click2 % 2 === 1) {
-            process2.node().style.opacity = '0';
-            process2_text.node().style.opacity = '1';
+            process2.style('opacity', '0')
+                .style('z-index', '2');
+            process2_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process2.node().style.opacity = '1';
-            process2_text.node().style.opacity = '0';
+            process2.style('opacity', '1')
+                .style('z-index', '3');
+            process2_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process2.on("click", click_2);
@@ -43,11 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click3);
         click3++;
         if (click3 % 2 === 1) {
-            process3.node().style.opacity = '0';
-            process3_text.node().style.opacity = '1';
+            process3.style('opacity', '0')
+                .style('z-index', '2');
+            process3_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process3.node().style.opacity = '1';
-            process3_text.node().style.opacity = '0';
+            process3.style('opacity', '1')
+                .style('z-index', '3');
+            process3_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process3.on("click", click_3);
@@ -61,11 +76,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click4);
         click4++;
         if (click4 % 2 === 1) {
-            process4.node().style.opacity = '0';
-            process4_text.node().style.opacity = '1';
+            process4.style('opacity', '0')
+                .style('z-index', '2');
+            process4_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process4.node().style.opacity = '1';
-            process4_text.node().style.opacity = '0';
+            process4.style('opacity', '1')
+                .style('z-index', '3');
+            process4_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process4.on("click", click_4);
@@ -79,11 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click5);
         click5++;
         if (click5 % 2 === 1) {
-            process5.node().style.opacity = '0';
-            process5_text.node().style.opacity = '1';
+            process5.style('opacity', '0')
+                .style('z-index', '2');
+            process5_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process5.node().style.opacity = '1';
-            process5_text.node().style.opacity = '0';
+            process5.style('opacity', '1')
+                .style('z-index', '3');
+            process5_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process5.on("click", click_5);
@@ -97,11 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click6);
         click6++;
         if (click6 % 2 === 1) {
-            process6.node().style.opacity = '0';
-            process6_text.node().style.opacity = '1';
+            process6.style('opacity', '0')
+                .style('z-index', '2');
+            process6_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process6.node().style.opacity = '1';
-            process6_text.node().style.opacity = '0';
+            process6.style('opacity', '1')
+                .style('z-index', '3');
+            process6_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process6.on("click", click_6);
@@ -115,11 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click7);
         click7++;
         if (click7 % 2 === 1) {
-            process7.node().style.opacity = '0';
-            process7_text.node().style.opacity = '1';
+            process7.style('opacity', '0')
+                .style('z-index', '2');
+            process7_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process7.node().style.opacity = '1';
-            process7_text.node().style.opacity = '0';
+            process7.style('opacity', '1')
+                .style('z-index', '3');
+            process7_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process7.on("click", click_7);
@@ -133,11 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click8);
         click8++;
         if (click8 % 2 === 1) {
-            process8.node().style.opacity = '0';
-            process8_text.node().style.opacity = '1';
+            process8.style('opacity', '0')
+                .style('z-index', '2');
+            process8_text.style('opacity', '1')
+                .style('z-index', '3');
         } else {
-            process8.node().style.opacity = '1';
-            process8_text.node().style.opacity = '0';
+            process8.style('opacity', '1')
+                .style('z-index', '3');
+            process8_text.style('opacity', '0')
+                .style('z-index', '2');
         }
     };
     process8.on("click", click_8);

@@ -27,18 +27,24 @@ document.addEventListener("DOMContentLoaded", function () {
     L3.style.top = (130 + (scrollTop) / 1.5) + 'px';
     L4.style.top = (350 + (scrollTop) / 2) + 'px';
     L5.style.top = (450 + (scrollTop) / 3) + 'px';
+    
     var rect_7 = L7.getBoundingClientRect();
     var bottom_7 = rect_7.bottom;
     console.log('check', bottom_7, windowHeight)
+
     if (bottom_7 <= windowHeight) {
-    console.log('now')
-    L1.style.position = 'absolute';
-    L2.style.top = 0;
-    L3.style.top = 0;
-    L4.style.top = 0;
-    L5.style.top = 0;
-    title.style.opacity = 0;
-    }
+        console.log('now')
+        title.style.opacity = 0;
+        L1.style.position = 'absolute';
+        L2.style.top = 0;
+        L3.style.top = 0;
+        L4.style.top = 0;
+        L5.style.top = 0;
+        
+        setTimeout(() => {
+            title.style.zIndex = '0';
+        }, 1000);
+        }
     else {
         L1.style.position = 'fixed';
         L2.style.top = 200 + (scrollTop / 1.2) + 'px';
@@ -47,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
         L5.style.top = (450 + (scrollTop) / 3) + 'px';
         Lcloud.style.top = (scrollTop) + 'px';
         title.style.opacity = 1;
+        title.style.zIndex = 8;
     }
+
+    // var rect_7 = L7.getBoundingClientRect();
+    // var bottom_7 = rect_7.bottom;
+    
+
     });
 });
