@@ -266,6 +266,24 @@
 
 <!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
 
+        <div class="viz_box" id="country_details_viz">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can zoom the map in and out using (shift) double-click. Select a country by clicking on it.</p>
+            </div>
+
+            <h2 id="country-name"></h2>
+            <div class="maps">
+                <div class="map">
+                    <svg class="map_container" id="select_map_container"></svg>
+                </div>
+                <div class="country-details" id="details-container">
+                    <div id="country_scatter"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="description">
             <p class="climate_text" id="climate_center"> 
                 The global trends are pretty clear. However, the reality of each country is
@@ -332,26 +350,6 @@
                         <p>2005</p>
                         <p>2021</p>
                     </div>
-                </div>
-            </div>
-
-            <p class="worldmap_text"> 
-                Curious about a particular country? Click it to discover the full data!
-            </p>
-        </div>
-
-
-        <!-- TODO VIZ BOX IS INTERFERING WITH HOVER -->
-        <div class="viz_box_no_topmargin">
-            <div id="country_details_visibility">
-                <div class="info_box">
-                    <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
-                    <img class="info_icon" id="img" src="resources/info.png">
-                    <p class="info_text">You can hover on a point to highlight its category.</p>
-                </div>
-                <div class="country-details" id="details-container">
-                    <h2 id="country-name"></h2>
-                    <div id="country_scatter"></div>
                 </div>
             </div>
         </div>
