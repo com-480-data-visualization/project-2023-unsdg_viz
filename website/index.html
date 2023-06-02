@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="climate_change.css">
         <link rel="stylesheet" href="hero_style.css">
+        <link rel="stylesheet" href="carbon_cycle.css">
         <!-- Only script needed in head section to ensure load on use -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <!-- <script src="https://d3js.org/d3.v6.min.js"></script>  -->
@@ -23,6 +24,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         <header>
             <div class="logo">
                 <img id="img" src="resources/sdg_logo.ico">
@@ -34,6 +36,11 @@
                 <a href="#">About</a>
             </nav>-->
         </header>
+<!-- ----Front page- Hero image------------------------------------------------------------------------------------------------------------- -->
+        <!-- Only shows while DOM is loading -->
+        <div id="loading-screen">
+            <p id="loading-text">Loading...</p>
+        </div>
 
         <div id="hero_container">
             <div id="title">
@@ -43,24 +50,29 @@
                 <!--<img src="img/Layer_cloud.png" alt="Your Image1"> --><!--clouds-->
             </div>
             <div id="L1">
-                <img src="img/Layer1.png" alt="Your Image1">
+                <img src="img/Layer1.png" alt="background">
             </div> 
             <div id="L2">
-                <img src="img/test3/mountain3_orange.png" alt="Your Image1"> <!--test3/mountain3 orange.png-->
+                <img src="img/mountain3_orange.png" alt="Mountain orange"> 
             </div>
             <div id="L3">
-                <img src="img/test3/mountain3_vert.png" alt="Your Image1"> <!--test3/mountain3.png -->
+                <img src="img/mountain3_vert.png" alt="Mountain green">
             </div>
             <div id="L4">
-                <img src="img/test3/mountain3_bleu.png" alt="Your Image1"> <!--test3/mountain3 bleu.png-->
+                <img src="img/mountain3_bleu.png" alt="Mountain blue"> 
             </div>
             <div id="L5">
-                <img src="img/test3/mountain3_bleu_violet.png" alt="Your Image1">
+                <img src="img/mountain3_bleu_violet.png" alt="Mountain violet">
             </div> 
             <div id="L6">
-                <img src="img/test3/mountain3_bleu_violet2.png" alt="Your Image1"> <!--Layer 6-->
+                <img src="img/mountain3_bleu_violet2.png" alt="Mountain violet2"> 
             </div> 
+            <div id="L7">
+                <img src="img/Layer2.png" alt="Follow up on last mountain">
+            </div>
         </div>
+
+ <!-- ---Climate section-------------------------------------------------------------------------------------------------------------------------------------        -->
 
         <div class="description">
             <h1 class="section_header">THE CLIMATE IS CHANGING</h1>
@@ -79,33 +91,6 @@
                 In the last 15 years many developing countries have experienced economic growth. This leads to the question what
                 environmental impact the powering of further economic and social development will have.
             </p>
-
-            <div id="stats_section">
-                <div class="row">
-                    <div class="column"><img src="index_imgs/id0.png" alt="Image 1"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id1.png" alt="Image 2" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id2.png" alt="Image 3" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id3.png" alt="Image 4" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id4.png" alt="Image 5" onclick="ClickImage(this)"  style="width:100%"></div> 
-                    <div class="column"><img src="index_imgs/id5.png" alt="Image 6" onclick="ClickImage(this)"  style="width:100%"></div>
-                </div>
-                <div class="row">
-                    <div class="column"><img src="index_imgs/id6.jpg" alt="Image 1" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id7.png" alt="Image 2" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id8.png" alt="Image 3" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id9.png" alt="Image 4" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id10.png" alt="Image 5" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id11.jpg" alt="Image 6" onclick="ClickImage(this)"  style="width:100%"></div>
-                </div>
-                <div class="row">
-                    <div class="column"><img src="index_imgs/id12.png" alt="Image 1" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id13.png" alt="Image 2" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id14.png" alt="Image 3" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id15.png" alt="Image 4" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id16.jpg" alt="Image 5" onclick="ClickImage(this)"  style="width:100%"></div>
-                    <div class="column"><img src="index_imgs/id17.png" alt="Image 6" onclick="ClickImage(this)"  style="width:100%"></div>
-                </div>
-            </div>
 
             <p class="climate_text" id="climate_transition"> 
                 Join us on a journey to discover the intricate relationship between climate change and country's development.
@@ -157,6 +142,110 @@
             </div>
         </div>
 
+    <!-- ---Carbon introduction-------------------------------------------------------------------------------------------------------------------------------------        -->
+            <div id="carboncycle">
+                <img src="img/carbon_cycle.jpg" alt="Your Image1">
+                <div id="image_text">
+                    <div id="process1">Dissolution</div>
+                    <div id="process1_text">Absorbtion of CO2 from the atmosphere, mostly on ocean surface.</div>
+            
+                    <div id="process2">Respiration</div>
+                    <div id="process2_text">Plants and animals use respiration to generate energy from organic molecules. <br>
+                        C6H12O6 + O2 -> CO2 + H2O</div>
+            
+                    <div id="process3">Decomposition</div>
+                    <div id="process3_text">Plants and animals get decomposed by bacteria and fungi after their lifetime, which
+                        releases CO2.</div>
+            
+                    <div id="process4">Fossil Fuel Formation</div>
+                    <div id="process4_text">When biomass decomposes without sufficient oxygen, for example in swamps or deep
+                        underground, they transform to fossil fuels like coal, oil, and natural gas.</div>
+            
+                    <div id="process5">Combustion</div>
+                    <div id="process5_text">CO2 is released during combustion processes of fossil fuels or biomass.</div>
+            
+                    <div id="process6">Photosynthesis</div>
+                    <div id="process6_text">Photosynthesis is a carbon sink where plants use carbon dioxide and light energy to
+                        create sugars in order to live and to produce biomass. <br>
+                        CO2 + H2O + energy = CH2O + O2 </div>
+            
+                    <div id="process7">Sedimentation</div>
+                    <div id="process7_text">When dead marine organisms sink and become part of the ocean floor sediment, they turn
+                        into limestone over time.</div>
+            
+                    <div id="process8">CO2 release from ground</div>
+                    <div id="process8_text">Volcanic eruption: When tectonic plate move under each other carbon dioxide is formed
+                        and released in form of eruptions.<br>
+                        Hydrothermal Vents: Through opernings on the seafloor, cold seawateris is heated by hot magma. This hot,
+                        rich in dissolved gases water reemerges to form the vents as "black smokers."
+                    </div>
+            
+                </div>
+            </div>
+
+    <!-- ---Index description-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+
+        <div id="stats_section">
+            <div class="row">
+                <div class="column"><img src="index_imgs/id0.png" alt="Image 1" style="width:100%"></div>
+                <div class="column"><img src="index_imgs/id1.png" alt="Image 2" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id2.png" alt="Image 3" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id3.png" alt="Image 4" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id4.png" alt="Image 5" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id5.png" alt="Image 6" onclick="ClickImage(this)" style="width:100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"><img src="index_imgs/id6.jpg" alt="Image 1" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id7.png" alt="Image 2" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id8.png" alt="Image 3" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id9.png" alt="Image 4" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id10.png" alt="Image 5" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id11.jpg" alt="Image 6" onclick="ClickImage(this)" style="width:100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"><img src="index_imgs/id12.png" alt="Image 1" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id13.png" alt="Image 2" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id14.png" alt="Image 3" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id15.png" alt="Image 4" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id16.jpg" alt="Image 5" onclick="ClickImage(this)" style="width:100%">
+                </div>
+                <div class="column"><img src="index_imgs/id17.png" alt="Image 6" onclick="ClickImage(this)" style="width:100%">
+                </div>
+            </div>
+        </div>
+   
+
+        <!-- ---Correlation-------------------------------------------------------------------------------------------------------------------------------------        -->
+        <div class="description">
+            <h2 class="section_header" id="journey">CORRELATION</h2>
+        
+            <p id="stats_text">
+                .......
+            </p>
+        </div>
+        <div id="correlation_container">
+            <div id="dropdown-menu_correlation"></div>
+            <div id="correlation_heatmap"></div>
+        </div>
+
+        <!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
+
         <div class="description">
             <p class="climate_text" id="climate_center"> 
                 The global trends are pretty clear. However, the reality of each country is
@@ -172,6 +261,7 @@
                 play button to observe the values evolve through time.
             </p>    
         </div>
+
 
         <div class="viz_box">
             <div class="info_box">
@@ -246,6 +336,8 @@
             </div>
         </div>
 
+<!-- ---Statistics-------------------------------------------------------------------------------------------------------------------------------------        -->
+
         <div class="description">
             <h2 class="section_header" id="journey">EVOLUTION OF CO₂ COMPARED TO OTHER INDEXES</h2>
             <p id="stats_text">
@@ -265,22 +357,9 @@
             <div id="stats_graph"></div>
         </div>  
         
-
-        <div class="description">
-            <h2 class="section_header" id="journey">CORRELATION</h2>
-
-            <p id="stats_text">
-                .......
-            </p>
-        </div>
-        <div id="correlation_container">
-            <div id="dropdown-menu_correlation"></div>
-            <div id="correlation_heatmap"></div>
-        </div>
-
-     
         <script src="hero.js"></script>
         <script src = "climate_change.js"></script>
+        <script src="carbon_cycle.css"></script>
         <script src="heatmap.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="module" src="root.js" async defer></script>

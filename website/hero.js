@@ -1,57 +1,52 @@
-var windowHeight = window.innerHeight;
+document.addEventListener("DOMContentLoaded", function () {
+    var loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.display = 'none';
+    var windowHeight = window.innerHeight;
+    var L1 = document.getElementById('L1');
+    var L2 = document.getElementById('L2');
+    var L3 = document.getElementById('L3');
+    var L4 = document.getElementById('L4');
+    var L5 = document.getElementById('L5');
+    var L6 = document.getElementById('L6');
+    var title = document.getElementById('title');
+    var L7 = document.getElementById('L7');
 
-window.addEventListener('scroll', function () {
-var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const rect = L6.getBoundingClientRect();
+    const bottom = rect.bottom;
 
-var L1 = document.getElementById('L1');
+    L7.style.top = (bottom-10) + 'px';
 
-var Lcloud = document.getElementById('Lcloud');
+    window.addEventListener('scroll', function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        console.log('scroll', scrollTop)
+    });
 
-
-var L2 = document.getElementById('L2');
-L2.style.top = 200 + (scrollTop / 1.2) + 'px';
-
-var L3 = document.getElementById('L3');
-L3.style.top = (130 + (scrollTop) / 1.5) + 'px';
-
-var L4 = document.getElementById('L4');
-L4.style.top = (350 + (scrollTop) / 2) + 'px';
-
-var L5 = document.getElementById('L5');
-L5.style.top = (450 + (scrollTop) / 3) + 'px';
-
-var L6 = document.getElementById('L6');
-rect = L6.getBoundingClientRect();
-const bottom = rect.bottom;
-
-var title = document.getElementById('title');
-
-if (bottom <= windowHeight) {
-    L6.style.zIndex = 0;
-    title.style.zIndex = 0;
-    L1.style.position = 'absolute';
-    Lcloud.style.position = 'absolute';
-    L2.style.top = 0;
-    L3.style.top = 0;
-    L4.style.top = 0;
-    L5.style.top = 0;
-    Lcloud.style.top = 0;
-    title.style.opacity = 0;
-    L6.style.opacity = 0;
-
-}
-else {
-    L1.style.position = 'fixed';
-    Lcloud.style.position = 'fixed';
+    window.addEventListener('scroll', function () {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     L2.style.top = 200 + (scrollTop / 1.2) + 'px';
     L3.style.top = (130 + (scrollTop) / 1.5) + 'px';
     L4.style.top = (350 + (scrollTop) / 2) + 'px';
     L5.style.top = (450 + (scrollTop) / 3) + 'px';
-    Lcloud.style.top = (scrollTop) + 'px';
-    title.style.opacity = 1;
-    L6.style.opacity = 1;
-    L6.style.zIndex = 6;
-    title.style.zIndex = 8;
-}
-
+    var rect_7 = L7.getBoundingClientRect();
+    var bottom_7 = rect_7.bottom;
+    console.log('check', bottom_7, windowHeight)
+    if (bottom_7 <= windowHeight) {
+    console.log('now')
+    L1.style.position = 'absolute';
+    L2.style.top = 0;
+    L3.style.top = 0;
+    L4.style.top = 0;
+    L5.style.top = 0;
+    title.style.opacity = 0;
+    }
+    else {
+        L1.style.position = 'fixed';
+        L2.style.top = 200 + (scrollTop / 1.2) + 'px';
+        L3.style.top = (130 + (scrollTop) / 1.5) + 'px';
+        L4.style.top = (350 + (scrollTop) / 2) + 'px';
+        L5.style.top = (450 + (scrollTop) / 3) + 'px';
+        Lcloud.style.top = (scrollTop) + 'px';
+        title.style.opacity = 1;
+    }
+    });
 });
