@@ -18,11 +18,11 @@ const FEATURE_NAMES = {
     'revenue_proportion': 'Gov. revenue proportion of GDP',
 };
 const displayFeatures = [
-    'air_pollution',
     'mortality',
     'gdp',
     'growth',
     'fdi',
+    'air_pollution',
     'revenue_proportion',
 ];
 const color = d3.scaleOrdinal()
@@ -31,6 +31,11 @@ const color = d3.scaleOrdinal()
 
 // json { country { feature { min, max } } }
 let minMaxValues = {};
+// graph axes
+let x;
+let y;
+
+let graphSvg;
 
 // Highlight the feature that is hovered
 const highlight = function(event,d){
@@ -93,7 +98,7 @@ export const loadCountryDetailsViz = function() {
             parsedData = parseData(csvData);
 
             // draw country details
-            //initDetailsGraph();
+            initDetailsGraph();
 
         });
     });
@@ -126,17 +131,14 @@ function parseData(rawData) {
         }
     });
 
+    // normalize data
     data.map(e => {
-        e.emissions = clamp(normalize(e.emissions,
+        e.emissions = normalize(e.emissions,
             minMaxValues[e.country]['co2_emissions'].min,
-            minMaxValues[e.country]['co2_emissions'].max));
-        e.value = clamp(normalize(e.value,
+            minMaxValues[e.country]['co2_emissions'].max);
+        e.value = normalize(e.value,
             minMaxValues[e.country][e.feature].min,
-            minMaxValues[e.country][e.feature].max));
-
-        //if (e.value > 1 || e.value < 0) {
-        //    console.log(e.feature + ' ' + e.value);
-        //}
+            minMaxValues[e.country][e.feature].max);
     });
 
     return data;
@@ -156,9 +158,9 @@ function initMap() {
     }
 
     // click callback
-    function clickHandler(event, d, svg) {
+    function clickHandler(event, d) {
         if (event.detail === 1) {
-            fillDetailsBox(svg, d.properties.name);
+            fillDetailsBox(d.properties.name);
         } else if (event.detail === 2) {
             clickToZoom(ZOOM_IN_STEP);
         }
@@ -174,7 +176,7 @@ function initMap() {
     /* build map */
     const projection = d3
         .geoNaturalEarth1()
-        .fitSize([750, 350], emptymap_data);
+        .fitSize([700, 350], emptymap_data);
     const path = d3.geoPath().projection(projection);
     
     const g = container
@@ -190,9 +192,7 @@ function initMap() {
             .style('fill', '#EEE')
             .attr("stroke", "#000")
             .attr("stroke-width", 0.5)
-            .on("click", function(event,d) { clickHandler(event, d, svg) });
-    
-    
+            .on("click", clickHandler );
 
 };
 
@@ -200,7 +200,7 @@ function initDetailsGraph() {
     let container = d3.select("#country_scatter");
 
     // append the svg object to the body of the page
-    const svg = container
+    graphSvg = container
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -209,18 +209,18 @@ function initDetailsGraph() {
                 `translate(${margin.left}, ${margin.top})`);
 
     // Add X axis
-    const x = d3.scaleLinear()
+    x = d3.scaleLinear()
         .domain([0, 1])
         .range([ 0, width ]);
-    svg.append("g")
+    graphSvg.append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(x));
 
     // Add Y axis
-    const y = d3.scaleLinear()
+    y = d3.scaleLinear()
         .domain([0, 1])
         .range([ height, 0]);
-    svg.append("g")
+    graphSvg.append("g")
         .call(d3.axisLeft(y));
 
     // add legend
@@ -230,42 +230,43 @@ function initDetailsGraph() {
             .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform",
-                `translate(${margin.left}, ${margin.top})`);
+                `translate(6, ${margin.top})`);
     for (let i = 0; i < displayFeatures.length; i++) {
         if (displayFeatures[i] !== 'co2_emissions') {
-            legend.append("circle").attr("cx", 0).attr("cy", i * 30 - 3).attr("r", 6)
+            legend.append("circle").attr("cx", 0).attr("cy", i * 30).attr("r", 6)
             .style("fill", color(displayFeatures[i]));
-            legend.append("text").attr("x", 15).attr("y", i * 30).text(features[i].toString())
+            legend.append("text").attr("x", 15).attr("y", i * 30 + 6).text(FEATURE_NAMES[displayFeatures[i].toString()])
             .style("font-size", "15px").attr("alignment-baseline","middle");
         }
     }
 }
 
-const fillDetailsBox = function(svg, country) {
+const fillDetailsBox = function(country) {
+    // clear dots
+    graphSvg.selectAll('.dot').remove();
     let countryName = document.getElementById('country-name')
         if (countryName.innerHTML === country){
             // clicked on same country -> hide details
             countryName.innerHTML = '';
-            visContainer.style.display = "none";
         } else {
             // show details of clicked country
             countryName.innerHTML = country;
-            visContainer.style.display = "block";
-            let flt = data_csv.filter(e => e.country === country)
-            drawDots(svg, flt);
+            //svg.style.display = "block";
+            let flt = parsedData.filter(e => e.country === country)
+            drawDots(flt);
         }
 }
 
-function drawDots(svg, data) {
+function drawDots(data) {
     // Add dots
-    svg.append('g')
+    graphSvg.append('g')
         .selectAll("dot")
         .data(data)
         .enter()
         .append("circle")
         .attr("class", function (d) { return "dot " + d.feature } )
-        .attr("cx", function (d) { return x(clamp(normalize(d.emissions, d.name, d.feature))); } )
-        .attr("cy", function (d) { return y(clamp(normalize(d.value, d.name, d.feature))); } )
+        .attr("cx", function (d) { return x(d.emissions); } )
+        .attr("cy", function (d) { return y(d.value); } )
         .attr("r", 5)
         .style("fill", function (d) { return color(d.feature); } )
         .on("mouseover", highlight)
@@ -274,11 +275,4 @@ function drawDots(svg, data) {
 
 function normalize(val, min, max) {
     return (val - min) / (max - min);
-}
-
-// TODO temporary solution while I try to understand the problem
-function clamp(val) {
-    if (val > 1) return 1;
-    if (val < 0) return 0;
-    return val;
 }

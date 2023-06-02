@@ -97,15 +97,11 @@ export const loadMaps = () => {
 
         // init maps
         initMap(d3.select('#emi_map_container'),
-            document.getElementById('country_details_visibility'),
-            document.getElementById('details-container'),
             LEFT_MAP_FEATURE,
             d3.scaleSequential()
                 .domain([0, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
                 .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
         initMap(d3.select('#other_map_container'),
-            document.getElementById('country_details_visibility'),
-            document.getElementById('details-container'),
             RIGHT_MAP_STARTING_FEATURE,
             d3.scaleSequential()
                 .domain([0, FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValue])
@@ -134,7 +130,7 @@ export const loadMaps = () => {
 }
 
 
-const initMap = (container, visContainer, detailsContainer, parameter, colorScale) => {
+const initMap = (container, parameter, colorScale) => {
     /* event handlers */
     const zoom = d3
     .zoom()
@@ -147,11 +143,9 @@ const initMap = (container, visContainer, detailsContainer, parameter, colorScal
 
     // click callback
     function clickHandler(event, d) {
-        if (event.detail === 1) {
-            fillDetailsBox(d, visContainer, detailsContainer);
-          } else if (event.detail === 2) {
+        if (event.detail === 2) {
             clickToZoom(ZOOM_IN_STEP);
-          }
+        }
     }
 
     function clickToZoom(zoomStep) {
@@ -214,26 +208,4 @@ const initAnimationElements = () => {
     document.getElementById('start-scale-map2').innerHTML = '0';
     document.getElementById('end-scale-map2').innerHTML =
         FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValString;
-}
-
-const fillDetailsBox = function(d, visContainer, detailsContainer) {
-    let countryName = document.getElementById('country-name')
-        if (countryName.innerHTML === d.properties.name){
-            // clicked on same country -> hide details
-            countryName.innerHTML = '';
-            visContainer.style.display = "none";
-        } else {
-            // show details of clicked country
-            countryName.innerHTML = d.properties.name;
-            visContainer.style.display = "block";
-            let flt = data_csv.filter(e => e.country === d.properties.name)
-            loadCountryDetails(flt, Object.keys(FEATURE_DATA[LEFT_MAP_FEATURE]));
-            
-            // scroll to container
-            /*detailsContainer.scrollIntoView({
-                behavior: 'auto',
-                block: 'center',
-                inline: 'center'
-            });*/
-        }
 }
