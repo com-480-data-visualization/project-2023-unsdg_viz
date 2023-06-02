@@ -343,15 +343,21 @@ header {
 
 
 /* Indexes show */ 
-/* Style the images inside the grid */
+#indexes{
+    position: static;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    /*background-color: red;*/
+    align-items: center;
+
+}
+
 .column {
+    position: relative;
     float: left;
     width: 16.6%;
     padding: 5px;
   }
-/* Clear floats after image containers */
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+
