@@ -173,8 +173,32 @@ header {
     z-index: 1;
 }
 
+/* COUNTRY DETAILS STYLING */
+
+#country_name_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 15px auto;
+}
+
+#country_name {
+    text-decoration-line: underline;
+    text-align: center;
+}
+
+#country_legend {
+    margin-left: 10px;
+}
+
 
 /* ### WORLD MAP STYLING ### */
+#map_sel_ft {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 .world_viz {
     margin-top: 25px;
 }
@@ -197,7 +221,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 2em;
 }
 
 .map {
@@ -263,8 +286,8 @@ header {
 }
 
 .slidecontainer {
-    width: 25%;
-    margin: auto;
+    width: 50%;
+    margin: 0 auto;
     color: var(--color-text);
 }
 
@@ -278,6 +301,7 @@ header {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    width: 25%;
 }
 
 .slider:hover {
@@ -297,22 +321,7 @@ header {
 }
 
 /* ### COUNTRY DETAILS STYLING ### */
-.country-details {
-    width: 65%;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 200px;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-text);
-}
 
-#country-name {
-    text-decoration-line: underline;
-    margin-bottom: 15px;
-}
 
 
 /* ### STATS GRAPH STYLING ### */

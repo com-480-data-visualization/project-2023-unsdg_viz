@@ -1,13 +1,18 @@
 #correlation_container {
-    width: 80vw;
-    margin-left: 20vw;
+    width: 80%;
+    margin: 0 auto;
     /* background-color: #FE5F55; */
     position: static;
+    margin-top: 15px;
 }
 
 #correlation_heatmap {
     /* make it a positioned element,so that it can be offsetParent for tooltip_corr div */
     position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .tooltip_corr {
@@ -22,6 +27,7 @@
     height: 20px;
     width: 100px;
     font-size: 20px;
-    margin-left: 25vw;
-
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
 }

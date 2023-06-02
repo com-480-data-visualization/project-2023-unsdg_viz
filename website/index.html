@@ -190,8 +190,7 @@
         </div>
 
 <!-- ---Index description-------------------------------------------------------------------------------------------------------------------------------------        -->
-
-
+        
         <div id="stats_section">
             <div class="row">
                 <div class="column"><img src="index_imgs/id0.png" alt="Image 1" style="width:100%"></div>
@@ -238,20 +237,21 @@
    
 
 <!-- ---Correlation-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <div class="description">
+            <h2 class="section_header" id="journey">CORRELATION</h2>
+            
+            <p id="stats_text">
+                .......
+            </p>
+        </div>
+        
         <div class="viz_box">
             <div class="info_box">
                 <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
                 <img class="info_icon" id="img" src="resources/info.png">
                 <p class="info_text">You can click on the figure to get the corresponding correlation value.</p>
             </div>
-        </div>
-        
-        <div class="description">
-            <h2 class="section_header" id="journey">CORRELATION</h2>
-        
-            <p id="stats_text">
-                .......
-            </p>
         </div>
 
         <div id="correlation_container">
@@ -267,15 +267,15 @@
                 <img class="info_icon" id="img" src="resources/info.png">
                 <p class="info_text">You can zoom the map in and out using (shift) double-click. Select a country by clicking on it.</p>
             </div>
-
-            <h2 id="country-name"></h2>
+            <div id="country_name_container">
+                <h2 id="country_name">No Country Selected</h2>
+            </div>
             <div class="maps">
                 <div class="map">
                     <svg class="map_container" id="select_map_container"></svg>
                 </div>
-                <div class="country-details" id="details-container">
-                    <div id="country_scatter"></div>
-                </div>
+                <div id="country_scatter"></div>
+                <div id="country_legend"></div>
             </div>
         </div>
 

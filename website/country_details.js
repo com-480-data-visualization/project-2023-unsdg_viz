@@ -1,8 +1,8 @@
 import { emptymap_data } from "./emptymap.js"
 
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
+const margin = {top: 10, right: 10, bottom: 50, left: 60},
+    width = 420 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 const ZOOM_THRESHOLD = [0.3, 7];
@@ -10,7 +10,7 @@ const ZOOM_DURATION = 500;
 const ZOOM_IN_STEP = 2;
 const FEATURE_NAMES = {
     'co2_emissions': 'Annual CO₂ emissions',
-    'air_pollution': 'Population above WHO air pollution guidelines',
+    'air_pollution': 'Air pollution',
     'mortality': 'Mortality rate',
     'gdp': 'GDP (constant 2015 US$)',
     'growth': 'Annual growth rate',
@@ -215,6 +215,13 @@ function initDetailsGraph() {
     graphSvg.append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(x));
+    
+    const labelX = width / 2 - 60;
+    const labelY = height + 40; 
+    graphSvg.append("text")
+        .attr("transform", `translate(${labelX}, ${labelY})`)
+        .text("CO2 emissions");
+        
 
     // Add Y axis
     y = d3.scaleLinear()
@@ -224,9 +231,9 @@ function initDetailsGraph() {
         .call(d3.axisLeft(y));
 
     // add legend
-    const legend = container
+    const legend = d3.select("#country_legend")
         .append("svg")
-            .attr("width", width / 1.75)
+            .attr("width", width )
             .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform",
@@ -244,10 +251,10 @@ function initDetailsGraph() {
 const fillDetailsBox = function(country) {
     // clear dots
     graphSvg.selectAll('.dot').remove();
-    let countryName = document.getElementById('country-name')
+    let countryName = document.getElementById('country_name')
         if (countryName.innerHTML === country){
             // clicked on same country -> hide details
-            countryName.innerHTML = '';
+            countryName.innerHTML = 'No Country Selected';
         } else {
             // show details of clicked country
             countryName.innerHTML = country;

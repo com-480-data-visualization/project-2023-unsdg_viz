@@ -177,8 +177,8 @@ function corr_chart(data) {
 // Define variables 
 var ymargin_bar = 10 // Top margin of bar and scale
 
-var margin_bar = { top: 0, right: 0, bottom: 170, left: 100 },
-    width_bar = 500 - margin_bar.left - margin_bar.right,
+var margin_bar = { top: 93, right: 0, bottom: 170, left: 20 },
+    width_bar = 300 - margin_bar.left - margin_bar.right,
     height_bar = 500 - margin_bar.top - margin_bar.bottom;
 
 var colorbar = d3.select("#correlation_heatmap")
