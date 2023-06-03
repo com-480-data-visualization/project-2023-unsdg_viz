@@ -70,39 +70,44 @@
 
  <!-- ---Climate section-------------------------------------------------------------------------------------------------------------------------------------        -->
 
-        <div class="description">
-            <h1 class="section_header">THE CLIMATE IS CHANGING</h1>
-            <p class="climate_text" id="climate_left">
+        <h1 class="section_header">THE CLIMATE IS CHANGING</h1>
+
+        <div id="intro_section">
+            <p class="text_box" id="intro_left">
                 For many years, our earth has provided us with clean air to breathe, water to drink and fertile ground to grow our food
                 on. It is a master in finding balance in countless systems such as the carbon cycle between the atmosphere, land, and
                 oceans or the water balance between evaporation, condensation, and precipitation.
             </p>
-            <p class="climate_text" id="climate_right">  
+            <p class="text_box" id="intro_right">  
                 The industrial revolution in the 18th to 19th century marks a period of rapid socioeconomic transformation. While it led
                 to great advancements in technology, the increased release of greenhouse gases into the atmosphere disrupted the earths
                 balance. An intensification of the greenhouse effect happened, where more heat is trapped than released. Global
                 temperatures have since then risen significantly, leading to floods, storms, and wildfires.
             </p>
-            <p class="climate_text" id="climate_left"> 
+            <p class="text_box" id="intro_left"> 
                 In the last 15 years many developing countries have experienced economic growth. This leads to the question what
                 environmental impact the powering of further economic and social development will have.
             </p>
+        </div>
 
-            <p class="climate_text" id="climate_transition"> 
+        <div class="text_center">
+            <p class="text_box" id="journey"> 
                 Join us on a journey to discover the intricate relationship between climate change and country's development.
             </p>
+        </div>
 
-            <h2 class="section_header" id="journey">TEMPERATURE TRENDS</h2>
 
-            <p class="climate_text" id="climate_center"> 
+<!-- ---Temperature trends-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <h2 class="section_header">TEMPERATURE TRENDS</h2>
+
+        <div class="text_center">
+            <p class="text_box"> 
                 Before we dive into this question, let's first look on how the temperature has increased over the years and with respect
                 to CO2 emissions. In the graph you can see the upper and lower bounds of the 95% confidence intervals, as well as the
                 mean of the global average land-sea temperature relative to the 1961-1990 average temperature.
             </p>
-
-            
         </div>
-
 
         <div class="viz_box">
             <div class="info_box">
@@ -138,9 +143,27 @@
                 </div>
             </div>
         </div>
-        
+
+        <div class="text_center">
+            <p class="text_box"> 
+                The global trend is clearly visible, on both hemispheres. One can see that CO2 has a significant effect on temperature change. But why exactly is CO2 so important with respect to climate change?
+            </p>
+        </div>
+
 
 <!-- ---Carbon introduction-------------------------------------------------------------------------------------------------------------------------------------        -->
+        
+        <h2 class="section_header">INTRODUCTION ON HOW THE CLIMATE WORKS</h2>
+
+
+        <div class="text_center">
+            <p class="text_box"> 
+                CO2 is one of the main drivers of the greenhouse gas effect. This describes the phenomena of trapping some of the heat energy from the sun. <br/>
+                When sunlight reaches the earth, some gets absorbed by the Earth's surface and transforms to heat. It is then emitted back into the atmosphere. Greenhouse gases, absorb and re-emit some of this thermal radiation. While this is a natural and life sustaining process, human activities have significantly increased the concentration of greenhouse gases in the atmosphere leading to anthropogenic (human-caused) global warming. <br/>
+                CO2 is categorized as the primary driver of climate change because of its long lifetime and strong radiative forcing (magnitude of their warming effect). <br/>
+            </p>
+        </div>
+
         <div class="viz_box">
             <div class="info_box">
                 <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
@@ -189,7 +212,24 @@
             </div>
         </div>
 
+
 <!-- ---Index description-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <h2 class="section_header">PRESENTATION OF THE INDEXES</h2>
+
+        <div class="text_center">
+            <p class="text_box"> 
+                The United Nations (UN) have created the global indicator framework for Sustainable Development Goals (UNSDG) and targets of the 2030 Agenda for Sustainable Development. They monitor more than 200 indicators that are separated into multiple goals. Each country can obtain a grade per index, per goal and all together. Here, we used the data available of 25 indexes from a collection of UN datasets. 
+            </p>
+        </div>
+
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can hover on the goals to see the indexes used in this investigation that monitor them.</p>
+            </div>
+        </div>
 
         <div id="indexes">
             <div class="row">
@@ -217,15 +257,24 @@
                 <div id="id17" class="column"><img src="index_imgs/id17.png" alt="Image 6" style="width:100%"></div>
             </div>
         </div>
+
+
+        <!-- TODO clash with indexes??-->
+
+        <div class="text_center">
+            <p class="text_box"> 
+                Given this data and the observation of the anthropogenic CO2 emissions role in climate change, we want to see the relationship of sustainable indexes to climate change, i.e. its driver: CO2 emissions.
+            </p>
+        </div>
    
 
 <!-- ---Correlation-------------------------------------------------------------------------------------------------------------------------------------        -->
 
-        <div class="description">
-            <h2 class="section_header" id="journey">CORRELATION</h2>
-            
-            <p id="stats_text">
-                .......
+        <h2 class="section_header" id="journey">CORRELATION</h2>
+        
+        <div class="text_center">
+            <p class="text_box"> 
+                ......
             </p>
         </div>
         
@@ -242,13 +291,22 @@
             <div id="correlation_heatmap"></div>
         </div>
 
-<!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+<!-- ---Country details-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <h2 class="section_header">FINDING TRENDS IN INDIVIDUAL COUNTRIES</h2>
+                
+        <div class="text_center">
+            <p class="text_box"> 
+                However, the reality of each country is unique. Let's take a closer look to discover how they behave individually over the years. In particular, how do development indexes compare to CO₂ emissions of the various countries? The next visualization shows normalized features compared against normalized CO₂ emissions for each country individually. Click on a country to load its corresponding data.
+            </p>
+        </div>
 
         <div class="viz_box" id="country_details_viz">
             <div class="info_box">
                 <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
                 <img class="info_icon" id="img" src="resources/info.png">
-                <p class="info_text">You can zoom the map in and out using (shift) double-click. Select a country by clicking on it.</p>
+                <p class="info_text">You can (shift) double-click on the map to zoom in and out. Hover on a dot on the graph to highlight its index.</p>
             </div>
             <div id="country_name_container">
                 <h2 id="country_name">No Country Selected</h2>
@@ -262,28 +320,28 @@
             </div>
         </div>
 
-        <div class="description">
-            <p class="climate_text" id="climate_center"> 
-                The global trends are pretty clear. However, the reality of each country is
-                unique. Let's take a closer look to discover how they behave individually. 
-                ocer the years. In particular, how do development indexes compare to CO₂ 
-                emissions of the various countries?
+        <div class="text_center">
+            <p class="text_box"> 
+                Can you find trends in some features inside a country? Even if some countries clearly show correlations, others do not. Let's take a step back and observe the evolution of these values from a global perspective.
             </p>
-
-            <h2 class="section_header" id="journey">PER COUNTRY INDEXES COMPARISON</h2>
-
-            <p class="climate_text" id="climate_center"> 
-                Select an index to compare to CO₂ emissions and start the animation with the 
-                play button to observe the values evolve through time.
-            </p>    
         </div>
 
+
+<!-- ---Spatial comparison-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <h2 class="section_header">SPATIAL COMPARISON THROUGH THE YEARS</h2>
+
+        <div class="text_center">
+            <p class="text_box"> 
+                The following world maps give you the opportunity to compare countries more easily, while also observing changes through the years. Select an index to compare to CO₂ emissions and start the animation with the play button to observe the values evolve through time.
+            </p>
+        </div>
 
         <div class="viz_box">
             <div class="info_box">
                 <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
                 <img class="info_icon" id="img" src="resources/info.png">
-                <p class="info_text">You can double-click to zoom in a map and shift + double-click to zoom out.</p>
+                <p class="info_text">You can (shift) double-click a map to zoom in and out. You can also use the slider to manually set the year.</p>
             </div>
 
             <div class="world_viz">
@@ -332,29 +390,62 @@
             </div>
         </div>
 
+
 <!-- ---Statistics-------------------------------------------------------------------------------------------------------------------------------------        -->
 
-        <div class="description">
-            <h2 class="section_header" id="journey">EVOLUTION OF CO₂ COMPARED TO OTHER INDEXES</h2>
-            <p id="stats_text">
-                As we saw before, anthropogenic CO2 emissions are drivers of climate change. 
-                However, not all countries are equal in terms of CO2 budget.
-                Indeed, a European person tends to emit much more than an African person for instance. 
-                This is due to differences in lifestyle. These differences are also driven by social inequalities. 
+        <h2 class="section_header">EVOLUTION OF CO₂ COMPARED TO OTHER INDEXES</h2>
+            
+        <div class="text_center">
+            <p class="text_box"> 
+                As we saw before, anthropogenic CO2 emissions are drivers of climate change. However, not all countries are equal in terms of CO2 budget. Indeed, a European person tends to emit much more than an African person for instance. This is due to differences in lifestyle. These differences are also driven by social inequalities.    
             </p>
-            <p id="stats_text">
-                Thus, in this next graph we will look at the similarities in the distribution of certian indexes and the CO2 emissions. 
-                Then, to get a more precise idea of the phenomena, we look at the differences in countries. 
-                For instance, ... 
+        </div>
+        <div class="text_center">
+            <p class="text_box"> 
+                Thus, in this next graph we will look at the similarities in the distribution of certain indexes and the CO2 emissions. Then, to get a more precise idea of the phenomena, we look at the differences in countries.    
             </p>
+        </div>
+
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">You can hover on the bars to get the countries that have the top and last 5 SpearmanR coefficient.</p>
+            </div>
         </div>
 
         <div id="stats_section">
             <div id="stats_graph"></div>
         </div>  
         
+        <div class="viz_box">
+            <div class="info_box">
+                <!--<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>-->
+                <img class="info_icon" id="img" src="resources/info.png">
+                <p class="info_text">A Coefficient of 1 means that they the distribution is equal, -1 means that they are opposite.</p>
+            </div>
+        </div>
+
+        <div class="text_center">
+            <p class="text_box"> 
+                Some space for explaining viz.....
+            </p>
+        </div>
+
+
+<!-- ---FInal thoughts-------------------------------------------------------------------------------------------------------------------------------------        -->
+
+        <h1 class="section_header">FINAL THOUGHTS</h1>
+
+        <div class="text_center">
+            <p class="text_box"> 
+                This data is very sparse so it is difficult to find a lot of interesting meaningful results. However, there are some links between the overall sustainability of a country and its emissions. For instance, they is a clear link between the richness of a country and its emissions, however its growth rate does not matter. Meaning that rich countries tend to emit more while there is no rule for emergent ones.  
+            </p>
+        </div>
+
+
         <script src="hero.js"></script>
-        <script src = "climate_change.js"></script>
+        <script src="climate_change.js"></script>
         <script src="carbon_cycle.js"></script>
         <script src="correlation_heatmap.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
