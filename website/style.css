@@ -51,6 +51,41 @@ header {
     height: 30px;
 }
 
+
+/* ## FOOTER ## */
+
+.footer {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    background-color: var(--color-text);
+    box-shadow: inset 0 10px 5px -5px #000 ;
+    color: rgb(143, 154, 158);
+    padding-bottom: 10px;
+}
+
+.footer_box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer_name_sep {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.footer_name_box {
+    min-width: 150px;
+    text-align: center;
+}
+
+.footer a {
+    color: rgb(143, 154, 158);
+    text-decoration: none;
+}
+
+
 /* ## BODY ##  #8CA1C0 */
 
 body {
@@ -150,6 +185,10 @@ body {
     margin-top: 25px;
 }
 
+#info_box_notop {
+    margin-top: 5px;
+}
+
 .info_icon {
     width: 16px;
     height: 16px;
@@ -169,7 +208,7 @@ body {
 }
 
 #journey {
-    margin: 300px auto 300px auto;
+    margin: 250px auto 250px auto;
     width: 35%;
     min-width: 250px;
     font-size: larger;
