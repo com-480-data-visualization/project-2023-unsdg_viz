@@ -107,7 +107,7 @@ const animationCallback = function(year) {
 const getColor = function(scale, props, parameter, year) {
     return props[parameter] != null &&
             props[parameter][year] != null && 
-            props[parameter][year] != -1 ? 
+            props[parameter][year] != "" ? 
         scale(props[parameter][year]) : "#AAA";
 }
 

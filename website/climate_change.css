@@ -100,7 +100,6 @@ input[type="range"] {
     appearance: none;
     height: 2px;
     width: 100%;
-    position: absolute;
     pointer-events: none;
 }
 
@@ -108,4 +107,9 @@ input[type="range"] {
 #fromSlider {
     height: 0;
     z-index: 1;
+    position: absolute;
+}
+
+#toSlider {
+    position: absolute;
 }
