@@ -36,25 +36,26 @@
 #process1 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: 0vh;
-    left: 42vw;
-    width: 120px;
+    top: 70%;
+    left: 10%;
+    width: 10%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
+    border-radius: 25px;
     padding: 10px;
-    text-align: center;
+    text-align: center;    
 }
 #process1_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -10vh;
-    left: 40vw;
-    width: 200px;
+    top: 70%;
+    left: 10%;
+    width: 20%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
     padding: 10px;
+    border-radius: 25px;
     text-align: center;
 }
 /* Biomass production */
