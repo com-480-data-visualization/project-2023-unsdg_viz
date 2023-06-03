@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click8);
         click8++;
         if (click8 % 2 === 1) {
-            document.getElementById('id8').innerHTML = "<div id='id8', style='position:relative'> <img src='index_imgs/blanks/id8.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 70px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li> Total government revenue proportion of gdp, </li> <li> Annual growth rate </li></ul> </div> </div>";
+            document.getElementById('id8').innerHTML = "<div id='id8', style='position:relative'> <img src='index_imgs/blanks/id8.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 60px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li> Total government revenue proportion of gdp, </li> <li> Annual growth rate </li></ul> </div> </div>";
         } else {
             document.getElementById('id8').innerHTML = '<div id="id8"><img src="index_imgs/id8.png" alt="Image 2"style="width:100%"></div>';
         }
