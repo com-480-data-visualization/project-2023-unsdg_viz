@@ -18,14 +18,16 @@
     filter: brightness(85%);
     z-index: 1;
 }
-
 #image_text{
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    height: 70vh;
+    width: 50%;
+    top:0%;
+    left:0%;
     /*top: 100px;
     width: 50%;
-    height: 70vh;
     margin-top: -500px;*/
     /* background-color: blueviolet; */
     z-index: 2;
@@ -39,9 +41,9 @@
 #process1 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: 30%;
-    left: 80%;
-    width: 10%;
+    top: -60vh;
+    left: 77%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
     /*border: 2px solid black;*/
@@ -53,9 +55,9 @@
 #process1_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: 70%;
-    left: 10%;
-    width: 20%;
+    top: -65vh;
+    left: 77%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
     padding: 10px;
@@ -67,12 +69,13 @@
 #process2 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: 0vh;
-    left: 10vw;
-    width: 120px;
+    top: -69vh;
+    left: 25%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -80,12 +83,13 @@
 #process2_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -8vh;
-    left: 10vw;
-    width: 200px;
+    top: -75vh;
+    left: 25%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -93,12 +97,13 @@
 #process3 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -23vh;
-    left: 27vw;
-    width: 120px;
+    top: -76vh;
+    left: 33%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -106,12 +111,13 @@
 #process3_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -30vh;
-    left: 23vw;
-    width: 200px;
+    top: -81vh;
+    left: 33%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -119,12 +125,13 @@
 #process4 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -24vh;
-    left: 20vw;
-    width: 120px;
+    top: -55vh;
+    left: 40%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -132,12 +139,13 @@
 #process4_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -40vh;
-    left: 18vw;
-    width: 200px;
+    top: -60vh;
+    left: 40%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -145,12 +153,13 @@
 #process5 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -100vh;
-    left: 5vw;
-    width: 120px;
+    top: -124vh;
+    left: 27%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -158,12 +167,13 @@
 #process5_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -105vh;
-    left: 3vw;
-    width: 200px;
+    top: -129vh;
+    left: 27%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -171,12 +181,13 @@
 #process6 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -95vh;
-    left: 39vw;
-    width: 120px;
+    top: -120vh;
+    left: 63%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -184,12 +195,13 @@
 #process6_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -100vh;
-    left: 37vw;
-    width: 200px;
+    top: -125vh;
+    left: 63%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px; 
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -199,11 +211,12 @@
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
     top: -95vh;
-    left: 32vw;
-    width: 120px;
+    left: 65%;
+    width: 15%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -211,12 +224,13 @@
 #process7_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -95vh;
-    left: 32vw;
-    width: 200px;
+    top: -100vh;
+    left: 65%;
+    width: 15%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -225,12 +239,13 @@
 #process8 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -118vh;
-    left: 7vw;
-    width: 120px;
+    top: -125vh;
+    left: 5%;
+    width: 30%;
     z-index: 3;
     opacity: 1;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
@@ -239,11 +254,12 @@
     position: relative;
     background-color: rgb(255, 255, 255);
     top: -130vh;
-    left: 7vw;
-    width: 200px;
+    left: 5%;
+    width: 30%;
     z-index: 2;
     opacity: 0;
-    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 80%;
     padding: 10px;
     text-align: center;
 }
