@@ -1,15 +1,17 @@
 import { setupAnimationSlider, currentYear } from "./animation_slider.js";
 import { interpolateReds, interpolateBlues, interpolateGreens,
     interpolateRdYlGn, interpolateOranges, interpolatePurples, interpolatePuBuGn } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
-import { worldmap_data } from "./worldmap_data.js"
+import { worldmap_data } from "./resources/worldmap_data.js"
+
+/* ### CONST VALUES ### */
 
 const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
 const ZOOM_IN_STEP = 2;
 
-const LEFT_MAP_FEATURE = 'co2_emissions';
-const RIGHT_MAP_STARTING_FEATURE = 'gdp';
-const FIRST_YEAR = 1950;
+const LMAP_FEATURE = 'co2_emissions';
+const RMAP_START_FEATURE = 'gdp';
+const FIRST_YEAR = 2002;
 const LAST_YEAR = 2021;
 
 // hardcoded min and max values from data processing
@@ -27,8 +29,8 @@ const FEATURE_DATA = {
     'revenue': {
         minValue: 0.0,
         minValString: '0',
-        maxValue: 3.656346,
-        maxValString: '3.66',
+        maxValue: 0.9579373,
+        maxValString: '0.96',
         interpolator: interpolateRdYlGn,
         legendImage: 'resources/RdYlGn.png', 
     },
@@ -91,82 +93,90 @@ const FEATURE_DATA = {
     
 }
 
+const data = worldmap_data;
+let currentlySelected = RMAP_START_FEATURE;
 
-let currentlySelected = RIGHT_MAP_STARTING_FEATURE;
 
+/* ### CALLBACKS ### */
+
+// callback on year update
 const animationCallback = function(year) {
-    updateMap(d3.select('#emi_map_container'), year, LEFT_MAP_FEATURE,
+    updateMap(d3.select('#emi_map_container'), year, LMAP_FEATURE,
         d3.scaleSequential()
-            .domain([FEATURE_DATA[LEFT_MAP_FEATURE].minValue, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
-            .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
+            .domain([FEATURE_DATA[LMAP_FEATURE].minValue, FEATURE_DATA[LMAP_FEATURE].maxValue])
+            .interpolator(FEATURE_DATA[LMAP_FEATURE].interpolator));
     updateMap(d3.select('#other_map_container'), year, d3.select("#map_sel_ft").property("value"),
     d3.scaleSequential()
         .domain([FEATURE_DATA[currentlySelected].minValue, FEATURE_DATA[currentlySelected].maxValue])
         .interpolator(FEATURE_DATA[currentlySelected].interpolator));
 }
 
-const getColor = function(scale, props, parameter, year) {
-    return props[parameter] != null &&
-            props[parameter][year] != null && 
-            props[parameter][year] != "" ? 
-        scale(props[parameter][year]) : "#AAA";
+// callback on new feature selected
+const dropdownSelectionCallback = function() {
+    // get value selected
+    currentlySelected = d3.select(this).property("value");
+        
+    // set min and max values, color scale for legend
+    document.getElementById('start-scale-map2').innerHTML =
+        FEATURE_DATA[currentlySelected].minValString;
+    document.getElementById('end-scale-map2').innerHTML =
+        FEATURE_DATA[currentlySelected].maxValString;
+    document.getElementById('scale_grad_right').src =
+        FEATURE_DATA[currentlySelected].legendImage;
+    
+    // update right map with values of new feature
+    const colorScale = d3.scaleSequential()
+        .domain([
+            FEATURE_DATA[currentlySelected].minValue,
+            FEATURE_DATA[currentlySelected].maxValue])
+        .interpolator(FEATURE_DATA[currentlySelected].interpolator); 
+    updateMap(d3.select('#other_map_container'), currentYear,
+        currentlySelected, colorScale);
 }
 
-const getText = function(props, parameter, year) {
-    return props[parameter] != null &&
-            props[parameter][year] != null &&
-            props[parameter][year] != -1 ? 
-        props.name_long + '\n' + props[parameter][year] :
-        props.name_long + '\n' + 'No data';
-}
 
-const data = worldmap_data;;
-let data_csv;
+/* ### VIZ METHOD ### */
 
 export const loadMaps = () => {
-    d3.csv('resources/worldmap_csv.csv').then(loadedData => {
-        data_csv = loadedData;
+    // color scales for country color fill
+    const leftColorScale = d3.scaleSequential()
+        .domain([
+            FEATURE_DATA[LMAP_FEATURE].minValue,
+            FEATURE_DATA[LMAP_FEATURE].maxValue])
+        .interpolator(FEATURE_DATA[LMAP_FEATURE].interpolator);
 
-        // init maps
-        initMap(d3.select('#emi_map_container'),
-            LEFT_MAP_FEATURE,
-            d3.scaleSequential()
-                .domain([FEATURE_DATA[LEFT_MAP_FEATURE].minValue, FEATURE_DATA[LEFT_MAP_FEATURE].maxValue])
-                .interpolator(FEATURE_DATA[LEFT_MAP_FEATURE].interpolator));
-        initMap(d3.select('#other_map_container'),
-            RIGHT_MAP_STARTING_FEATURE,
-            d3.scaleSequential()
-                .domain([FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].minValue, FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValue])
-                .interpolator(FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].interpolator));
-            
-        document.getElementById('map_sel_ft').value = RIGHT_MAP_STARTING_FEATURE;
-        document.getElementById('scale_grad_right').src =
-        FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].legendImage;
-        
-        // register selection callback
-        d3.select("#map_sel_ft").on("change", function () {
-            currentlySelected = d3.select(this).property("value");
-            document.getElementById('start-scale-map2').innerHTML =
-                FEATURE_DATA[currentlySelected].minValString;
-            document.getElementById('end-scale-map2').innerHTML =
-                FEATURE_DATA[currentlySelected].maxValString;
-            document.getElementById('scale_grad_right').src =
-                FEATURE_DATA[currentlySelected].legendImage;
-            updateMap(d3.select('#other_map_container'), currentYear, currentlySelected,
-            d3.scaleSequential()
-                .domain([FEATURE_DATA[currentlySelected].minValue, FEATURE_DATA[currentlySelected].maxValue])
-                .interpolator(FEATURE_DATA[currentlySelected].interpolator));
-        });
+    const rightColorScale = d3.scaleSequential()
+        .domain([
+            FEATURE_DATA[RMAP_START_FEATURE].minValue,
+            FEATURE_DATA[RMAP_START_FEATURE].maxValue])
+        .interpolator(FEATURE_DATA[RMAP_START_FEATURE].interpolator);
 
-        // set animation elements
-        initAnimationElements();
-    });
+    // init left map
+    initMap(d3.select('#emi_map_container'),
+        LMAP_FEATURE, leftColorScale);
     
+    // init right map
+    initMap(d3.select('#other_map_container'),
+        RMAP_START_FEATURE, rightColorScale);
+    
+    // set init value of dropdown box
+    document.getElementById('map_sel_ft').value = RMAP_START_FEATURE;
+    
+    // set color scale of right map legend
+    document.getElementById('scale_grad_right').src =
+        FEATURE_DATA[RMAP_START_FEATURE].legendImage;
+    
+    // register feature selection callback
+    d3.select("#map_sel_ft").on("change", dropdownSelectionCallback);
+
+    // set animation elements
+    initAnimationElements();
 }
 
 
-const initMap = (container, parameter, colorScale) => {
-    /* event handlers */
+/* initialize a map */
+function initMap(container, feature, colorScale) {
+    // zoom handlers 
     const zoom = d3
         .zoom()
         .scaleExtent(ZOOM_THRESHOLD)
@@ -176,7 +186,7 @@ const initMap = (container, parameter, colorScale) => {
         g.attr("transform", d3.zoomTransform(this));
     }
 
-    // click callback
+    // click callbacks
     function clickHandler(event, d) {
         if (event.detail === 2) {
             clickToZoom(ZOOM_IN_STEP);
@@ -191,7 +201,7 @@ const initMap = (container, parameter, colorScale) => {
     }
 
 
-    /* build map */
+    // draw map
     const projection = d3
         .geoNaturalEarth1()
         .fitSize([750, 350], data);
@@ -201,34 +211,50 @@ const initMap = (container, parameter, colorScale) => {
         .call(zoom).on("wheel.zoom", null) // remove scroll wheel zoom
         .append("g");
 
+    // draw countries and fill with color
     g.append("g")
         .selectAll("path")
         .data(data.features)
         .enter()
         .append("path")
             .attr("d", path)
-            .style("fill", d => getColor(colorScale, d.properties, parameter, FIRST_YEAR))
+            .style("fill", d => getColor(colorScale, d.properties, feature, FIRST_YEAR))
             .attr("stroke", "#000")
             .attr("stroke-width", 0.5)
             .on("click", clickHandler)
         .append('title')
-            .text(d => getText(d.properties, parameter, FIRST_YEAR));
+            .text(d => getText(d.properties, feature, FIRST_YEAR));
 
+    // set legends values
+    document.getElementById('start-scale-map1').innerHTML = 
+        FEATURE_DATA[LMAP_FEATURE].minValString;
+    document.getElementById('end-scale-map1').innerHTML =
+        FEATURE_DATA[LMAP_FEATURE].maxValString;
+    document.getElementById('start-scale-map2').innerHTML =
+        FEATURE_DATA[RMAP_START_FEATURE].minValString;
+    document.getElementById('end-scale-map2').innerHTML =
+        FEATURE_DATA[RMAP_START_FEATURE].maxValString;
 }
 
-const updateMap = (container, year, parameter, colorScale) => {
+
+/* update map with data of given year */
+function updateMap(container, year, feature, colorScale) {
+    // select all countries, update fill color
 	container.selectAll('path')
    		.data(data.features)
    		.transition()
    		.duration(500)
-   		.style('fill', d => getColor(colorScale, d.properties, parameter, year))
+   		.style('fill', d => getColor(colorScale, d.properties, feature, year))
 
+    // update hint text of countries
     container.selectAll('title')
         .data(data.features)
-        .text(d => getText(d.properties, parameter, year));
+        .text(d => getText(d.properties, feature, year));
 }
 
-const initAnimationElements = () => {
+
+/* initialize elements of animation controls */
+function initAnimationElements() {
     const animation_btn = document.getElementById('animation_btn');
     const btn_img = document.getElementById('btn_icon');
     const slider = document.getElementById("myRange");
@@ -236,13 +262,22 @@ const initAnimationElements = () => {
     
     setupAnimationSlider(animation_btn, btn_img, text, slider,
         FIRST_YEAR, LAST_YEAR, animationCallback);
+}
 
-    document.getElementById('start-scale-map1').innerHTML = 
-        FEATURE_DATA[LEFT_MAP_FEATURE].minValString;
-    document.getElementById('end-scale-map1').innerHTML =
-        FEATURE_DATA[LEFT_MAP_FEATURE].maxValString;
-    document.getElementById('start-scale-map2').innerHTML =
-        FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].minValString;
-    document.getElementById('end-scale-map2').innerHTML =
-        FEATURE_DATA[RIGHT_MAP_STARTING_FEATURE].maxValString;
+
+/* ### HELPER METHODS ### */
+
+function getColor(scale, props, parameter, year) {
+    return props[parameter] != null &&
+            props[parameter][year] != null && 
+            props[parameter][year] != "" ? 
+        scale(props[parameter][year]) : "#AAA";
+}
+
+function getText(props, parameter, year) {
+    return props[parameter] != null &&
+            props[parameter][year] != null &&
+            props[parameter][year] != -1 ? 
+        props.name_long + '\n' + props[parameter][year] :
+        props.name_long + '\n' + 'No data';
 }

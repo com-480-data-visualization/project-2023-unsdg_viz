@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('scroll', function () {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        console.log('scroll', scrollTop)
+        //console.log('scroll', scrollTop)
     });
 
     window.addEventListener('scroll', function () {
@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
     var rect_7 = L7.getBoundingClientRect();
     var bottom_7 = rect_7.bottom;
-    console.log('check', bottom_7, windowHeight)
+    //console.log('check', bottom_7, windowHeight)
 
     if (bottom_7 <= windowHeight) {
-        console.log('now')
+        //console.log('now')
         title.style.opacity = 0;
         L1.style.position = 'absolute';
         L2.style.top = 0;
