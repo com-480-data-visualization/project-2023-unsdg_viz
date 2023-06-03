@@ -14,7 +14,6 @@
     top: 0;
     max-width: 50%;
     height: auto;
-    border: 2px solid black;
     /* Make the image a bit darker to fit the color theme */
     filter: brightness(85%);
     z-index: 1;
@@ -24,20 +23,24 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 100px;
+    /*top: 100px;
     width: 50%;
     height: 70vh;
+    margin-top: -500px;*/
     /* background-color: blueviolet; */
     z-index: 2;
-    margin-top: -500px;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;    
+    font-size: 80%;
 
 }
 /* Dissolution */
 #process1 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: 70%;
-    left: 10%;
+    top: 30%;
+    left: 80%;
     width: 10%;
     z-index: 3;
     opacity: 1;
@@ -45,6 +48,7 @@
     border-radius: 25px;
     padding: 10px;
     text-align: center;    
+    font-size: 80%;
 }
 #process1_text {
     position: relative;
@@ -57,6 +61,7 @@
     padding: 10px;
     border-radius: 25px;
     text-align: center;
+    font-size: 80%;
 }
 /* Biomass production */
 #process2 {
