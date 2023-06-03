@@ -95,6 +95,18 @@ body {
     justify-content: center;
 }
 
+.text_left {
+    display: flex;
+    justify-content: left;
+    margin-left: 120px;
+}
+
+.text_right {
+    display: flex;
+    justify-content: right;
+    margin-right: 120px;
+}
+
 .section_header {
     margin: 100px auto 20px auto;
     font-weight: bolder;
@@ -152,16 +164,6 @@ body {
     margin: 0 auto;
 }
 
-#intro_left {
-    margin-top: 100px;
-    margin-right:800px;
-}
-
-#intro_right {
-    margin-top: 100px;
-    margin-left: 800px;
-}
-
 #journey {
     margin: 300px auto 300px auto;
     width: 35%;
@@ -191,7 +193,6 @@ body {
 }
 
 #country_name {
-    text-decoration-line: underline;
     text-align: center;
 }
 
@@ -344,7 +345,6 @@ body {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
     /*background-color: red;*/
     align-items: center;
 }
