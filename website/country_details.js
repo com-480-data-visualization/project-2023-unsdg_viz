@@ -9,21 +9,25 @@ const ZOOM_THRESHOLD = [0.3, 7];
 const ZOOM_DURATION = 500;
 const ZOOM_IN_STEP = 2;
 const FEATURE_NAMES = {
-    'co2_emissions': 'Annual CO₂ emissions',
-    'air_pollution': 'Air pollution',
-    'mortality': 'Mortality rate',
-    'gdp': 'GDP (constant 2015 US$)',
-    'growth': 'Annual growth rate',
+    'revenue': 'Gov. revenue proportion of GDP',
     'fdi': 'FDI',
-    'revenue_proportion': 'Gov. revenue proportion of GDP',
+    'growth_rate': 'Annual growth rate',
+    'co2_emissions': 'Annual CO₂ emissions',
+    'gdp': 'GDP (constant 2015 US$)',
+    'mortality': 'Mortality rate',
+    'air_pollution': 'Air pollution',
+    'literacy_rate':'Literacy rate',
+    'renewable':'Renewable energy rate'
 };
 const displayFeatures = [
-    'mortality',
-    'gdp',
-    'growth',
+    'revenue',
     'fdi',
+    'growth_rate',
+    'gdp',
+    'mortality',
     'air_pollution',
-    'revenue_proportion',
+    'literacy_rate',
+    'renewable'
 ];
 const color = d3.scaleOrdinal()
     .domain(displayFeatures)
@@ -89,10 +93,9 @@ export const loadCountryDetailsViz = function() {
             }) 
         });
 
-        console.log(minMaxValues);
-
+        
         d3.csv('resources/worldmap_csv.csv').then(csvData => {
-            // draw the map
+            // draw the map only when detail data is ready
             initMap();
 
             parsedData = parseData(csvData);
@@ -105,6 +108,9 @@ export const loadCountryDetailsViz = function() {
 }
 
 function parseData(rawData) {
+    // keep only most recent
+    rawData = rawData.filter(function(d) { return d.year >= 2000; });
+
     let data = [];
     // console.log(data);
     const features = Object.keys(FEATURE_NAMES);
