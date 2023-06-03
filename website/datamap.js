@@ -12,8 +12,9 @@ const RIGHT_MAP_STARTING_FEATURE = 'gdp';
 const FIRST_YEAR = 1950;
 const LAST_YEAR = 2021;
 
-// TODO min values
-// TODO invert mortality interpolation
+// hardcoded min and max values from data processing
+// because it would be too much of a pain to individually
+// format each number to string
 const FEATURE_DATA = {
     'co2_emissions': {
         minValue: 0.0,
@@ -50,8 +51,8 @@ const FEATURE_DATA = {
     'gdp': {
         minValue: 19994710.0,
         minValString: '20M',
-        maxValue: 84617105244160,
-        maxValString: '84\'617G',
+        maxValue: 19974533939200,
+        maxValString: '19\'975G',
         interpolator: interpolateGreens,
         legendImage: 'resources/Greens.png', 
     },
