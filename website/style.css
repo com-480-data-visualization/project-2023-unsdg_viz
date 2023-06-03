@@ -51,10 +51,10 @@ header {
     height: 30px;
 }
 
-/* ## BODY ## */
+/* ## BODY ##  #8CA1C0 */
 
 body {
-    background: linear-gradient(to bottom, #8CA1C0, #8CA1C0, #b4cba3, #b4cba3);
+    background: linear-gradient(to bottom, #8b99be, #8b99be, #b4cba3, #b4cba3);
     overflow-x: hidden;
     font-family: 'Raleway';
 }
