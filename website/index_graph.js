@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click4);
         click4++;
         if (click4 % 2 === 1) {
-            document.getElementById('id4').innerHTML = "<div id='id4', style='position:relative'> <img src='index_imgs/blanks/id4.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 50px; left: 10px;z-index:2; font-size: 100%;'> <ul> <li> IIASA rates of no education projections, </li> Literacy rate </li> </ul> </div> </div>";
+            document.getElementById('id4').innerHTML = "<div id='id4', style='position:relative'> <img src='index_imgs/blanks/id4.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 50px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li> IIASA rates of no education projections, </li>  <li> Literacy rate </li> </ul> </div> </div>";
         } else {
             document.getElementById('id4').innerHTML = '<div id="id4"><img src="index_imgs/id4.png" alt="Image 2"style="width:100%"></div>';
         }
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click7);
         click7++;
         if (click7 % 2 === 1) {
-            document.getElementById('id7').innerHTML = "<div id='id7', style='position:relative'> <img src='index_imgs/blanks/id7.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 10px; left: 0px; z-index=2; font-size: 100%;'> <ul> <li> Greenhousegas emissions, </li> Proportion of population with primary relianceron clean fuels, </li> Renewable energy share, CO2 emissions from fuel combustion, </li> Fossil fuel subsidies consumption and production </li> </ul> </div> </div>";
+            document.getElementById('id7').innerHTML = "<div id='id7', style='position:relative'> <img src='index_imgs/blanks/id7.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 30px; left: 0px; z-index=2; font-size: 100%;'> <ul> <li> Greenhousegas emissions, </li> <li> Proportion of population with primary relianceron clean fuels, </li> <li> Renewable energy share, CO2 emissions from fuel combustion, </li> <li> Fossil fuel subsidies consumption and production </li> </ul> </div> </div>";
         } else {
             document.getElementById('id7').innerHTML = '<div id="id7"><img src="index_imgs/id7.png" alt="Image 2"style="width:100%"></div>';
         }
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click8);
         click8++;
         if (click8 % 2 === 1) {
-            document.getElementById('id8').innerHTML = "<div id='id8', style='position:relative'> <img src='index_imgs/blanks/id8.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 70px; left: 5px;z-index:2; font-size: 100%;'> <ul> <li> Total government revenue proportion of gdp, </li> Annual growth rate </li></ul> </div> </div>";
+            document.getElementById('id8').innerHTML = "<div id='id8', style='position:relative'> <img src='index_imgs/blanks/id8.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 70px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li> Total government revenue proportion of gdp, </li> <li> Annual growth rate </li></ul> </div> </div>";
         } else {
             document.getElementById('id8').innerHTML = '<div id="id8"><img src="index_imgs/id8.png" alt="Image 2"style="width:100%"></div>';
         }
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click9);
         click9++;
         if (click9 % 2 === 1) {
-            document.getElementById('id9').innerHTML = "<div id='id9', style='position:relative'> <img src='index_imgs/blanks/id9.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 80px; left: 0px;z-index:2; font-size: 100%;'> <ul> <li> FDI inflows </li> </ul> </div> </div>";
+            document.getElementById('id9').innerHTML = "<div id='id9', style='position:relative'> <img src='index_imgs/blanks/id9.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 80px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li> FDI inflows </li> </ul> </div> </div>";
         } else {
             document.getElementById('id9').innerHTML = '<div id="id9"><img src="index_imgs/id9.png" alt="Image 2"style="width:100%"></div>';
         }
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click13);
         click13++;
         if (click13 % 2 === 1) {
-            document.getElementById('id13').innerHTML = "<div id='id13', style='position:relative'> <img src='index_imgs/blanks/id13.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 5px; left: 0px;z-index:2; font-size: 100%;'> <ul> <li>Number of companies publishing sustainability reports, </li> Education for sustainable development, </li> Enhance policy coherence for sustainable development, </li> Land degraded over total land area </li> </ul> </div> </div>";
+            document.getElementById('id13').innerHTML = "<div id='id13', style='position:relative'> <img src='index_imgs/blanks/id13.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 5px; left: 30px;z-index:2; font-size: 100%;'> <ul> <li>Number of companies publishing sustainability reports, </li> <li> Education for sustainable development, </li> <li> Enhance policy coherence for sustainable development, </li> <li> Land degraded over total land area </li> </ul> </div> </div>";
         } else {
             document.getElementById('id13').innerHTML = '<div id="id13"><img src="index_imgs/id13.png" alt="Image 2"style="width:100%"></div>';
         }
