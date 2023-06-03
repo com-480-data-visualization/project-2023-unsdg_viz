@@ -114,6 +114,10 @@ body {
     justify-content: center;
 }
 
+#main_title {
+    margin-bottom: 100px;
+}
+
 .description {
     position: static;
     display: block;

@@ -9,7 +9,7 @@ const ZOOM_IN_STEP = 2;
 
 const LEFT_MAP_FEATURE = 'co2_emissions';
 const RIGHT_MAP_STARTING_FEATURE = 'gdp';
-const FIRST_YEAR = 2005;
+const FIRST_YEAR = 1950;
 const LAST_YEAR = 2021;
 
 // TODO min values
