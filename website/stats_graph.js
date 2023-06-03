@@ -38,38 +38,34 @@ export const loadStatsGraph = () => {
         .style('color', '#000'); // Color of the y axis 
 
         // create a tooltip
-        var Tooltip = d3.select("#stats_graph")
-            .append("div")
-            .style("opacity", 0)
-            .attr("class", "tooltip")
-            .style("background-color", "white") // Background of tooltip 
-            .style("border", "solid")
-            .style("border-width", "2px")
-            .style("border-radius", "5px")
-            .style("padding", "5px")
-            .style('color', '#000') // color of tooltip 
-            .style("position", "absolute")
-            .style("font-family", 'Raleway'); // Font 
+        var tooltip = d3.select("#stats_tooltip");
 
         // Three function that change the tooltip when user hover / move / leave a cell
-        var mouseover = function(d) {
-            Tooltip
+        var mouseover = function(event, d) {
+            getDetails(event, d, tooltip)
+
+            tooltip
+            .style('left', event.pageX + 'px')
+            .style('top', event.pageY + 'px')
+
+            tooltip
             .transition()
             .duration(200)
-            .style("opacity", 1)
+            .style("opacity", "1");
         }
         var mousemove = function(event, d) {
             d3.select(this).style("fill", "#012B4E"); // color of the bars when touched 
             // d3.select(x(d.Features)).style('color', '#FFF'); // color of x label when touched
                       
-            GetDetails(event, d, Tooltip)
+            
         }   
 
         var mouseleave = function(d) {
             d3.select(this).style("fill", "#69b3a2"); // color of the bars 
-
-            Tooltip
-            .style("opacity", 0)
+            tooltip
+            .transition()
+            .duration(200)
+            .style("opacity", "0");
         }
 
         // Bars
@@ -98,7 +94,7 @@ export const loadStatsGraph = () => {
         data_top = dt
     });
 
-    var ParseData = function(data) {
+    var parseData = function(data) {
         let parsedData = [];
         data.forEach(e => {
             const feat = e.features;
@@ -114,11 +110,11 @@ export const loadStatsGraph = () => {
     }
 
     // Function to show the tops in tooltip 
-    var GetDetails = function(event, d, container) {
+    var getDetails = function(event, d, container) {
         // show details of clicked country
         let flt = data_top.filter(e => e.features === d.Features)
-        const data = ParseData(flt);        
-        console.log(data[0].top5)
+        const data = parseData(flt);        
+        //console.log(data[0].top5)
         var newHtml = [];
         newHtml.push("<p>Top Five Countries: ");
         newHtml.push(data[0].top5);
@@ -130,8 +126,7 @@ export const loadStatsGraph = () => {
         container
         .style("opacity", 1)
         .html(newHtml.join("\n"))
-        .style('left', (event.x) + 'px')
-        .style('top', (event.y) + 'px');
+        
     }
 
 }

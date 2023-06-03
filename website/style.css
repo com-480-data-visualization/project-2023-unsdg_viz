@@ -347,12 +347,23 @@ body {
 
 #stats_section {
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
     /*background-color: red;*/
     align-items: center;
+    display: flex;
+    margin: 0 auto;
 }
 
+#stats_tooltip {
+    position: absolute;
+    background-color: #ffffff;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 50px;
+    min-height: 35px;
+    opacity: 0;
+}
 
 /* Indexes show */ 
 #indexes{
