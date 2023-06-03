@@ -396,7 +396,7 @@ body {
     position: absolute;
     background-color: #ffffff;
     border: solid;
-    border-width: 2px;
+    /*border-width: 2px;*/
     border-radius: 5px;
     padding: 5px;
     min-width: 50px;
@@ -423,6 +423,7 @@ body {
     padding: 5px;
 }
 
+/* Lists */ 
 .list_box {
     width: 40%;
     text-align: left;
