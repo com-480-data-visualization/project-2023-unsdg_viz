@@ -1,49 +1,43 @@
 #carboncycle{
-    position: static;
-    width: 100vw;
-    height: 80vh;
-    margin-top: 15px;
-    /* background-color: aqua; */
-
+    width: 50%;
+    min-width: 750px;
+    min-height: 500px;
+    aspect-ratio: 960 / 645; /* NOTE only supported in newer browsers */
+    display: flex;
+    margin: 15px auto;
+    position: relative;
+    justify-content: center;
 }
 
 #carboncycle img {
-    display: block;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
     top: 0;
-    max-width: 50%;
+    width: 100%;
     height: auto;
     /* Make the image a bit darker to fit the color theme */
     filter: brightness(85%);
     z-index: 1;
 }
 #image_text{
-    position: relative;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
-    height: 70vh;
-    width: 50%;
-    top:0%;
-    left:0%;
-    /*top: 100px;
-    width: 50%;
-    margin-top: -500px;*/
-    /* background-color: blueviolet; */
+    width: 100%;
+    height: 100%;
     z-index: 2;
-    border-radius: 25px;
-    padding: 10px;
-    text-align: center;    
+    border-radius: 25px; 
     font-size: 80%;
-
 }
 /* Dissolution */
 #process1 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -57em;
+    top: 10%;
     left: 77%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     /*border: 2px solid black;*/
@@ -53,11 +47,12 @@
     font-size: 80%;
 }
 #process1_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -60em;
+    top: 8%;
     left: 77%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     padding: 10px;
@@ -67,11 +62,12 @@
 }
 /* Biomass production */
 #process2 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -45em;
+    top: 38%;
     left: 25%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px; 
@@ -81,11 +77,12 @@
 }
 
 #process2_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -48em;
+    top: 35%;
     left: 25%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px; 
@@ -95,11 +92,12 @@
 }
 /* Decomposition */
 #process3 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -60em;
+    top: 45%;
     left: 54%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px; 
@@ -111,9 +109,10 @@
 #process3_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -63em;
+    top: 42%;
     left: 54%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px; 
@@ -123,11 +122,12 @@
 }
 /* Fossil fuel */
 #process4 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -50em;
+    top: 67%;
     left: 40%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px;
@@ -137,11 +137,12 @@
 }
 
 #process4_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -53em;
+    top: 64%;
     left: 40%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px;
@@ -151,11 +152,12 @@
 }
 /* Combustion */
 #process5 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -105em;
+    top: 5%;
     left: 15%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px;
@@ -165,11 +167,12 @@
 }
 
 #process5_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -108em;
+    top: 2%;
     left: 15%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px;
@@ -179,11 +182,12 @@
 }
 /* Photosynthesis */
 #process6 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -95em;
+    top: 35%;
     left: 75%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px; 
@@ -193,11 +197,12 @@
 }
 
 #process6_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -98em;
+    top: 32%;
     left: 75%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px; 
@@ -208,11 +213,12 @@
 
 /* Sedimentation */
 #process7 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -85em;
+    top: 80%;
     left: 65%;
     width: 15%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px;
@@ -222,11 +228,12 @@
 }
 
 #process7_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -88em;
+    top: 77%;
     left: 65%;
     width: 15%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px;
@@ -237,11 +244,12 @@
 
 /* Ground release */
 #process8 {
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -95em;
+    top: 75%;
     left: 5%;
     width: 30%;
+    min-width: 100px;
     z-index: 3;
     opacity: 1;
     border-radius: 25px;
@@ -251,11 +259,12 @@
 }
 
 #process8_text {
-    position: relative;
+    position: absolute;
     background-color: rgb(255, 255, 255);
-    top: -98em;
+    top: 72%;
     left: 5%;
     width: 30%;
+    min-width: 100px;
     z-index: 2;
     opacity: 0;
     border-radius: 25px;
