@@ -41,7 +41,7 @@
 #process1 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -60vh;
+    top: -57em;
     left: 77%;
     width: 15%;
     z-index: 3;
@@ -55,7 +55,7 @@
 #process1_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -65vh;
+    top: -60em;
     left: 77%;
     width: 15%;
     z-index: 2;
@@ -69,7 +69,7 @@
 #process2 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -69vh;
+    top: -45em;
     left: 25%;
     width: 15%;
     z-index: 3;
@@ -83,7 +83,7 @@
 #process2_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -75vh;
+    top: -48em;
     left: 25%;
     width: 15%;
     z-index: 2;
@@ -97,8 +97,8 @@
 #process3 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -76vh;
-    left: 33%;
+    top: -60em;
+    left: 54%;
     width: 15%;
     z-index: 3;
     opacity: 1;
@@ -111,8 +111,8 @@
 #process3_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -81vh;
-    left: 33%;
+    top: -63em;
+    left: 54%;
     width: 15%;
     z-index: 2;
     opacity: 0;
@@ -125,7 +125,7 @@
 #process4 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -55vh;
+    top: -50em;
     left: 40%;
     width: 15%;
     z-index: 3;
@@ -139,7 +139,7 @@
 #process4_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -60vh;
+    top: -53em;
     left: 40%;
     width: 15%;
     z-index: 2;
@@ -153,8 +153,8 @@
 #process5 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -124vh;
-    left: 27%;
+    top: -105em;
+    left: 15%;
     width: 15%;
     z-index: 3;
     opacity: 1;
@@ -167,8 +167,8 @@
 #process5_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -129vh;
-    left: 27%;
+    top: -108em;
+    left: 15%;
     width: 15%;
     z-index: 2;
     opacity: 0;
@@ -181,8 +181,8 @@
 #process6 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -120vh;
-    left: 63%;
+    top: -95em;
+    left: 75%;
     width: 15%;
     z-index: 3;
     opacity: 1;
@@ -195,8 +195,8 @@
 #process6_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -125vh;
-    left: 63%;
+    top: -98em;
+    left: 75%;
     width: 15%;
     z-index: 2;
     opacity: 0;
@@ -210,7 +210,7 @@
 #process7 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -95vh;
+    top: -85em;
     left: 65%;
     width: 15%;
     z-index: 3;
@@ -224,7 +224,7 @@
 #process7_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -100vh;
+    top: -88em;
     left: 65%;
     width: 15%;
     z-index: 2;
@@ -239,7 +239,7 @@
 #process8 {
     position: relative;
     background-color: rgba(255, 255, 255, 0.747);
-    top: -125vh;
+    top: -95em;
     left: 5%;
     width: 30%;
     z-index: 3;
@@ -253,7 +253,7 @@
 #process8_text {
     position: relative;
     background-color: rgb(255, 255, 255);
-    top: -130vh;
+    top: -98em;
     left: 5%;
     width: 30%;
     z-index: 2;
