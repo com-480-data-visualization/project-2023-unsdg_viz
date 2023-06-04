@@ -1,3 +1,0 @@
-1. Correlation index
-2. Scatterplot
-3. Spacial map
