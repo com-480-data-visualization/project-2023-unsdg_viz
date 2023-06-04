@@ -2,6 +2,8 @@
     display: flex;
     margin: 0 auto;
     justify-content: center;
+    width: fit-content;
+    height: fit-content;
 }
 
 #climate_text {
@@ -12,7 +14,8 @@
 }
 
 #climate_section {
-    width: 50vw;
+    width: auto;
+    min-width: 500px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -20,20 +23,27 @@
     z-index: 10;
 }
 
+/* banner------------------------------------------*/
+
+#temp_banner_box {
+    display: flex;
+    margin: 15px auto 0 auto;
+    justify-content: center;
+}
+
 #dropdown-menu {
-    position: relative;
     height: 20px;
-    width: 100px;
+    width: fit-content;
     font-size: 10px;
-    left: 200px;
+    padding-right: 100px;
 }
 
 /* slider------------------------------------------*/
 #range_container {
-    width: 45vw;
-    margin-left: 50px;
-    margin-right: auto;
-    /* background-color: red; */
+    width: 40%;
+    min-width: 500px;
+    margin: auto;
+
 }
 
 .sliders_control {

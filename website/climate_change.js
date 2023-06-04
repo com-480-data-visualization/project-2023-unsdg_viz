@@ -22,7 +22,7 @@ d3.csv('resources/temp_viz.csv').then(data => {
     var menuValues = Array.from(new Set(data.map(function (d) { return d.Entity; })));
     // Create select element
     var select_menu = d3.select("#dropdown-menu")
-        .append("select")
+        .append("select");
 
     var options = select_menu.selectAll("option")
         .data(menuValues)

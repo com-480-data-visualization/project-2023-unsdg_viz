@@ -7,8 +7,8 @@ const color2 = "#8DE9F0"
 const color1 = "#3A27AE"
 
 // set the dimensions and margin_corrs of the graph
-var margin_corr = { top: 50, right: 0, bottom: 170, left: 200 },
-    width_corr = 500 - margin_corr.left - margin_corr.right,
+var margin_corr = { top: 50, right: 0, bottom: 170, left: 100 },
+    width_corr = 400 - margin_corr.left - margin_corr.right,
     height_corr = 530 - margin_corr.top - margin_corr.bottom;
 
 // append the correlation_matrix object to the body of the page
