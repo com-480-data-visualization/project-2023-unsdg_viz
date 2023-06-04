@@ -123,10 +123,10 @@ function corr_chart(data) {
         .style("padding", "5px")
 
     const click_corr = (event, d) => {
-        console.log('event', event, d)
+        //console.log('event', event, d)
         const x_corr = event.clientX;
         const y_corr = event.clientY;
-        console.log(x_corr, y_corr)
+        //console.log(x_corr, y_corr)
         tooltip_corr
             .style("opacity", 1)
             .html(`Correlation: ${Math.round(d.value * 1000) / 1000}<br>x: ${d.x_axis}<br>y: ${d.y_axis}`)
