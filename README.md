@@ -10,7 +10,7 @@
 [Screencast](https://youtu.be/8pCqiJxD370) <br>
 [Milestone 1](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone1/UNSDG_viz_M1.pdf): Project definition <br>
 [Milestone 2](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone2/UNSDG_viz-M2.pdf): Design thinking of project <br>
-[Milestone 3](#milestone-3): Process book 
+[Milestone 3](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone3/UNSDGViz_process-book.pdf): Process book 
 
 ## Intended usage 🌍
 The website's goal is to explore the intricate relationship between country development and sustainability with environmental focus. It guides the user through the visualizations and highlights what the motivation between each visualization is. 
