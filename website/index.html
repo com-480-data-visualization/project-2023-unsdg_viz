@@ -327,6 +327,8 @@
                 <img class="info_icon" id="img" src="resources/info.png">
                 <p class="info_text">You can (shift) double-click on the map to zoom in and out. Hover on a dot on the graph to highlight its index.</p>
             </div>
+        </div>
+        <div>
             <div id="country_name_container">
                 <h2 id="country_name">No Country Selected</h2>
             </div>
@@ -334,8 +336,10 @@
                 <div class="map">
                     <svg class="map_container" id="select_map_container"></svg>
                 </div>
-                <div id="country_scatter"></div>
-                <div id="country_legend"></div>
+                <div id="country_graph">
+                    <div id="country_scatter"></div>
+                    <div id="country_legend"></div>
+                </div>
             </div>
         </div>
 
@@ -362,51 +366,50 @@
                 <img class="info_icon" id="img" src="resources/info.png">
                 <p class="info_text">You can (shift) double-click a map to zoom in and out. You can also use the slider to manually set the year.</p>
             </div>
-
-            <div class="world_viz">
-                <div class="maps">
-                    <div class="map">
-                        <p>Annual CO₂ emissions</p>
-                        <svg class="map_container" id="emi_map_container"></svg>
-                        <div class="scale" id="scale-emi">
-                            <p>No Data</p>
-                            <div class="no-data-color"></div>
-                            <p id="start-scale-map1"></p>
-                            <img class="scale-grad" src="resources/Reds.png">
-                            <p id="end-scale-map1"></p>
-                        </div>
-                    </div>
-                    <div class="map">
-                        <select name="map_sel_feature" id="map_sel_ft">
-                            <option value="revenue">Gov. revenue proportion of GDP</option>
-                            <option value="fdi">FDI</option>
-                            <option value="growth_rate">Annual growth rate</option>
-                            <option value="gdp">GDP (constant 2015 US$)</option>
-                            <option value="mortality_rate">Mortality rate</option>
-                            <option value="air_pollution">Population above WHO air pollution guidelines</option>
-                            <option value="literacy_rate">Literacy Rate</option>
-                            <option value="renewable">Renewable energy share</option>
-                        </select>
-                        <svg class="map_container" id="other_map_container"></svg>
-                        <div class="scale" id="scale-emi">
-                            <p>No Data</p>
-                            <div class="no-data-color"></div>
-                            <p id="start-scale-map2"></p>
-                            <img class="scale-grad" id="scale_grad_right" src="resources/Blues.png">
-                            <p id="end-scale-map2"></p>
-                        </div>
+        </div>
+        <div class="world_viz">
+            <div class="maps">
+                <div class="map">
+                    <p>Annual CO₂ emissions</p>
+                    <svg class="map_container" id="emi_map_container"></svg>
+                    <div class="scale" id="scale-emi">
+                        <p>No Data</p>
+                        <div class="no-data-color"></div>
+                        <p id="start-scale-map1"></p>
+                        <img class="scale-grad" src="resources/Reds.png">
+                        <p id="end-scale-map1"></p>
                     </div>
                 </div>
-                <div id="animation_btn">
-                    <button class="btn"><img id="btn_icon" src="resources/play.svg"/></button>
-                    <p id="map_year">Year 2002</p>
-                </div>
-                <div class="slidecontainer">
-                    <input type="range" min="2002" max="2021" value="2002" class="slider" id="myRange">
-                    <div id="slider-dates">
-                        <p>2002</p>
-                        <p>2021</p>
+                <div class="map">
+                    <select name="map_sel_feature" id="map_sel_ft">
+                        <option value="revenue">Gov. revenue proportion of GDP</option>
+                        <option value="fdi">FDI</option>
+                        <option value="growth_rate">Annual growth rate</option>
+                        <option value="gdp">GDP (constant 2015 US$)</option>
+                        <option value="mortality_rate">Mortality rate</option>
+                        <option value="air_pollution">Population above WHO air pollution guidelines</option>
+                        <option value="literacy_rate">Literacy Rate</option>
+                        <option value="renewable">Renewable energy share</option>
+                    </select>
+                    <svg class="map_container" id="other_map_container"></svg>
+                    <div class="scale" id="scale-emi">
+                        <p>No Data</p>
+                        <div class="no-data-color"></div>
+                        <p id="start-scale-map2"></p>
+                        <img class="scale-grad" id="scale_grad_right" src="resources/Blues.png">
+                        <p id="end-scale-map2"></p>
                     </div>
+                </div>
+            </div>
+            <div id="animation_btn">
+                <button class="btn"><img id="btn_icon" src="resources/play.svg"/></button>
+                <p id="map_year">Year 2002</p>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="2002" max="2021" value="2002" class="slider" id="myRange">
+                <div id="slider-dates">
+                    <p>2002</p>
+                    <p>2021</p>
                 </div>
             </div>
         </div>
