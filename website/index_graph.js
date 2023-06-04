@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('check', click13);
         click13++;
         if (click13 % 2 === 1) {
-            document.getElementById('id13').innerHTML = "<div id='id13', style='position:relative'> <img src='resources/index_imgs/blanks/id13.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 5px; left: 30px;z-index:2; font-size: 80%;'> <ul> <li>Number of companies publishing sustainability reports, </li> <li> Education for sustainable development, </li> <li> Enhance policy coherence for sustainable development, </li> <li> Land degraded over total land area </li> </ul> </div> </div>";
+            document.getElementById('id13').innerHTML = "<div id='id13', style='position:relative'> <img src='resources/index_imgs/blanks/id13.png' style='width:100%; z-index=1'>  <div style='color:white; position:absolute; top: 5px; left: 30px;z-index:2; font-size: 70%;'> <ul> <li>Number of companies publishing sustainability reports, </li> <li> Education for sustainable development, </li> <li> Enhance policy coherence for sustainable development, </li> <li> Land degraded over total land area </li> </ul> </div> </div>";
         } else {
             document.getElementById('id13').innerHTML = '<div id="id13"><img src="resources/index_imgs/id13.png" alt="Image 2"style="width:100%"></div>';
         }

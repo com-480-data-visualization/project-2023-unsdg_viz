@@ -7,9 +7,10 @@
 |Sophia Ly | 342530|
 
 [Website](https://com-480-data-visualization.github.io/project-2023-unsdg_viz/website/index.html) <br>
+[Screencast](https://youtu.be/8pCqiJxD370) <br>
 [Milestone 1](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone1/UNSDG_viz_M1.pdf): Project definition <br>
 [Milestone 2](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone2/UNSDG_viz-M2.pdf): Design thinking of project <br>
-[Milestone 3](#milestone-3): Process book 
+[Milestone 3](https://github.com/com-480-data-visualization/project-2023-unsdg_viz/blob/master/milestone3/UNSDGViz_process-book.pdf): Process book 
 
 ## Intended usage 🌍
 The website's goal is to explore the intricate relationship between country development and sustainability with environmental focus. It guides the user through the visualizations and highlights what the motivation between each visualization is. 
@@ -58,3 +59,10 @@ From [ourworldindata](https://ourworldindata.org/):
 - [Education rate](https://ourworldindata.org/grapher/projections-of-the-rate-of-no-education-based-on-current-global-education-trends-1970-2050?tab=table): rate-of-no-education.csv
 - [Air pollution](https://ourworldindata.org/grapher/share-above-who-pollution-guidelines?tab=table): share-above-who-pollution-guidelines.csv
 - [Renewable_energy](https://ourworldindata.org/grapher/co2-per-capita-vs-renewable-electricity?tab=table): 'co2-per-capita-vs-renewable-electricity.csv
+
+## Screencast 🎬
+Check out our 2min screencast to get to know about our main contributions.
+[Screen cast link](https://youtu.be/8pCqiJxD370)
+[![Alt text](https://img.youtube.com/vi/8pCqiJxD370/0.jpg)](https://www.youtube.com/watch?v=8pCqiJxD370)
+
+
