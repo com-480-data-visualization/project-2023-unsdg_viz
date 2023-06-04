@@ -32,10 +32,13 @@ The repository structure is listed below: <br />
 ├───milestone 1           Python script for exploratative data analysis and preprocessing 
     ├───data generated    Generated pickle files from Python script (EDA and preprocessing)
     └───plots             Plots from exploratative data analysis
-├───milestone 2           !!! TODO: cleanup
+├───milestone 2           
+    └─── plot stats       Preprocessing notebook and result csv for the spearmanR plot
+    └─── worldmap         Data and preprocessing notebook for the maps visualizations
 ├───milestone 3           !!! TODO: add processbook and video
 └───website               Index html, all Javascript and CSS files  
     └───resources         Data used for plots, images and icons
+    
 ```
      
 The visualizations were made with [D3.js](https://d3js.org/). Details on the technical implementations are described in the processbook.
